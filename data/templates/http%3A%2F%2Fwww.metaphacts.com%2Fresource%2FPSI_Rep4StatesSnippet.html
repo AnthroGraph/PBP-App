@@ -1,0 +1,63 @@
+"label": "Completeness",
+                  "description": "Select one of four completeness scores from list.",
+                  "xsdDatatype": "xsd:anyURI",
+                  "minOccurs": "1",
+                  "maxOccurs": "1",
+                  "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX psi: <http://w3id.org/rdfbones/ext/phaleron-si/>
+
+                    SELECT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection a psi:SectionAdultCranium.
+                          ?mysection obo:BFO_0000051 ?MD .
+  					              ?MD a standards-si:Representation4States .
+                          ?ROI a ?myvar .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                          obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0000999 ?value .
+                    }",
+                  
+                  "valueSetPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    SELECT ?value WHERE {
+                      ?value a standards-si:Representation4StatesLabel .
+                    }",
+                  "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX psi: <http://w3id.org/rdfbones/ext/phaleron-si/>
+                    INSERT {GRAPH ?mygraph {?VS obo:OBI_0000999 ?value .}} 
+                      WHERE {
+                          BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) . 
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection a psi:SectionAdultCranium.
+                          ?mysection obo:BFO_0000051 ?MD .
+  					              ?MD a standards-si:Representation4States .
+                          ?ROI a ?myvar .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                          obo:OBI_0001938 ?VS .
+                          
+                          }",
+                    "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX psi: <http://w3id.org/rdfbones/ext/phaleron-si/>
+                    DELETE {GRAPH ?mygraph {?VS obo:OBI_0000999 ?value .}} 
+                      WHERE {
+                          BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) . 
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection a psi:SectionAdultCranium.
+                          ?mysection obo:BFO_0000051 ?MD .
+  					              ?MD a standards-si:Representation4States .
+                          ?ROI a ?myvar .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                          obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0000999 ?value .
+                          }"

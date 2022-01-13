@@ -1,0 +1,149 @@
+<h2><strong>Scapula</strong></h2> 
+
+<hr>
+
+            <!-- Scapula Body Form --> 
+            
+            <semantic-form
+              id='ScapulaBody'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='ScapulaBody'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="scapulabodyleftcomp" MyID_Obs="scapulabodyleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/BodyOfLeftScapula>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="scapulabodyrightcomp" MyID_Obs="scapulabodyrightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/BodyOfRightScapula>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="scapulabodyfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/BodyOfScapula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Scapula Body</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="scapulabodyleftcomp" MyID_Obs="scapulabodyleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="scapulabodyrightcomp" MyID_Obs="scapulabodyrightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='scapulabodyfrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Scapula Body</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ScapulaBody-update" ufbTemplate="ScapulaBody-Template" ufbname="Scapula Body"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ScapulaBody" event-target="show-after-ScapulaBody-update"]]  
+
+            <hr>
+
+            <!-- Glenoid Fossa Form --> 
+            
+            <semantic-form
+              id='GlenoidFossa'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='GlenoidFossa'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="glenoidfossaleftcomp" MyID_Obs="glenoidfossaleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftGlenoidFossa>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="glenoidfossarightcomp" MyID_Obs="glenoidfossarightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightGlenoidFossa>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="glenoidfossafrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/GlenoidFossa>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Glenoid Fossa</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="glenoidfossaleftcomp" MyID_Obs="glenoidfossaleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="glenoidfossarightcomp" MyID_Obs="glenoidfossarightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='glenoidfossafrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Glenoid Fossa</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-GlenoidFossa-update" ufbTemplate="GlenoidFossa-Template" ufbname="Glenoid Fossa"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="GlenoidFossa" event-target="show-after-GlenoidFossa-update"]]  
+
+
+            <hr>
+
+            <!-- Clavicular articulation Joint Form --> 
+            
+            <semantic-form
+              id='ClavicularArticulation'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='ClavicularArticulation'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="clavicularartleftcomp" MyID_Obs="clavicularartleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftClavicularArticulationOfScapula>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="clavicularartrightcomp" MyID_Obs="clavicularartrightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightClavicularArticulationOfScapula>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="clavicularartfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/ClavicularArticulationOfScapula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Clavicular Articulation</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="clavicularartleftcomp" MyID_Obs="clavicularartleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="clavicularartrightcomp" MyID_Obs="clavicularartrightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='clavicularartfrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Clavicular Articulation</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ClavicularArticulation-update" ufbTemplate="ClavicularArticulation-Template" ufbname="ClavicularArticulation"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ClavicularArticulation" event-target="show-after-ClavicularArticulation-update"]]  
+
+<hr>
+
+            <!-- Scapula grouped Form --> 
+
+<semantic-form
+  id='ScapulaGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='ScapulaGrouped'
+  persistence='sparql'
+  fields='[
+    [[>:PSI_SI_MD_FormSnippet MyID="scapulagroupedleft" MyLabel="Number of left fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13396>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+   [[>:PSI_SI_MD_FormSnippet MyID="scapulagroupedright" MyLabel="Number of right fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13395>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+   [[>:PSI_SI_MD_FormSnippet MyID="scapulagroupedunsided" MyLabel="Unsided fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13394>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+     ]' 
+>
+<h2><strong>Scapula, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='scapulagroupedleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='scapulagroupedright'></semantic-form-text-input>
+                      <semantic-form-text-input for='scapulagroupedunsided'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Scapula, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ScapulaGrouped-update" ufbTemplate="ScapulaGrouped-Template" ufbname="ScapulaGrouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ScapulaGrouped" event-target="show-after-ScapulaGrouped-update"]]  

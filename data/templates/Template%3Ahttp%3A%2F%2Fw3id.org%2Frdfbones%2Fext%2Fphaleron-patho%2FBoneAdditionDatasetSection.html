@@ -1,0 +1,156 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing Bone Addition Section: <strong>[[this.label]]</strong></h4>
+<br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
+Back to Paleopath Summary</strong>
+</semantic-link>
+<br><br>
+
+<semantic-update query='
+PREFIX : <http://www.metaphacts.com/resource/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+PREFIX dc: <http://purl.org/dc#>
+
+        DELETE {GRAPH ?mygraph { 
+                ?PPI obo:BFO_0000051 ?? .
+                ?? a ?sectionclass .
+                ?? rdfs:label ?label.
+                ?? obo:IAO_0000136 ?myroi .
+                ?myobservation obo:OBI_0000299 ?? .
+                ?myobservation a ?obsclass.
+                ?myobservation a ?RP .
+                             
+                ?myobservation obo:BFO_0000054 ?myrole .
+                ?myrole a ?roletype .
+                ?myrole obo:RO_0000081 ?myobserver.
+                ?myobservation obo:RO_0000057 ?myobserver .
+                ?myobservation dc:date ?date.          
+                
+                ?? obo:BFO_0000051 ?roispec .
+                ?roispec obo:BFO_0000051 ?MD .
+                ?roispec obo:IAO_0000136 ?AnatRegion .
+                ?? obo:BFO_0000051 ?roispec .
+                ?roispec obo:BFO_0000051 ?MD .
+                ?MD a ?MDclass.
+                ?MD obo:OBI_0001938 ?MD_VS .
+                ?MD_VS a ?MDVSclass .
+                ?MD_VS obo:OBI_0000999 ?categorical_value_label.
+                
+                ?? obo:BFO_0000051 ?MD1 .
+                ?MD1 a ?MD1class.
+                ?MD1 obo:OBI_0001938 ?MD1_VS .
+                ?MD1_VS a ?MD1VSclass .
+                ?MD1_VS obo:OBI_0000999 ?categorical_value_label1.
+
+
+              }}
+         WHERE {               
+           GRAPH ?mygraph {?? a ?o }
+                ?PPI obo:BFO_0000051 ?? . 
+                ?PPI a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronPaleopathologyDataset> .
+                ?? a ?sectionclass .
+                ?? rdfs:label ?label.
+                ?? obo:IAO_0000136 ?myroi .
+                ?myobservation obo:OBI_0000299 ?? .
+                ?myobservation a ?obsclass.
+               
+            OPTIONAL {         
+                ?? obo:BFO_0000051 ?roispec .
+                ?roispec obo:BFO_0000051 ?MD .
+                ?roispec obo:IAO_0000136 ?AnatRegion .
+                ?MD a ?MDclass.
+                ?MD obo:OBI_0001938 ?MD_VS .
+                ?MD_VS a ?MDVSclass .
+                }
+            OPTIONAL{
+                ?? obo:BFO_0000051 ?roispec .
+                ?roispec obo:BFO_0000051 ?MD .
+                ?roispec obo:IAO_0000136 ?AnatRegion .
+                ?MD a ?MDclass.
+                ?MD obo:OBI_0001938 ?MD_VS .
+                ?MD_VS a ?MDVSclass .
+                ?MD_VS obo:OBI_0000999 ?categorical_value_label.
+                }
+           OPTIONAL{
+                ?? obo:BFO_0000051 ?MD1 .
+                ?MD1 a ?MD1class.
+                ?MD1 obo:OBI_0001938 ?MD1_VS .
+                ?MD1_VS a ?MD1VSclass .
+                ?MD1_VS obo:OBI_0000999 ?categorical_value_label1.
+                }
+           OPTIONAL {
+                ?myobservation obo:BFO_0000054 ?myrole .
+                ?myrole a ?roletype .
+                ?myobservation dc:date ?date.      
+                OPTIONAL {
+                   ?myobservation obo:RO_0000057 ?myobserver .
+                   ?myrole obo:RO_0000081 ?myobserver.
+                }          
+          }           
+}'
+
+id="DeleteDatasetSection"
+variable-params='["sectionclass","myobservation","obsclass","myroi","roispec","MD","MD_VS","MDclass","MDVSclass","categorical_value_label","MD1","MD1_VS","MD1class","MD1VSclass","categorical_value_label1","AnatRegion","label","mygraph", "o","PPI","myrole","date","roletype","myobserver","RP"]'
+post-action="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]"
+show-confirmation="true"
+confirmation-options='{
+     "message": "Do you really want to delete this Bone Addition instance [[this.label]] and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+>
+
+<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Bone Addition Section: [[this.label]]</strong></button>
+</semantic-update>
+<br>
+<hr>
+
+
+[[>:PSI_AddPathologySection_Template section_type="Bone Addition"]]
+
+
+<br> <hr>
+<h4>Add Additional Information</h4>
+<semantic-form
+subject='[[this]]'
+post-action='event'
+persistence='sparql'
+id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+  [[>:PSI_SectionForms_Template connected value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalMatrix" connected_class="phaleron-patho:PresenceOfAbnormalMatrix" id="PresenceOfAbnormalMatrix" label="Presence of Abnormal Matrix"]],
+
+   [[>:PSI_SectionForms_Template connected value_spec="phaleron-patho:EndostealSurfaceBoneFormationCharacteristicsValueSpecification" connected_iristring="EndostealSurfaceBoneFormationCharacteristics"  connected_class="phaleron-patho:BoneFormationCharacteristics" id="EndostealSurfaceBoneFormationCharacteristics" label="Endosteal Surface Bone Formation Characteristics"]],
+
+  
+   [[>:PSI_SectionForms_Template connected value_spec="standards-patho:TypeOfBoneValueSpecification" connected_iristring="AddedBoneCharacteristics" connected_class="phaleron-patho:AddedBoneCharacteristics" id="AddedBoneCharacteristics" label="Added Bone Characteristics"]]
+]'
+
+>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='PresenceOfAbnormalMatrix'></semantic-form-select-input>
+<semantic-form-select-input for='EndostealSurfaceBoneFormationCharacteristics'></semantic-form-select-input>
+<semantic-form-select-input for='AddedBoneCharacteristics'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+    <button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+<br>
+
+<hr>
+<h4> Create New Observer/Editing Event</h4>
+[[>:PSI_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>"]]
+
+
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
+Back to Paleopath Summary</strong>
+</semantic-link>
+</div>

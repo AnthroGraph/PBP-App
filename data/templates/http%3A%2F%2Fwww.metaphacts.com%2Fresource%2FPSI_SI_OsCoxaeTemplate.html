@@ -1,0 +1,290 @@
+<bs-tab event-key="5" title="Os Coxae">
+
+<!-- Ilium Form --> 
+ 
+ <semantic-form
+   id='Ilium'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='Ilium'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="iliumleftcomp" MyID_Obs="iliumleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftIlium>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="iliumrightcomp" MyID_Obs="iliumrightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightIlium>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="iliumfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/Ilium>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Ilium</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="iliumleftcomp" MyID_Obs="iliumleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="iliumrightcomp" MyID_Obs="iliumrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='iliumfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Ilium</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Ilium-update" ufbTemplate="Ilium-Template" ufbname="Ilium"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="Ilium" event-target="show-after-Ilium-update"]]  
+
+ <hr>
+
+
+<!-- Ischium Form --> 
+ 
+ <semantic-form
+   id='Ischium'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='Ischium'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="ischiumleftcomp" MyID_Obs="ischiumleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftIschium>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="ischiumrightcomp" MyID_Obs="ischiumrightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightIschium>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="ischiumfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/Ischium>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Ischium</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="ischiumleftcomp" MyID_Obs="ischiumleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="ischiumrightcomp" MyID_Obs="ischiumrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='ischiumfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Ischium</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Ischium-update" ufbTemplate="Ischium-Template" ufbname="Ischium"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="Ischium" event-target="show-after-Ischium-update"]]  
+
+ <hr>
+
+<!-- Pubis Form --> 
+ 
+ <semantic-form
+   id='Pubis'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='Pubis'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="pubisleftcomp" MyID_Obs="pubisleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="pubisrightcomp" MyID_Obs="pubisrightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="pubisfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/Pubis>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Pubis</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="pubisleftcomp" MyID_Obs="pubisleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="pubisrightcomp" MyID_Obs="pubisrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='pubisfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Pubis</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Pubis-update" ufbTemplate="Pubis-Template" ufbname="Pubis"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="Pubis" event-target="show-after-Pubis-update"]]  
+ 
+ <hr>
+
+ <!-- Pubic Symphysis Form --> 
+ 
+ <semantic-form
+   id='PubicSymphysis'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='PubicSymphysis'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="pubicsymphysisleftcomp" MyID_Obs="pubicsymphysisleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSymphysealSurfaceOfPubis>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="pubicsymphysisrightcomp" MyID_Obs="pubicsymphysisrightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightSymphysealSurfaceOfPubis>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="pubicsymphysisfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/SymphysealSurfaceOfPubis>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Pubic Symphysis</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="pubicsymphysisleftcomp" MyID_Obs="pubicsymphysisleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="pubicsymphysisrightcomp" MyID_Obs="pubicsymphysisrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='pubicsymphysisfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Pubic Symphysis</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PubicSymphysis-update" ufbTemplate="PubicSymphysis-Template" ufbname="Pubic Symphysis"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="PubicSymphysis" event-target="show-after-PubicSymphysis-update"]]  
+ 
+ <hr>
+
+<!-- AuricularRegion Form --> 
+ 
+ <semantic-form
+   id='AuricularRegion'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='AuricularRegion'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="auricularleftcomp" MyID_Obs="auricularleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftAuricularAndPostAuricRegion>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="auricularrightcomp" MyID_Obs="auricularrightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightAuricularAndPostAuricRegion>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="auricularfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/AuricularAndPostAuricRegion>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Auricular Region</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="auricularleftcomp" MyID_Obs="auricularleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="auricularrightcomp" MyID_Obs="auricularrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='auricularfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Auricular Region</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-AuricularRegion-update" ufbTemplate="AuricularRegion-Template" ufbname="AuricularRegion"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="AuricularRegion" event-target="show-after-AuricularRegion-update"]]  
+ 
+ <hr>
+
+<!-- Acetabulum Form --> 
+ 
+ <semantic-form
+   id='Acetabulum'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='Acetabulum'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="acetabulumleftcomp" MyID_Obs="acetabulumleftobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftAcetabulum>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="acetabulumrightcomp" MyID_Obs="acetabulumrightobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightAcetabulum>" ]]
+       ,
+       [[>:PSI_SI_MD_FormSnippet MyID="acetabulumfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/Acetabulum>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+   ]'
+ >
+ <h2><strong>Acetabulum</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="acetabulumleftcomp" MyID_Obs="acetabulumleftobs" WHERE="Left"]]               
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="acetabulumrightcomp" MyID_Obs="acetabulumrightobs" WHERE="Right"]] 
+      
+       <div class="grid-demo">
+         <h6>Unsided fragments</h6>
+           <semantic-form-text-input for='acetabulumfrag'></semantic-form-text-input>
+           <button name="submit" class="btn btn-primary"><strong>Save Acetabulum</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Acetabulum-update" ufbTemplate="Acetabulum-Template" ufbname="Acetabulum"]]                  
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="Acetabulum" event-target="show-after-Acetabulum-update"]]  
+ 
+<hr>
+
+ <!-- Os coxae grouped Form --> 
+
+<semantic-form
+id='OsCoxaeGrouped'
+subject='[[this]]'
+post-action='event'
+browser-persistence=true
+form-id='OsCoxaeGrouped'
+persistence='sparql'
+fields='[
+[[>:PSI_SI_MD_FormSnippet MyID="oscoxaegleft" MyLabel="Number of left fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma16587>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+[[>:PSI_SI_MD_FormSnippet MyID="oscoxaegright" MyLabel="Number of right fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma16586>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="oscoxaegunsided" MyLabel="Unsided fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma16585>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+]' 
+>
+<h2><strong>Os Coxae, grouped</strong></h2>
+  <semantic-form-recover-notification></semantic-form-recover-notification>
+      <div data-flex-layout="row md-column top-spread">
+       
+        <div class="grid-demo">
+            <semantic-form-text-input for='oscoxaegleft'></semantic-form-text-input>
+            <semantic-form-text-input for='oscoxaegright'></semantic-form-text-input>
+            <semantic-form-text-input for='oscoxaegunsided'></semantic-form-text-input>
+            <button name="submit" class="btn btn-primary"><strong>Save Os Coxae, grouped</strong></button>
+          <button name="reset" class="btn btn-secondary">Reset</button>
+          [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-OsCoxaeGrouped-update" ufbTemplate="OsCoxaeGrouped-Template" ufbname="OsCoxaeGrouped"]]
+        </div>
+      </div>
+    
+  </semantic-form>
+  [[>:PSI_FormSuccessFeedbackEventSnippet event-source="OsCoxaeGrouped" event-target="show-after-OsCoxaeGrouped-update"]]  
+
+            <hr>
+
+            <!-- Hip Taphonomy Form --> 
+
+<semantic-form
+  id='HipTaph'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='HipTaph'
+  persistence='sparql'
+  fields='[
+
+[[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="hiptaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntirePelvicGirdle>" ]]       
+]' 
+>
+<h2><strong>Taphonomy of the entire pelvic Girdle</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 [[>:PSI_SI_MD_FormTaphonomyGUISnippet MyID_Taph="hiptaph" WHERE=""]]    
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Taphonomy of the entire pelvic Girdle</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-HipTaph-update" ufbTemplate="HipTaph-Template" ufbname="HipTaph"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="HipTaph" event-target="show-after-HipTaph-update"]]  
+
+</bs-tab>

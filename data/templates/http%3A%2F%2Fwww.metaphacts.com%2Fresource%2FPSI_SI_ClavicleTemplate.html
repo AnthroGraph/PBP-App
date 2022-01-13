@@ -1,0 +1,183 @@
+<hr>
+
+<h2><strong>Clavicle</strong></h2> 
+
+<hr>
+
+
+            <!-- Body of clavicle Form --> 
+            
+            <semantic-form
+              id='ClavicleBody'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='ClavicleBody'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="claviclebodyleftcomp" MyID_Obs="claviclebodyleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftBodyOfClavicle>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="claviclebodyrightcomp" MyID_Obs="claviclebodyrightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightBodyOfClavicle>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="claviclebodyfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/BodyOfClavicle>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Body of clavicle</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="claviclebodyleftcomp" MyID_Obs="claviclebodyleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="claviclebodyrightcomp" MyID_Obs="claviclebodyrightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='claviclebodyfrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Body of clavicle</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ClavicleBody-update" ufbTemplate="ClavicleBody-Template" ufbname="Body of clavicle"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ClavicleBody" event-target="show-after-ClavicleBody-update"]]  
+
+
+            <hr>
+
+            <!-- Medial articulation of clavicle Form --> 
+            
+            <semantic-form
+              id='MedialArticulationOfClavicle'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='MedialArticulationOfClavicle'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialarticulationofclavicleleftcomp" MyID_Obs="medialarticulationofclavicleleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftMedialArticulationOfClavicle>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialarticulationofclaviclerightcomp" MyID_Obs="medialarticulationofclaviclerightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightMedialArticulationOfClavicle>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="medialarticulationofclaviclefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/MedialArticulationOfClavicle>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Medial articulation of clavicle</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialarticulationofclavicleleftcomp" MyID_Obs="medialarticulationofclavicleleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialarticulationofclaviclerightcomp" MyID_Obs="medialarticulationofclaviclerightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='medialarticulationofclaviclefrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Medial articulation of clavicle</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-MedialArticulationOfClavicle-update" ufbTemplate="MedialArticulationOfClavicle-Template" ufbname="Medial articulation of clavicle"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="MedialArticulationOfClavicle" event-target="show-after-MedialArticulationOfClavicle-update"]]  
+
+
+            <hr>
+
+            <!-- Scapular articulation of clavicle Form --> 
+            
+            <semantic-form
+              id='ScapularArticulationOfClavicle'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='ScapularArticulationOfClavicle'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="scapulararticulationofclavicleleftcomp" MyID_Obs="scapulararticulationofclavicleleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftScapularArticulationOfClavicle>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="scapulararticulationofclaviclerightcomp" MyID_Obs="scapulararticulationofclaviclerightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightScapularArticulationOfClavicle>" ]]
+                  ,
+                  [[>:PSI_SI_MD_FormSnippet MyID="scapulararticulationofclaviclefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/ScapularArticulationOfClavicle>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+              ]'
+            >
+            <h2><strong>Scapular articulation of clavicle</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="scapulararticulationofclavicleleftcomp" MyID_Obs="scapulararticulationofclavicleleftobs" WHERE="Left"]]               
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="scapulararticulationofclaviclerightcomp" MyID_Obs="scapulararticulationofclaviclerightobs" WHERE="Right"]] 
+                 
+                  <div class="grid-demo">
+                    <h6>Unsided fragments</h6>
+                      <semantic-form-text-input for='scapulararticulationofclaviclefrag'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Scapular articulation of clavicle</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ScapularArticulationOfClavicle-update" ufbTemplate="ScapularArticulationOfClavicle-Template" ufbname="Scapular articulation of clavicle"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ScapularArticulationOfClavicle" event-target="show-after-ScapularArticulationOfClavicle-update"]]  
+
+ <hr>
+
+            <!-- Clavicle grouped Form --> 
+
+<semantic-form
+  id='ClavicleGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='ClavicleGrouped'
+  persistence='sparql'
+  fields='[
+    [[>:PSI_SI_MD_FormSnippet MyID="claviclegroupedleft" MyLabel="Number of left fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13323>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+   [[>:PSI_SI_MD_FormSnippet MyID="claviclegroupedright" MyLabel="Number of right fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13322>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+   [[>:PSI_SI_MD_FormSnippet MyID="claviclegroupedunsided" MyLabel="Unsided fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma13321>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+     ]' 
+>
+<h2><strong>Clavicle, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='claviclegroupedleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='claviclegroupedright'></semantic-form-text-input>
+                      <semantic-form-text-input for='claviclegroupedunsided'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Clavicle, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ClavicleGrouped-update" ufbTemplate="ClavicleGrouped-Template" ufbname="ClavicleGrouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ClavicleGrouped" event-target="show-after-ClavicleGrouped-update"]]  
+
+                       <hr>
+
+            <!-- Shoulder Taphonomy Form --> 
+
+<semantic-form
+  id='ShoulderTaph'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='ShoulderTaph'
+  persistence='sparql'
+  fields='[
+
+[[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="shouldertaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireShoulderGirdle>" ]]       
+]' 
+>
+<h2><strong>Taphonomy of the entire Shoulder Girdle</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 [[>:PSI_SI_MD_FormTaphonomyGUISnippet MyID_Taph="shouldertaph" WHERE=""]]    
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Taphonomy of the entire Shoulder Girdle</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ShoulderTaph-update" ufbTemplate="ShoulderTaph-Template" ufbname="ShoulderTaph"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="ShoulderTaph" event-target="show-after-ShoulderTaph-update"]]  

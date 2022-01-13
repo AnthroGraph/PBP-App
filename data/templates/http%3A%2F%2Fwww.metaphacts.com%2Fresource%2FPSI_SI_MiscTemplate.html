@@ -1,0 +1,190 @@
+<bs-tab event-key="11" title="Miscellaneous">
+
+<!-- Hands and Feet grouped Form --> 
+
+<semantic-form
+  id='EntireHandAndFootGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='EntireHandAndFootGrouped'
+  persistence='sparql'
+  fields='[
+[[>:PSI_SI_MD_FormSnippet MyID="carpalstarsalsleft" MyLabel="Number of Fragments of Left Carpals and Tarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireLeftCarpalOrTarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+[[>:PSI_SI_MD_FormSnippet MyID="carpalstarsalsright" MyLabel="Number of Fragments of Right Carpals and Tarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireRightCarpalOrTarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+[[>:PSI_SI_MD_FormSnippet MyID="carpalstarsalsunsided" MyLabel="Number of Fragments of Unsided Carpals and Tarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireCarpalOrTarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+,
+[[>:PSI_SI_MD_FormSnippet MyID="metacarpalsmetatarsalsleft" MyLabel="Number of Fragments of Left Metacarpals and Metatarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireLeftMetacarpalOrMetatarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="metacarpalsmetatarsalsright" MyLabel="Number of Fragments of Right Metacarpals and Metatarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireRightMetacarpalOrMetatarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="metacarpalsmetatarsalsunsided" MyLabel="Number of Fragments of Unsided Metacarpals and Metatarsals" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireMetacarpalOrMetatarsal>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="phalangeshandfootleft" MyLabel="Number of Fragments of Left Phalanges of Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireLeftPhalanx>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="phalangeshandfootright" MyLabel="Number of Fragments of Right Phalanges of Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireRightPhalanx>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="phalangeshandfootunsided" MyLabel="Number of Unsided Fragments of Phalanges of Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma321924>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="entirehandandfootleft" MyLabel="Unclassified Fragments of entire Left Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireLeftHandOrFoot>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="entirehandandfootright" MyLabel="Unclassified Fragments of entire Right Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireRightHandOrFoot>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+,
+[[>:PSI_SI_MD_FormSnippet MyID="entirehandandfootunsided" MyLabel="Unsided and Unclassified Fragments of entire Hand and Foot" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireHandOrFoot>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+  ]' 
+>
+<h2><strong>Fragments of Hands and Feet, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='carpalstarsalsleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='carpalstarsalsright'></semantic-form-text-input>
+                      <semantic-form-text-input for='carpalstarsalsunsided'></semantic-form-text-input>
+                      <semantic-form-text-input for='metacarpalsmetatarsalsleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='metacarpalsmetatarsalsright'></semantic-form-text-input>
+                      <semantic-form-text-input for='metacarpalsmetatarsalsunsided'></semantic-form-text-input>
+                      <semantic-form-text-input for='phalangeshandfootleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='phalangeshandfootright'></semantic-form-text-input>
+                      <semantic-form-text-input for='phalangeshandfootunsided'></semantic-form-text-input>
+                      <semantic-form-text-input for='entirehandandfootleft'></semantic-form-text-input>
+                      <semantic-form-text-input for='entirehandandfootright'></semantic-form-text-input>
+                      <semantic-form-text-input for='entirehandandfootunsided'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Fragments of Foot, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-EntireHandAndFootGrouped-update" ufbTemplate="EntireHandAndFootGrouped-Template" ufbname="Fragments of Hands and Feet, grouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="EntireHandAndFootGrouped" event-target="show-after-EntireHandAndFootGrouped-update"]]  
+
+<hr>
+
+
+            <!-- Onehundred Elements Assessment Form --> 
+
+<semantic-form
+  id='OnehundredElementsAssessment'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='OnehundredElementsAssessment'
+  persistence='sparql'
+  fields='[
+            [[>:PSI_SI_MD_Form100ElementsSnippet MyID_100Elements="elements" ROIVar="<http://w3id.org/rdfbones/core#EntireOsseousSkeleton>" ]]   
+ ]' 
+>
+ <h2><strong>Misc. Fragments, grouped</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_Form100ElementsGUISnippet MyID_100Elements="elements" WHERE="Range of Miscellaneous Fragments"]]               
+                 
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Misc. Fragments, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-OnehundredElementsAssessment-update" ufbTemplate="OnehundredElementsAssessment-Template" ufbname="Misc. Fragments, grouped"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="OnehundredElementsAssessment" event-target="show-after-OnehundredElementsAssessment-update"]]  
+
+
+            <hr>
+
+            <!-- Overall Assessment Form --> 
+
+
+<semantic-form
+  id='OverallAssessment'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='OverallAssessment'
+  persistence='sparql'
+  fields='[
+[[>:PSI_SI_MD_FormAssessmentSnippet MyID_Assess="overallassess" ROIVar="<http://w3id.org/rdfbones/core#EntireOsseousSkeleton>" ]]  
+ ]' 
+>
+ <h2><strong>Overall Preservation</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormAssessmentGUISnippet MyID_Assess="overallassess" WHERE="Overall Preservation State of Entire Skeleton"]]               
+                 
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Overall Preservation State</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-OverallAssessment-update" ufbTemplate="OverallAssessment-Template" ufbname="Overall Preservation State"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="OverallAssessment" event-target="show-after-OverallAssessment-update"]]  
+
+
+<hr>
+            <!-- Percent Of Skeleton Present Form --> 
+
+
+<semantic-form
+  id='PercentOfSkel'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='PercentOfSkel'
+  persistence='sparql'
+  fields='[
+[[>:PSI_SI_MD_FormSkelPercentSnippet MyID_Percent="percentageofskel" ROIVar="<http://w3id.org/rdfbones/core#EntireOsseousSkeleton>" ]]  
+ ]' 
+>
+ <h2><strong>Percentage of Skeleton Present</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormSkelPercentGUISnippet MyID_Percent="percentageofskel" WHERE="Percent Range"]]               
+                 
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Percent of Skeleton present</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PercentOfSkel-update" ufbTemplate="PercentOfSkel-Template" ufbname="Percent of Skeleton present"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="PercentOfSkel" event-target="show-after-PercentOfSkel-update"]]  
+
+            <hr>
+
+            <!-- Additional Material Form --> 
+
+
+<semantic-form
+  id='AdditionalMaterial'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='AdditionalMaterial'
+  persistence='sparql'
+  fields='[
+[[>:PSI_SI_MD_FormAddMaterialSnippet MyID_AddMaterial="addskelmat" ROIVar="<http://w3id.org/rdfbones/core#EntireOsseousSkeleton>" ]]  
+ ]' 
+>
+ <h2><strong>Presence of additional skeletal Material</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                  [[>:PSI_SI_MD_FormAddMaterialGUISnippet MyID_AddMaterial="addskelmat" WHERE=""]]               
+                 
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Presence of additional skeletal Material</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-AdditionalMaterial-update" ufbTemplate="AdditionalMaterial-Template" ufbname="Presence of additional skeletal Material"]]                  
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="AdditionalMaterial" event-target="show-after-AdditionalMaterial-update"]]  
+
+
+            </bs-tab>

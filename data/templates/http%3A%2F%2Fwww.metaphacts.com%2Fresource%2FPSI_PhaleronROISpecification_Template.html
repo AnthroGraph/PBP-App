@@ -1,0 +1,64 @@
+{
+    "id": "[[id]]",
+    "label": "[[label]]",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": [[maxOccurs]],
+    "minOccurs": 1,
+    "orderedWith":"index-property",
+    "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?anatomical_site.
+                          ?anatomical_site a [[MD]] .
+                          ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+                          ?anatomical_site_VS obo:OBI_0000999 $value .
+                          OPTIONAL {
+                            ?index obo:IAO_0000136 ?value .	
+                            ?index a [[sortingclass]].
+                    }
+                          
+                    }",
+
+                  "valueSetPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    SELECT DISTINCT $value WHERE {
+                     [[value_spec]] rdfs:subClassOf ?myRS1 .
+  					        ?myRS1 a owl:Restriction ;
+                           <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
+                           owl:someValuesFrom|owl:onClass ?selection .
+  						
+  					          ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
+                      
+                    OPTIONAL {
+                    ?index obo:IAO_0000136 ?value .	
+                    ?index a [[sortingclass]].
+                    }
+
+                    }  ORDER BY ?index"
+,
+                  "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {?anatomical_site_VS obo:OBI_0000999 $value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject obo:BFO_0000051 ?anatomical_site.
+                          ?anatomical_site a [[MD]]  .
+                          ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+                          
+                          
+                    }",
+                    "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    DELETE {?anatomical_site_VS obo:OBI_0000999 $value .}
+                      WHERE {
+                        ?subject obo:BFO_0000051 ?anatomical_site.
+                        ?anatomical_site a [[MD]]  .
+                        ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+                        }"
+}

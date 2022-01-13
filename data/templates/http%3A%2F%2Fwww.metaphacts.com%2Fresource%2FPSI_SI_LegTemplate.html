@@ -1,0 +1,545 @@
+<bs-tab event-key="8" title="Leg">
+
+<h2><strong>Leg</strong></h2> 
+
+<hr>
+
+<!-- Left femur Form --> 
+ 
+ <semantic-form
+   id='LeftFemur'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='LeftFemur'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartleftfemurcomp" MyID_Obs="proxartleftfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfLeftFemur>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdleftfemurcomp" MyID_Obs="proxthirdleftfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfLeftFemur>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdleftfemurcomp" MyID_Obs="medialthirdleftfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfLeftFemur>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdleftfemurcomp" MyID_Obs="distalthirdleftfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfLeftFemur>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartleftfemurcomp" MyID_Obs="distalartleftfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfLeftFemur>" ]]                         
+   ]'
+ >
+ <h2><strong>Left Femur</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartleftfemurcomp" MyID_Obs="proxartleftfemurobs" WHERE="Proximal articulation"]]   
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdleftfemurcomp" MyID_Obs="proxthirdleftfemurobs" WHERE="Proximal third"]]          
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdleftfemurcomp" MyID_Obs="medialthirdleftfemurobs" WHERE="Medial third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdleftfemurcomp" MyID_Obs="distalthirdleftfemurobs" WHERE="Distal third"]]       
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartleftfemurcomp" MyID_Obs="distalartleftfemurobs" WHERE="Distal articulation"]]   
+      
+       <div class="grid-demo">
+           <button name="submit" class="btn btn-primary"><strong>Save Left Femur</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LeftFemur-update" ufbTemplate="LeftFemur-Template" ufbname="Left Femur"]]
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="LeftFemur" event-target="show-after-LeftFemur-update"]]   
+
+
+<hr>
+
+<!-- Left tibia Form --> 
+ 
+ <semantic-form
+   id='LeftTibia'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='LeftTibia'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartlefttibiacomp" MyID_Obs="proxartlefttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfLeftTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdlefttibiacomp" MyID_Obs="proxthirdlefttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfLeftTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdlefttibiacomp" MyID_Obs="medialthirdlefttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfLeftTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdlefttibiacomp" MyID_Obs="distalthirdlefttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfLeftTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartlefttibiacomp" MyID_Obs="distalartlefttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfLeftTibia>" ]]                         
+   ]'
+ >
+ <h2><strong>Left Tibia</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartlefttibiacomp" MyID_Obs="proxartlefttibiaobs" WHERE="Proximal articulation"]]   
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdlefttibiacomp" MyID_Obs="proxthirdlefttibiaobs" WHERE="Proximal third"]]          
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdlefttibiacomp" MyID_Obs="medialthirdlefttibiaobs" WHERE="Medial third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdlefttibiacomp" MyID_Obs="distalthirdlefttibiaobs" WHERE="Distal third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartlefttibiacomp" MyID_Obs="distalartlefttibiaobs" WHERE="Distal articulation"]] 
+      
+       <div class="grid-demo">
+           <button name="submit" class="btn btn-primary"><strong>Save Left Tibia</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LeftTibia-update" ufbTemplate="LeftTibia-Template" ufbname="Left Tibia"]]
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="LeftTibia" event-target="show-after-LeftTibia-update"]]  
+
+<hr>
+
+<!-- Left fibula Form --> 
+ 
+ <semantic-form
+   id='LeftFibula'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='LeftFibula'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartleftfibulacomp" MyID_Obs="proxartleftfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfLeftFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdleftfibulacomp" MyID_Obs="proxthirdleftfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfLeftFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdleftfibulacomp" MyID_Obs="medialthirdleftfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfLeftFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdleftfibulacomp" MyID_Obs="distalthirdleftfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfLeftFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartleftfibulacomp" MyID_Obs="distalartleftfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfLeftFibula>" ]]                         
+   ]'
+ >
+ <h2><strong>Left Fibula</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartleftfibulacomp" MyID_Obs="proxartleftfibulaobs" WHERE="Proximal articulation"]]   
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdleftfibulacomp" MyID_Obs="proxthirdleftfibulaobs" WHERE="Proximal third"]]          
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdleftfibulacomp" MyID_Obs="medialthirdleftfibulaobs" WHERE="Medial third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdleftfibulacomp" MyID_Obs="distalthirdleftfibulaobs" WHERE="Distal third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartleftfibulacomp" MyID_Obs="distalartleftfibulaobs" WHERE="Distal articulation"]] 
+      
+       <div class="grid-demo">
+           <button name="submit" class="btn btn-primary"><strong>Save Left Fibula</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LeftFibula-update" ufbTemplate="LeftFibula-Template" ufbname="Left Fibula"]]
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="LeftFibula" event-target="show-after-LeftFibula-update"]]  
+
+<hr>
+
+<!-- Left Patella Form --> 
+
+<semantic-form
+  id='LeftPatella'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='LeftPatella'
+  persistence='sparql'
+  fields='[
+      [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="patellaleftcomp" MyID_Obs="patellaleftobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma24487>" ]]               
+  ]'
+>
+<h2><strong>Left Patella</strong></h2>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+    <div data-flex-layout="row md-column top-spread">
+      [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="patellaleftcomp" MyID_Obs="patellaleftobs" WHERE="Left Patella"]]         
+     
+      <div class="grid-demo">
+          <button name="submit" class="btn btn-primary"><strong>Save Patella</strong></button>
+        <button name="reset" class="btn btn-secondary">Reset</button>
+        [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LeftPatella-update" ufbTemplate="LeftPatella-Template" ufbname="Left Patella"]]
+      </div>
+    </div>
+  
+</semantic-form>
+[[>:PSI_FormSuccessFeedbackEventSnippet event-source="LeftPatella" event-target="show-after-LeftPatella-update"]]  
+
+<hr>
+
+<!-- Right femur Form --> 
+            
+            <semantic-form
+              id='RightFemur'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='RightFemur'
+              persistence='sparql'
+              fields='[
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartrightfemurcomp" MyID_Obs="proxartrightfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfRightFemur>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdrightfemurcomp" MyID_Obs="proxthirdrightfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfRightFemur>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdrightfemurcomp" MyID_Obs="medialthirdrightfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfRightFemur>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdrightfemurcomp" MyID_Obs="distalthirdrightfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfRightFemur>" ]]               
+                  ,
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartrightfemurcomp" MyID_Obs="distalartrightfemurobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfRightFemur>" ]]                        
+              ]'
+            >
+            <h2><strong>Right Femur</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartrightfemurcomp" MyID_Obs="proxartrightfemurobs" WHERE="Proximal articulation"]]   
+                             [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdrightfemurcomp" MyID_Obs="proxthirdrightfemurobs" WHERE="Proximal third"]]          
+                             [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdrightfemurcomp" MyID_Obs="medialthirdrightfemurobs" WHERE="Medial third"]] 
+                             [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdrightfemurcomp" MyID_Obs="distalthirdrightfemurobs" WHERE="Distal third"]] 
+                             [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartrightfemurcomp" MyID_Obs="distalartrightfemurobs" WHERE="Distal articulation"]] 
+                 
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Right Femur</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-RightFemur-update" ufbTemplate="RightFemur-Template" ufbname="Right Femur"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="RightFemur" event-target="show-after-RightFemur-update"]]  
+
+<hr>
+
+
+<!-- Right tibia Form --> 
+ 
+ <semantic-form
+   id='RightTibia'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='RightTibia'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartrighttibiacomp" MyID_Obs="proxartrighttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfRightTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdrighttibiacomp" MyID_Obs="proxthirdrighttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfRightTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdrighttibiacomp" MyID_Obs="medialthirdrighttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfRightTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdrighttibiacomp" MyID_Obs="distalthirdrighttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfRightTibia>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartrighttibiacomp" MyID_Obs="distalartrighttibiaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfRightTibia>" ]]                          
+   ]'
+ >
+ <h2><strong>Right Tibia</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartrighttibiacomp" MyID_Obs="proxartrighttibiaobs" WHERE="Proximal articulation"]]   
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdrighttibiacomp" MyID_Obs="proxthirdrighttibiaobs" WHERE="Proximal third"]]          
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdrighttibiacomp" MyID_Obs="medialthirdrighttibiaobs" WHERE="Medial third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdrighttibiacomp" MyID_Obs="distalthirdrighttibiaobs" WHERE="Distal third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartrighttibiacomp" MyID_Obs="distalartrighttibiaobs" WHERE="Distal articulation"]] 
+      
+       <div class="grid-demo">
+           <button name="submit" class="btn btn-primary"><strong>Save Right Tibia</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-RightTibia-update" ufbTemplate="RightTibia-Template" ufbname="Right Tibia"]]
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="RightTibia" event-target="show-after-RightTibia-update"]]  
+
+<hr>
+
+ <!-- Right fibula Form --> 
+ 
+ <semantic-form
+   id='RightFibula'
+   subject='[[this]]'
+   post-action='event'
+   browser-persistence=true
+   form-id='RightFibula'
+   persistence='sparql'
+   fields='[
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxartrightfibulacomp" MyID_Obs="proxartrightfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfRightFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="proxthirdrightfibulacomp" MyID_Obs="proxthirdrightfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfRightFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="medialthirdrightfibulacomp" MyID_Obs="medialthirdrightfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfRightFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalthirdrightfibulacomp" MyID_Obs="distalthirdrightfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfRightFibula>" ]]               
+       ,
+       [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="distalartrightfibulacomp" MyID_Obs="distalartrightfibulaobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfRightFibula>" ]]                             
+   ]'
+ >
+ <h2><strong>Right Fibula</strong></h2>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+     <div data-flex-layout="row md-column top-spread">
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxartrightfibulacomp" MyID_Obs="proxartrightfibulaobs" WHERE="Proximal articulation"]]   
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="proxthirdrightfibulacomp" MyID_Obs="proxthirdrightfibulaobs" WHERE="Proximal third"]]          
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="medialthirdrightfibulacomp" MyID_Obs="medialthirdrightfibulaobs" WHERE="Medial third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalthirdrightfibulacomp" MyID_Obs="distalthirdrightfibulaobs" WHERE="Distal third"]] 
+       [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="distalartrightfibulacomp" MyID_Obs="distalartrightfibulaobs" WHERE="Distal articulation"]] 
+      
+       <div class="grid-demo">
+           <button name="submit" class="btn btn-primary"><strong>Save Right Fibula</strong></button>
+         <button name="reset" class="btn btn-secondary">Reset</button>
+         [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-RightFibula-update" ufbTemplate="RightFibula-Template" ufbname="Right Fibula"]]
+       </div>
+     </div>
+   
+ </semantic-form>
+ [[>:PSI_FormSuccessFeedbackEventSnippet event-source="RightFibula" event-target="show-after-RightFibula-update"]]  
+
+   <hr>
+
+
+<!-- Right Patella Form --> 
+
+<semantic-form
+  id='RightPatella'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='RightPatella'
+  persistence='sparql'
+  fields='[
+        [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="patellarightcomp" MyID_Obs="patellarightobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma24486>" ]]           
+  ]'
+>
+<h2><strong>Right Patella</strong></h2>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+    <div data-flex-layout="row md-column top-spread">
+      [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="patellarightcomp" MyID_Obs="patellarightobs" WHERE="Right Patella"]]         
+     
+      <div class="grid-demo">
+          <button name="submit" class="btn btn-primary"><strong>Save Patella</strong></button>
+        <button name="reset" class="btn btn-secondary">Reset</button>
+        [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-RightPatella-update" ufbTemplate="Right-Patella-Template" ufbname="Right Patella"]]
+      </div>
+    </div>
+  
+</semantic-form>
+[[>:PSI_FormSuccessFeedbackEventSnippet event-source="RightPatella" event-target="show-after-RightPatella-update"]]  
+       
+<hr>
+
+<!-- Femur grouped Form --> 
+
+<semantic-form
+  id='FemurGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='FemurGrouped'
+  persistence='sparql'
+  fields='[
+    [[>:PSI_SI_MD_FormSnippet MyID="proximalartfemur" MyLabel="Number of unsided proximal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfFemur>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+    ,
+   [[>:PSI_SI_MD_FormSnippet MyID="proxthirdfemur" MyLabel="Number of unsided P1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfFemur>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="midthirdfemur" MyLabel="Number of unsided M1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfFemur>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalthirdfemur" MyLabel="Number of unsided D1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfFemur>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalartfemur" MyLabel="Number of unsided distal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfFemur>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="unsidedfemur" MyLabel="Number of unclassified fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9611>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+     ]' 
+>
+<h2><strong>Femur, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='proximalartfemur'></semantic-form-text-input>
+                      <semantic-form-text-input for='proxthirdfemur'></semantic-form-text-input>
+                      <semantic-form-text-input for='midthirdfemur'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalthirdfemur'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalartfemur'></semantic-form-text-input>
+                      <semantic-form-text-input for='unsidedfemur'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Femur, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-FemurGrouped-update" ufbTemplate="FemurGrouped-Template" ufbname="FemurGrouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="FemurGrouped" event-target="show-after-FemurGrouped-update"]]  
+
+            <hr>
+
+            <!-- Tibia grouped Form --> 
+
+<semantic-form
+  id='TibiaGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='TibiaGrouped'
+  persistence='sparql'
+  fields='[
+    [[>:PSI_SI_MD_FormSnippet MyID="proximalarttibia" MyLabel="Number of unsided proximal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfTibia>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+    ,
+   [[>:PSI_SI_MD_FormSnippet MyID="proxthirdtibia" MyLabel="Number of unsided P1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfTibia>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="midthirdtibia" MyLabel="Number of unsided M1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfTibia>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalthirdtibia" MyLabel="Number of unsided D1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfTibia>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalarttibia" MyLabel="Number of unsided distal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfTibia>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="unsidedtibia" MyLabel="Number of unclassified fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma24476>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+     ]' 
+>
+<h2><strong>Tibia, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='proximalarttibia'></semantic-form-text-input>
+                      <semantic-form-text-input for='proxthirdtibia'></semantic-form-text-input>
+                      <semantic-form-text-input for='midthirdtibia'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalthirdtibia'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalarttibia'></semantic-form-text-input>
+                      <semantic-form-text-input for='unsidedtibia'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Tibia, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-TibiaGrouped-update" ufbTemplate="TibiaGrouped-Template" ufbname="TibiaGrouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="TibiaGrouped" event-target="show-after-TibiaGrouped-update"]]  
+
+            <hr>
+
+<!-- Fibula grouped Form --> 
+
+<semantic-form
+  id='FibulaGrouped'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='FibulaGrouped'
+  persistence='sparql'
+  fields='[
+    [[>:PSI_SI_MD_FormSnippet MyID="proximalartfibula" MyLabel="Number of unsided proximal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalEpiphysisOfFibula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]    
+    ,
+   [[>:PSI_SI_MD_FormSnippet MyID="proxthirdfibula" MyLabel="Number of unsided P1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/ProximalThirdOfDiaphysisOfFibula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="midthirdfibula" MyLabel="Number of unsided M1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/MiddleThirdOfDiaphysisOfFibula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalthirdfibula" MyLabel="Number of unsided D1/3 fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalThirdOfDiaphysisOfFibula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="distalartfibula" MyLabel="Number of unsided distal articulation fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/DistalEpiphysisOfFibula>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+   ,
+   [[>:PSI_SI_MD_FormSnippet MyID="unsidedfibula" MyLabel="Number of unclassified fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma24479>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]] 
+     ]' 
+>
+<h2><strong>Fibula, grouped</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 
+                  <div class="grid-demo">
+                      <semantic-form-text-input for='proximalartfibula'></semantic-form-text-input>
+                      <semantic-form-text-input for='proxthirdfibula'></semantic-form-text-input>
+                      <semantic-form-text-input for='midthirdfibula'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalthirdfibula'></semantic-form-text-input>
+                      <semantic-form-text-input for='distalartfibula'></semantic-form-text-input>
+                      <semantic-form-text-input for='unsidedfibula'></semantic-form-text-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Fibula, grouped</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-FibulaGrouped-update" ufbTemplate="FibulaGrouped-Template" ufbname="FibulaGrouped"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="FibulaGrouped" event-target="show-after-FibulaGrouped-update"]]  
+
+<hr>
+
+
+<!-- Patella fragments Form --> 
+
+<semantic-form
+  id='PatellaFrag'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='PatellaFrag'
+  persistence='sparql'
+  fields='[
+      [[>:PSI_SI_MD_FormSnippet MyID="patellafrag" MyLabel="Number of unsided fragments of Patella" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma24485>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]              
+  ]'
+>
+<h2><strong>Unsided Fragments of Patella</strong></h2>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+    <div data-flex-layout="row md-column top-spread">    
+      <div class="grid-demo">
+         <semantic-form-text-input for='patellafrag'></semantic-form-text-input>
+          <button name="submit" class="btn btn-primary"><strong>Save unsided Fragments of Patella</strong></button>
+        <button name="reset" class="btn btn-secondary">Reset</button>
+        [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PatellaFrag-update" ufbTemplate="PatellaFrag-Template" ufbname="Unsided Fragments of Patella"]]
+      </div>
+    </div>
+  
+</semantic-form>
+[[>:PSI_FormSuccessFeedbackEventSnippet event-source="PatellaFrag" event-target="show-after-PatellaFrag-update"]]  
+
+                        <hr>
+
+            <!-- Left Leg Taphonomy Form --> 
+
+<semantic-form
+  id='LeftLegTaph'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='LeftLegTaph'
+  persistence='sparql'
+  fields='[
+
+[[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="leftlegtaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireLeftLowerLimb>" ]]       
+]' 
+>
+<h2><strong>Taphonomy of the entire left lower Limb</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 [[>:PSI_SI_MD_FormTaphonomyGUISnippet MyID_Taph="leftlegtaph" WHERE=""]]    
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Taphonomy of the entire left lower Limb</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LeftLegTaph-update" ufbTemplate="LeftLegTaph-Template" ufbname="LeftLegTaph"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="LeftLegTaph" event-target="show-after-LeftLegTaph-update"]]   
+
+<hr>
+
+                        <!-- Right Leg Taphonomy Form --> 
+
+<semantic-form
+  id='RightLegTaph'
+  subject='[[this]]'
+  post-action='event'
+  browser-persistence=true
+  form-id='RightLegTaph'
+  persistence='sparql'
+  fields='[
+
+[[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="rightlegtaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireRightLowerLimb>" ]]       
+]' 
+>
+<h2><strong>Taphonomy of the entire right lower Limb</strong></h2>
+            <semantic-form-recover-notification></semantic-form-recover-notification>
+                <div data-flex-layout="row md-column top-spread">
+                 [[>:PSI_SI_MD_FormTaphonomyGUISnippet MyID_Taph="rightlegtaph" WHERE=""]]    
+                  <div class="grid-demo">
+                      <button name="submit" class="btn btn-primary"><strong>Save Taphonomy of the entire right lower Limb</strong></button>
+                    <button name="reset" class="btn btn-secondary">Reset</button>
+                    [[>:PSI_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-RightLegTaph-update" ufbTemplate="RightLegTaph-Template" ufbname="RightLegTaph"]]
+                  </div>
+                </div>
+              
+            </semantic-form>
+            [[>:PSI_FormSuccessFeedbackEventSnippet event-source="RightLegTaph" event-target="show-after-RightLegTaph-update"]]   
+
+</bs-tab>
