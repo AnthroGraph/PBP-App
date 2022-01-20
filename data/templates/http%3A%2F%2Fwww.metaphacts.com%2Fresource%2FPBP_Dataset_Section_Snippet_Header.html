@@ -1,6 +1,3 @@
-<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
-<h4>You are currently viewing/editing Bone Addition Section: <strong>[[this.label]]</strong></h4>
-<br>
 <semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
 Back to Paleopath Summary</strong>
 </semantic-link>
@@ -100,57 +97,10 @@ variable-params='["sectionclass","myobservation","obsclass","myroi","roispec","M
 post-action="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]"
 show-confirmation="true"
 confirmation-options='{
-     "message": "Do you really want to delete this Bone Addition instance [[this.label]] and all associated data?",
+     "message": "Do you really want to delete this Pathology instance [[this.label]] and all associated data?",
      "confirmLabel": "Delete"
    }'
 >
 
-<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Bone Addition Section: [[this.label]]</strong></button>
+<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Pathology Section: [[this.label]]</strong></button>
 </semantic-update>
-<br>
-<hr>
-
-
-[[>:PSI_AddPathologySection_Template section_type="Bone Addition"]]
-
-
-<br> <hr>
-<h4>Add Additional Information</h4>
-<semantic-form
-subject='[[this]]'
-post-action='event'
-persistence='sparql'
-id="additonal-info"
-form-id="additonal-info"
-browser-persistence='true'
-fields='[
-  [[>:PSI_SectionForms_Template connected value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalMatrix" connected_class="phaleron-patho:PresenceOfAbnormalMatrix" id="PresenceOfAbnormalMatrix" label="Presence of Abnormal Matrix"]],
-
-   [[>:PSI_SectionForms_Template connected value_spec="phaleron-patho:EndostealSurfaceBoneFormationCharacteristicsValueSpecification" connected_iristring="EndostealSurfaceBoneFormationCharacteristics"  connected_class="phaleron-patho:BoneFormationCharacteristics" id="EndostealSurfaceBoneFormationCharacteristics" label="Endosteal Surface Bone Formation Characteristics"]],
-
-  
-   [[>:PSI_SectionForms_Template connected value_spec="standards-patho:TypeOfBoneValueSpecification" connected_iristring="AddedBoneCharacteristics" connected_class="phaleron-patho:AddedBoneCharacteristics" id="AddedBoneCharacteristics" label="Added Bone Characteristics"]]
-]'
-
->
- <semantic-form-recover-notification></semantic-form-recover-notification>
-<semantic-form-select-input for='PresenceOfAbnormalMatrix'></semantic-form-select-input>
-<semantic-form-select-input for='EndostealSurfaceBoneFormationCharacteristics'></semantic-form-select-input>
-<semantic-form-select-input for='AddedBoneCharacteristics'></semantic-form-select-input>
-
-<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-    <button name="reset" class="btn btn-secondary">Reset</button>
-    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
-</semantic-form>
- [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
-<br>
-
-<hr>
-<h4> Create New Observer/Editing Event</h4>
-[[>:PSI_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>"]]
-
-
-<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
-Back to Paleopath Summary</strong>
-</semantic-link>
-</div>
