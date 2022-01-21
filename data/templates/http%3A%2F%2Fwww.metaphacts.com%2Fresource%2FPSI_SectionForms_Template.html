@@ -4,6 +4,7 @@
     "xsdDatatype": "xsd:anyURI",
     "maxOccurs": 1,
     "minOccurs": 1,
+
     "selectPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
@@ -29,9 +30,14 @@
                            <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
                            owl:someValuesFrom|owl:onClass ?selection .
   						
-  					        ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
+  			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
+			        OPTIONAL {
+                            ?index obo:IAO_0000136 ?value .	
+                            ?index a [[sortingclass]].
+                    }
+			       
                    
-                    }",
+                    }  ORDER BY ?index",
                   "insertPattern": "
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
