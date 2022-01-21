@@ -18,13 +18,13 @@ id="additonal-info"
 form-id="additonal-info"
 browser-persistence='true'
 fields='[
-  [[>:PSI_SectionForms_Template connected value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfPathologicalProcess" connected_class="phaleron-patho:ActivityOfPathologicalProcess" id="ActivityOfPathologicalProcess" label="Activity Of Pathological Process"]],
+  [[>:PSI_SectionForms_Template value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfPathologicalProcess" connected_class="phaleron-patho:ActivityOfPathologicalProcess" id="ActivityOfPathologicalProcess" label="Activity Of Pathological Process" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
 
-  [[>:PSI_SectionForms_Template connected value_spec="standards-patho:PorosityCharacteristicsValueSpecification" connected_iristring="StructureOfBoneLoss" connected_class="phaleron-patho:StructureOfBoneLoss" id="StructureOfBoneLoss" label="Structure of Bone Loss"]],
+  [[>:PSI_SectionForms_Template value_spec="standards-patho:PorosityCharacteristicsValueSpecification" connected_iristring="StructureOfBoneLoss" connected_class="phaleron-patho:StructureOfBoneLoss" id="StructureOfBoneLoss" label="Structure of Bone Loss" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PorosityCharacteristicsLabelSorting>"]],
 
-   [[>:PSI_SectionForms_Template connected value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfStructuralCollapse" connected_class="phaleron-patho:PresenceOfStructuralCollapse" id="PresenceOfStructuralCollapse" label="Presence of Structural Collapse"]],
+   [[>:PSI_SectionForms_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfStructuralCollapse" connected_class="phaleron-patho:PresenceOfStructuralCollapse" id="PresenceOfStructuralCollapse" label="Presence of Structural Collapse" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"]],
    
-[[>:PSI_SectionFormsSwitch_Template value_spec="phaleron-patho:TypeOfBonyResponseValueSpecification" connected_iristring="TypeOfBonyResponse" connected_class="phaleron-patho:TypeOfBonyResponse" id="TypeOfBonyResponse" label="Type of Bony Response" connected_class_delete="phaleron-patho:DiffuseBonyResponseCharacteristics,  phaleron-patho:FocalBonyResponseCharacteristics, phaleron-patho:TypeOfBonyResponse "]]
+[[>:PSI_SectionFormsSwitch_Template value_spec="phaleron-patho:TypeOfBonyResponseValueSpecification" connected_iristring="TypeOfBonyResponse" connected_class="phaleron-patho:TypeOfBonyResponse" id="TypeOfBonyResponse" label="Type of Bony Response" connected_class_delete="phaleron-patho:DiffuseBonyResponseCharacteristics,  phaleron-patho:FocalBonyResponseCharacteristics, phaleron-patho:TypeOfBonyResponse " sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfBonyResponseLabelSorting>"]]
  
   
 ]'
@@ -35,6 +35,7 @@ fields='[
 <semantic-form-select-input for='StructureOfBoneLoss'></semantic-form-select-input>
 <semantic-form-select-input for='PresenceOfStructuralCollapse'></semantic-form-select-input>
 <semantic-form-select-input for='TypeOfBonyResponse'></semantic-form-select-input>
+<div><strong>INFO:</strong> After saving this sub-form, a new entry field will appear below to specify the type of response</div><br>
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
@@ -64,7 +65,7 @@ fields='[
 	browser-persistence='true'
 	fields='[
      
-		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:DiffuseBonyResponseCharacteristicsValueSpecification" connected_iristring="DiffuseBonyResponseCharacteristics" connected_class="phaleron-patho:DiffuseBonyResponseCharacteristics" id="DiffuseBonyResponseCharacteristics" label="Diffuse Bony Response Characteristics"]]
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:DiffuseBonyResponseCharacteristicsValueSpecification" connected_iristring="DiffuseBonyResponseCharacteristics" connected_class="phaleron-patho:DiffuseBonyResponseCharacteristics" id="DiffuseBonyResponseCharacteristics" label="Diffuse Bony Response Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DiffuseBonyResponseCharacteristicsLabelSorting>"]]
   
 ]'
 
@@ -91,7 +92,7 @@ fields='[
 	browser-persistence='true'
 	fields='[
      
-		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:FocalBonyResponseCharacteristicsValueSpecification" connected_iristring="FocalBonyResponseCharacteristics" connected_class="phaleron-patho:FocalBonyResponseCharacteristics"   id="FocalBonyResponseCharacteristics" label="Focal Bony Response Characteristics"]]
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:FocalBonyResponseCharacteristicsValueSpecification" connected_iristring="FocalBonyResponseCharacteristics" connected_class="phaleron-patho:FocalBonyResponseCharacteristics"   id="FocalBonyResponseCharacteristics" label="Focal Bony Response Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/FocalBonyResponseCharacteristicsLabelSorting>"]]
   
 ]'
 
@@ -106,7 +107,6 @@ fields='[
 </semantic-form>
  [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info-switch-1" event-target="show-after-additonalinfo-switch-1"]]
       
-  <div>some other content</div>
 {{/ifCond}}
       
 
