@@ -325,16 +325,18 @@
   form-id='SkullFragments'
   persistence='sparql'
   fields='[
-[[>:PSI_SI_MD_FormSnippet MyID="skullfrag" MyLabel="Number of Fragments of the entire Skull" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
-]' 
+
+ [[>:PSI_SI_MD_FormSnippet MyID="skullfrag" MyLabel="Range of Skull fragmentation" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/FiftyElementsAssessment>" ConnectValue="obo:OBI_0000999" xsdDatatype="xsd:anyURI"]]   
+ ]' 
 >
-<h2><strong>Fragments of the entire Skull</strong></h2>
-            <semantic-form-recover-notification></semantic-form-recover-notification>
+ <h2><strong>Range of Skull fragments</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
+                              
                  
                   <div class="grid-demo">
-                      <semantic-form-text-input for='skullfrag'></semantic-form-text-input>
-                      <button name="submit" class="btn btn-primary"><strong>Save Fragments of the entire Skull</strong></button>
+                    <semantic-form-select-input for='skullfrag'></semantic-form-select-input>
+                      <button name="submit" class="btn btn-primary"><strong>Save Range of Skull fragments</strong></button>
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SkullFragments-update" ufbTemplate="SkullFragments-Template" ufbname="SkullFragments"]]
                   </div>
@@ -355,15 +357,15 @@
   form-id='SkullTaph'
   persistence='sparql'
   fields='[
-
-[[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="skulltaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" ]]       
-]' 
+   [[>:PSI_SI_MD_FormSnippet MyID="skulltaph" MyLabel="Skull Taphonomy" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/TaphonomicTraceAssessment>" ConnectValue="obo:OBI_0000999" xsdDatatype="xsd:anyURI"]]   
+    
+  ]' 
 >
-<h2><strong>Taphonomy of the entire Skull</strong></h2>
-            <semantic-form-recover-notification></semantic-form-recover-notification>
+<h2><strong>Skull Taphonomy</strong></h2> 
+ <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                 [[>:PSI_SI_MD_FormTaphonomyGUISnippet MyID_Taph="skulltaph" WHERE=""]]    
                   <div class="grid-demo">
+		    <semantic-form-select-input for='skulltaph'></semantic-form-select-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Taphonomy of the entire Skull</strong></button>
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SkullTaph-update" ufbTemplate="SkullTaph-Template" ufbname="SkullTaph"]]
