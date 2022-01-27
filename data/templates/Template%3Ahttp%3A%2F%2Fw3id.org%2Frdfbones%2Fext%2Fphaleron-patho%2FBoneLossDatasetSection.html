@@ -12,27 +12,107 @@
 <h4>Add Additional Information</h4>
 <semantic-form
 subject='[[this]]'
-post-action='event'
+post-action='reload'
 persistence='sparql'
 id="additonal-info"
 form-id="additonal-info"
 browser-persistence='true'
 fields='[
-  [[>:PSI_SectionForms_Template connected value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfPathologicalProcess" connected_class="phaleron-patho:ActivityOfPathologicalProcess" id="ActivityOfPathologicalProcess" label="Activity Of Pathological Process"]]
+  [[>:PSI_SectionForms_Template value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfPathologicalProcess" connected_class="phaleron-patho:ActivityOfPathologicalProcess" id="ActivityOfPathologicalProcess" label="Activity Of Pathological Process" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
 
+  [[>:PSI_SectionForms_Template value_spec="standards-patho:PorosityCharacteristicsValueSpecification" connected_iristring="StructureOfBoneLoss" connected_class="phaleron-patho:StructureOfBoneLoss" id="StructureOfBoneLoss" label="Structure of Bone Loss" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PorosityCharacteristicsLabelSorting>"]],
+
+   [[>:PSI_SectionForms_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfStructuralCollapse" connected_class="phaleron-patho:PresenceOfStructuralCollapse" id="PresenceOfStructuralCollapse" label="Presence of Structural Collapse" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"]],
+   
+[[>:PSI_SectionFormsSwitch_Template value_spec="phaleron-patho:TypeOfBonyResponseValueSpecification" connected_iristring="TypeOfBonyResponse" connected_class="phaleron-patho:TypeOfBonyResponse" id="TypeOfBonyResponse" label="Type of Bony Response" connected_class_delete="phaleron-patho:DiffuseBonyResponseCharacteristics,  phaleron-patho:FocalBonyResponseCharacteristics, phaleron-patho:TypeOfBonyResponse " sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfBonyResponseLabelSorting>"]]
+ 
   
 ]'
 
 >
- <semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-recover-notification></semantic-form-recover-notification>
 <semantic-form-select-input for='ActivityOfPathologicalProcess'></semantic-form-select-input>
-
+<semantic-form-select-input for='StructureOfBoneLoss'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfStructuralCollapse'></semantic-form-select-input>
+<semantic-form-select-input for='TypeOfBonyResponse'></semantic-form-select-input>
+<div><strong>INFO:</strong> After saving this sub-form, a new entry field will appear below to specify the type of response</div><br>
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-    <button name="reset" class="btn btn-secondary">Reset</button>
+<button name="reset" class="btn btn-secondary">Reset</button>
     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
 </semantic-form>
  [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+
+<!-- SWITCH EVENT -->
+  <semantic-query query="PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    SELECT ?value WHERE {
+                          ?? obo:BFO_0000051 ?presence .
+                          ?presence a phaleron-patho:TypeOfBonyResponse .
+                          ?presence obo:OBI_0001938 ?ValueSpec .
+                          ?ValueSpec obo:OBI_0000999 $value .
+                          
+                    }" template="{{> t}}">
+    <template id="t">
+      {{#ifCond bindings.0.value.value "==" "http://w3id.org/rdfbones/ext/phaleron-patho/DiffuseBonyResponse"}}
+      <semantic-form
+	subject='[[this]]'
+	post-action='event'
+	persistence='sparql'
+	id="additonal-info-switch-1"
+	form-id="additonal-info"
+	browser-persistence='true'
+	fields='[
+     
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:DiffuseBonyResponseCharacteristicsValueSpecification" connected_iristring="DiffuseBonyResponseCharacteristics" connected_class="phaleron-patho:DiffuseBonyResponseCharacteristics" id="DiffuseBonyResponseCharacteristics" label="Diffuse Bony Response Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DiffuseBonyResponseCharacteristicsLabelSorting>"]]
+  
+]'
+
+>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='DiffuseBonyResponseCharacteristics'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-switch-1" ufbTemplate="additional-Template-1" ufbname="Diffuse Bony Response Characteristics"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info-switch-1" event-target="show-after-additonalinfo-switch-1"]]
+     
+
+      {{else}}
+     
+    <semantic-form
+	subject='[[this]]'
+	post-action='event'
+	persistence='sparql'
+	id="additonal-info-switch-1"
+	form-id="additonal-info"
+	browser-persistence='true'
+	fields='[
+     
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:FocalBonyResponseCharacteristicsValueSpecification" connected_iristring="FocalBonyResponseCharacteristics" connected_class="phaleron-patho:FocalBonyResponseCharacteristics"   id="FocalBonyResponseCharacteristics" label="Focal Bony Response Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/FocalBonyResponseCharacteristicsLabelSorting>"]]
+  
+]'
+
+>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='FocalBonyResponseCharacteristics'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-switch-1" ufbTemplate="additional-Template-1" ufbname="Diffuse Bony Response Characteristics"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info-switch-1" event-target="show-after-additonalinfo-switch-1"]]
+      
+{{/ifCond}}
+      
+
+    </template>
+  </semantic-query>
+
 <br>
 
 
@@ -46,6 +126,10 @@ fields='[
 Back to Paleopath Summary</strong>
 </semantic-link>
 </div>
+
+
+<!-- Testing -->
+
 
 
 </div>

@@ -1,92 +1,124 @@
 <div class="page" style="margin-left:30px; margin-right: 30px">
-<h4><strong> Investigation [[this.label]]</strong></h4>
-<a href="PSI_CreatePaleopath"><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong> Show all PBP-Paleopathology Instances</strong></a> 
+  <h4><strong> Investigation [[this.label]]</strong></h4>
+  <a href="PSI_CreatePaleopath"><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong> Show all PBP-Paleopathology Instances</strong></a> 
 
-<br><br>
-<semantic-update query='
-PREFIX : <http://www.metaphacts.com/resource/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX fma: <http://purl.org/sig/ont/fma/>
-DELETE { GRAPH ?mygraph {?s ?p ?o }} WHERE {
-          SELECT ?mygraph ?s ?p ?o WHERE {
-            GRAPH ?mygraph {
-            ?? a ?mytype .
-            ?s ?p ?o .
-          }
-        }
-      }
-'
-id="DeletePaleopath"
-variable-params='["mygraph","s","o","p","mytype"]'
-post-action="[[resolvePrefix ":PSI_CreatePaleopath"]]"
-show-confirmation="true"
-confirmation-options='{
-     "message": "Do you really want to delete this Paleopath instance [[this.label]] and all associated data?",
-     "confirmLabel": "Delete"
-   }'
->
+  <br><br>
+  <semantic-update query='
+			  PREFIX : <http://www.metaphacts.com/resource/>
+			  PREFIX obo: <http://purl.obolibrary.org/obo/>
+			  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+			  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+			  PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+			  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+			  PREFIX fma: <http://purl.org/sig/ont/fma/>
+			  DELETE { GRAPH ?mygraph {?s ?p ?o }} WHERE {
+			  SELECT ?mygraph ?s ?p ?o WHERE {
+			  GRAPH ?mygraph {
+			  ?? a ?mytype .
+			  ?s ?p ?o .
+			  }
+			  }
+			  }
+			  '
+		   id="DeletePaleopath"
+		   variable-params='["mygraph","s","o","p","mytype"]'
+		   post-action="[[resolvePrefix ":PSI_CreatePaleopath"]]"
+		   show-confirmation="true"
+		   confirmation-options='{
+					 "message": "Do you really want to delete this Paleopath instance [[this.label]] and all associated data?",
+					 "confirmLabel": "Delete"
+					 }'
+		   >
 
-<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Paleopathology Investigation</strong></button>
-</semantic-update>
-<hr><br>
-<hr>
-<bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false 
-id="maintabs"
-default-active-key="[[#if (urlParam 'tab')]][[urlParam 'tab']][[else]]skull[[/if]]">
+    <button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Paleopathology Investigation</strong></button>
+  </semantic-update>
+  <hr><br>
+  <hr>
+  <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false 
+	   id="maintabs"
+	   default-active-key="[[#if (urlParam 'tab')]][[urlParam 'tab']][[else]]skull[[/if]]">
 
-<!-- SKULL -->
-<bs-tab event-key="skull" title="Skull">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Skull section</h4>
- <semantic-form-recover-notification></semantic-form-recover-notification>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronSkullROIs>"]]
+    <!-- SKULL -->
+    <bs-tab event-key="skull" title="Skull">  
+      <h4>Create New Bone Addition Instance for [[this.label]] in the Skull section</h4>
+      <semantic-form-recover-notification></semantic-form-recover-notification>
+      [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronSkullROIs>"]]
 
-<hr>
+	    <hr>
 
-<h4>Create New Bone Loss Instance for [[this.label]] in the Skull section</h4>
- <semantic-form-recover-notification></semantic-form-recover-notification>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronSkullROIs>"]]
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Skull section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronSkullROIs>"]]
 
- </bs-tab>
+    </bs-tab>
 
- <!-- Vertebral Column -->
-<bs-tab event-key="vertebral" title="Vertebral Column">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Vertebral Column section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronVertebralColumnROIs>"]]
-</bs-tab>
+    <!-- Vertebral Column -->
+    <bs-tab event-key="vertebralcolumn" title="Vertebral Column">  
+      <h4>Create New Bone Addition Instance for [[this.label]] in the Vertebral Column section</h4>
+      [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronVertebralColumnROIs>"]]
 
-<!-- THORAX -->
-<bs-tab event-key="thorax" title="Thorax">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Thorax section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronThoraxROIs>"]]
+	    <hr>
+
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Vertebral Column section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronVertebralColumnROIs>"]]
+    </bs-tab>
+
+    <!-- THORAX -->
+    <bs-tab event-key="thorax" title="Thorax">  
+      <h4>Create New Bone Addition Instance for [[this.label]] in the Thorax section</h4>
+      [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronThoraxROIs>"]]
+	    <hr>
+	    
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Thorax section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronThoraxROIs>"]]
+    </bs-tab>
 </bs-tab>
 
 <!-- OS COXAE -->
-<bs-tab event-key="Os coxae" title="Os Coxae">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Os Coxae section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronOsCoxaeROIs>"]]
+<bs-tab event-key="oscoxae" title="Os Coxae">  
+  <h4>Create New Bone Addition Instance for [[this.label]] in the Os Coxae section</h4>
+  [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronOsCoxaeROIs>"]]
+	<hr>
+	    
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Os Coxae section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronOsCoxaeROIs>"]]
 </bs-tab>
 
 <!-- Shoulder Girdle -->
-<bs-tab event-key="shoulder_girdle" title="Shoulder Girdle">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Shoulder Girdle section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/PhaleronShoulderGirdleROIs>"]]
+<bs-tab event-key="shouldergirdle" title="Shoulder Girdle">  
+  <h4>Create New Bone Addition Instance for [[this.label]] in the Shoulder Girdle section</h4>
+  [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/PhaleronShoulderGirdleROIs>"]]
+	<hr>
+	    
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Shoulder Girdle section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronShoulderGirdleROIs>"]]
 </bs-tab>
 
 <!-- Arm -->
-<bs-tab event-key="arm" title="Arm">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Arm section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronUpperLimbROIs>"]]
+<bs-tab event-key="upperlimb" title="Arm">  
+  <h4>Create New Bone Addition Instance for [[this.label]] in the Arm section</h4>
+  [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronUpperLimbROIs>"]]
+	<hr>
+	    
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Arm Girdle section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronUpperLimbROIs>"]]
 </bs-tab>
 
 <!-- Leg -->
-<bs-tab event-key="leg" title="Leg">  
-<h4>Create New Bone Addition Instance for [[this.label]] in the Leg section</h4>
-[[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronLowerLimbROIs>"]]
+<bs-tab event-key="lowerlimb" title="Leg">  
+  <h4>Create New Bone Addition Instance for [[this.label]] in the Leg section</h4>
+  [[>:PSI_AddPathology_Template paleopath_type="Bone Addition" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneAdditionDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronLowerLimbROIs>"]]
+	<hr>
+	    
+	    <h4>Create New Bone Loss Instance for [[this.label]] in the Leg Girdle section</h4>
+	    <semantic-form-recover-notification></semantic-form-recover-notification>
+	    [[>:PSI_AddPathology_Template paleopath_type="Bone Loss" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>" paleopath_datasection_type="<http://w3id.org/rdfbones/ext/phaleron-patho/BoneLossDatasetSection>" ROItype="<http://w3id.org/rdfbones/anthrograph/app/phaleron-app/PhaleronLowerLimbROIs>"]]
 </bs-tab>
 
 <hr>

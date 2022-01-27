@@ -4,7 +4,6 @@
     "xsdDatatype": "xsd:anyURI",
     "maxOccurs": 1,
     "minOccurs": 1,
-
     "selectPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
@@ -30,14 +29,13 @@
                            <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
                            owl:someValuesFrom|owl:onClass ?selection .
   						
-  			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
-			        OPTIONAL {
+  					        ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
+                     OPTIONAL {
                             ?index obo:IAO_0000136 ?value .	
                             ?index a [[sortingclass]].
-                    }
-			       
+                          }
                    
-                    }  ORDER BY ?index",
+                    } ORDER BY ?index",
                   "insertPattern": "
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -64,13 +62,14 @@
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
+                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>
 
-                    DELETE {?ValueSpec obo:OBI_0000999 $value .}
+                    DELETE {?ValueSpec obo:OBI_0000999 $value1 .}
                       WHERE {
                         ?subject obo:BFO_0000051 ?presence .
-                          ?presence a [[connected_class]] .
+                          ?presence a ?del  .
+                          FILTER (?del IN ([[connected_class_delete]]) )
                           ?presence obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
+                          ?ValueSpec obo:OBI_0000999 $value1 .
                         }"
 }
