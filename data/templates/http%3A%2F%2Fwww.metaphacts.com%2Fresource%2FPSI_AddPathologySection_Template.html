@@ -97,7 +97,8 @@ fields='[{
         ?extent_involvement obo:OBI_0001938 ?extent_involvement_VS .
 
        }} WHERE {GRAPH ?mygraph {?? a ?o }
-        $value rdfs:label ?label .
+        $value  a $value_class .
+	$value_class rdfs:label ?label .
         BIND(URI(CONCAT(STR(?subject),\"_AnatomicalSite\")) AS ?anatomical_site) .
         BIND(URI(CONCAT(STR(?subject),\"_AnatomicalSiteVS\")) AS ?anatomical_site_VS) .
         BIND(URI(CONCAT(STR(?subject),\"_AnatomicalAspect\")) AS ?anatomical_aspect) .
@@ -117,7 +118,7 @@ fields='[{
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-      SELECT DISTINCT $value WHERE {          
+      SELECT DISTINCT $value ?label WHERE {          
         ?? obo:IAO_0000136 ?ROIinstance .
         ?ROIinstance a $ROIclass .
         ?ROIclass rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
@@ -126,21 +127,22 @@ fields='[{
               owl:onProperty ?myproperty ;
               owl:someValuesFrom ?restriction_values .
         ?restriction_values owl:intersectionOf ?whatelse .
-        ?whatelse ?p ?value .
-        ?value rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+        ?whatelse ?p ?value_class .
+        ?value_class rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
         ?ppdataset obo:BFO_0000051 ?? .
         ?ppinvest  obo:OBI_0000299 ?ppdataset.
         ?ppinvest obo:OBI_0000293 ?mySkelSpecimen .
         ?mySI <http://semanticscience.org/resource/SIO_000563> ?mySkelSpecimen .
         ?mySI  obo:BFO_0000051 ?mysection.
         ?mysection obo:BFO_0000051 ?MD .
-  		  ?MD obo:IAO_0000136 ?ROI .
-        ?ROI a $value .
+  		  ?MD obo:IAO_0000136 ?value .
+        ?value a $value_class .
         ?MD     obo:OBI_0001938 ?VS .
         ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/phaleron-si/Observable> .
         ?whatelse rdf:rest ?rest .
         ?rest rdf:first ?desc.
         ?desc owl:hasValue ?index .
+	?value_class rdfs:label ?label.
         } ORDER BY ?index "
 
 ,
