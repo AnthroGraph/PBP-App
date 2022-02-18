@@ -97,7 +97,7 @@ SELECT $value WHERE {
       SELECT DISTINCT ?RP ?date ?typelabel ?typeofEvent ?homosapiens WHERE { 
              ?paleopath_observation obo:OBI_0000299 ??.
              ?paleopath_observation a [[paleopath_observation_type]] .
-             ?paleopath_observation obo:BFO_0000051  $subject.
+             ?paleopath_observation obo:BFO_0000051  ?RP.
              ?RP a [[research_process_type]] .        
              OPTIONAL {?RP dc:date ?date } .
              OPTIONAL {?RP obo:BFO_0000054 ?typeofEvent .
