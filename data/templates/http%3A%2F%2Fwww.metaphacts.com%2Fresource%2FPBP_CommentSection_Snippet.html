@@ -1,0 +1,57 @@
+  <semantic-form
+              id = 'Comment'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='[[id]]'
+              persistence='sparql'
+              fields='[{
+              "id": "[[id]]",
+              "label": "[[MyLabel]]",
+              "xsdDatatype": "xsd:string",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+  
+              "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?mycomment.
+                          ?mycomment a [[comment_type]] .
+                          ?mycomment rdfs:comment ?value .
+                    }",
+
+                  
+              "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {?subject obo:BFO_0000051 ?mycomment.
+                          ?mycomment a [[comment_type]] .
+                          ?mycomment obo:IAO_0000136 [[PBP_ROI]] .
+                          ?mycomment rdfs:comment ?value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          BIND(URI(CONCAT(STR(?subject),\"-[[id]]\")) AS ?mycomment ) . 
+
+  					        }",
+                    "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    DELETE {?mycomment rdfs:comment ?value}
+                      WHERE {
+                          ?subject obo:BFO_0000051 ?mycomment.
+                          ?mycomment a [[comment_type]] .
+                          ?mycomment rdfs:comment ?value .
+                       
+                    }"
+
+              }]'>
+             <h4>Comment on Pathologies</h4>
+                      <semantic-form-text-input for='[[id]]' multiline="true"></semantic-form-text-input>
+                       <button name="submit" class="btn btn-primary"><strong>Save [[MyLabel]]</strong></button>
+                      <button name="reset" class="btn btn-secondary">Reset</button>
+                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-comment-update" ufbTemplate="Comment-Template" ufbname="Comment" ]]
+                      <!-- Placement of feedback on form update -->              
+</semantic-form>  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Comment" event-target="show-after-comment-update"]]
+
+               
