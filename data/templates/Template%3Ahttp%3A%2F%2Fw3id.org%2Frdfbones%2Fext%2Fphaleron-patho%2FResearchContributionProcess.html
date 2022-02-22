@@ -16,7 +16,7 @@ PREFIX dc: <http://purl.org/dc#>
                 ?PPI obo:BFO_0000051 ?? .
                 ?? a ?RP .
                 ?? rdfs:label ?label .                
-                ?? obo:BFO_0000054 ?myrole .
+                ?myrole obo:BFO_0000054 ?? .
                 ?myrole a ?roletype .
                 ?myrole obo:RO_0000081 ?myobserver.
                 ?? obo:RO_0000057 ?myobserver .
@@ -29,7 +29,7 @@ PREFIX dc: <http://purl.org/dc#>
                 OPTIONAL {
                 ?? rdfs:label ?label .
                 } 
-                ?? obo:BFO_0000054 ?myrole .
+                ?myrole obo:BFO_0000054 ?? .
                 ?myrole a ?roletype .
                 ?? dc:date ?date. 
               OPTIONAL {
@@ -74,7 +74,7 @@ fields='[{
         ?role obo:RO_0000081 $value.             
        }} WHERE {
         GRAPH ?mygraph {?? a ?o } .
-        $subject obo:BFO_0000054 ?role .
+         ?role obo:BFO_0000054 $subject.
 }",
 
 "valueSetPattern": "
@@ -99,7 +99,7 @@ SELECT $value WHERE{
         ?role obo:RO_0000081 $value.             
        }} WHERE {
         GRAPH ?mygraph {?? a ?o } .
-        $subject obo:BFO_0000054 ?role .
+        ?role obo:BFO_0000054 $subject .
         ?role obo:RO_0000081 $value.
 }"
 
