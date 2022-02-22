@@ -1,0 +1,112 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing Bone Addition Section: <strong>[[this.label]]</strong></h4>
+<br>
+[[>:PBP_Dataset_Section_Snippet_Header]]
+
+
+[[>:PSI_AddPathologySection_Template section_type="Bone Loss"]]
+
+
+
+<br> <hr>
+<h4>Add Additional Information</h4>
+<semantic-form
+subject='[[this]]'
+post-action='reload'
+persistence='sparql'
+id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+  [[>:PSI_SectionFormsSwitch_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfFracture" connected_class="phaleron-patho:PresenceOfFracture" id="PresenceOfFracture" label="Presence Of Fracture" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfTraumaLabelSorting>"  connected_class_delete="phaleron-patho:PresenceOfFracture,  phaleron-patho:TypeOfFracture, phaleron-patho:FractureSequelae"]],
+
+  [[>:PSI_SectionForms_Template value_spec="phaleron-patho:TypeOfTraumaValueSpecification" connected_iristring="TypeOfTrauma" connected_class="phaleron-patho:TypeOfTrauma" id="TypeOfTrauma" label="Type Of Trauma" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfFractureLabelSorting>"]],
+
+   [[>:PSI_SectionForms_Template value_spec="phaleron-patho:PossiblePresenceOfFeatureValueSpecification" connected_iristring="PresenceOfDislocation" connected_class="phaleron-patho:PresenceOfDislocation" id="PresenceOfDislocation" label="Presence Of Dislocation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfTraumaLabelSorting>"]],
+
+ [[>:PSI_SectionForms_Template value_spec="phaleron-patho:TimingOfInjuryValueSpecification" connected_iristring="TimingOfInjury" connected_class="phaleron-patho:TimingOfInjury" id="TimingOfInjury" label="Timing Of Injury" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TimingOfInjuryLabelSorting>"]]
+  
+  
+]'
+
+>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='PresenceOfFracture'></semantic-form-select-input>
+<semantic-form-select-input for='TypeOfTrauma'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfDislocation'></semantic-form-select-input>
+<semantic-form-select-input for='TimingOfInjury'></semantic-form-select-input>
+
+<div><strong>INFO:</strong> After saving this sub-form, a new entry field will appear below to specify the type of response</div><br>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+
+
+<!-- SWITCH EVENT -->
+  <semantic-query query="PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    SELECT ?value WHERE {
+                          ?? obo:BFO_0000051 ?presence .
+                          ?presence a phaleron-patho:PresenceOfFracture .
+                          ?presence obo:OBI_0001938 ?ValueSpec .
+                          ?ValueSpec obo:OBI_0000999 $value .
+                          
+                    }" template="{{> t}}">
+    <template id="t">
+      {{#ifCond bindings.0.value.value "!=" "http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"}}
+      <semantic-form
+	subject='[[this]]'
+	post-action='event'
+	persistence='sparql'
+	id="additonal-info-switch-1"
+	form-id="additonal-info"
+	browser-persistence='true'
+	fields='[
+     
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:TypeOfFractureValueSpecification" connected_iristring="TypeOfFracture" connected_class="phaleron-patho:TypeOfFracture" id="TypeOfFracture" label="Type Of Fracture" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/TypeOfFractureLabelSorting>"]],
+		
+		[[>:PSI_SectionForms_Template value_spec="phaleron-patho:FractureSequelaeValueSpecification" connected_iristring="FractureSequelae" connected_class="phaleron-patho:FractureSequelae" id="FractureSequelae" label="Fracture Sequelae" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/FractureSequelaeLabelSorting>"]]
+  
+]'
+
+>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='TypeOfFracture'></semantic-form-select-input>
+<semantic-form-select-input for='FractureSequelae'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-switch-1" ufbTemplate="additional-Template-1" ufbname="Fracture Specification"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info-switch-1" event-target="show-after-additonalinfo-switch-1"]]
+     
+{{/ifCond}}
+    </template>
+  </semantic-query>
+
+
+<br>
+
+
+
+<hr>
+<h4> Create New Observer/Editing Event</h4>
+[[>:PSI_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfBoneLoss>"]]
+
+
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
+Back to Paleopath Summary</strong>
+</semantic-link>
+</div>
+
+
+<!-- Testing -->
+
+
+
+</div>
