@@ -1,0 +1,204 @@
+<semantic-form
+post-action='event'
+persistence='sparql'
+browser-persistence=true
+form-id="labelupdate"
+id="label"
+subject=[[this]]
+fields='[{ 
+    "id": "label",
+    "label": "Edit Label",
+    "xsdDatatype": "xsd:string",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "selectPattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               SELECT ?value WHERE {$subject rdfs:label ?value}"
+    ,
+    "insertPattern":"
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               INSERT {GRAPH ?mygraph { $subject rdfs:label ?value }} WHERE {
+                 GRAPH ?mygraph {$subject a ?o }}            
+              ",
+      "deletePattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               DELETE {$subject rdfs:label ?value }  WHERE {
+                 $subject rdfs:label ?value               
+               }"
+               ,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+                              ?? a ?paleopath_datasection_type .
+                              ?s a ?paleopath_datasection_type .
+                              ?paleopath obo:BFO_0000051 ?? .
+   			      ?paleopath obo:BFO_0000051 ?s .
+                              ?s rdfs:label $value.
+                              
+                              
+  											    }}",
+                  "message": "This Paleopath Instance already has an identically named item"
+                  }]
+    
+               
+
+}]'
+>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-text-input for="label"></semantic-form-text-input>
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button> [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Label"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="label" event-target="show-after-label-update"]]
+
+<semantic-form
+new-subject-template="http://pbp-paleoppath.org/records/PhaleronROIAspectSpecification-{{UUID}}"
+post-action='redirect'
+persistence='sparql'
+browser-persistence=true
+form-id="PhaleronROISpecification"
+
+fields='[{
+    "id": "roispec",
+    "label": "New ROI Specification",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "insertPattern": "
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+      
+      INSERT {GRAPH ?mygraph {  
+        ?? obo:BFO_0000051 $subject.
+        $subject a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronROIAspectSpecification> .
+        $subject obo:IAO_0000136 $value .
+        $subject rdfs:label ?label .
+        
+        $subject obo:BFO_0000051 ?anatomical_aspect .
+        ?anatomical_aspect a phaleron-patho:AnatomicalAspect.
+        ?anatomical_aspect_VS a phaleron-patho:AnatomicalAspectValueSpecification.
+        ?anatomical_aspect obo:OBI_0001938 ?anatomical_aspect_VS .
+        
+        }} WHERE {GRAPH ?mygraph {?? a ?o }
+        $value  a $value_class .
+	$value_class rdfs:label ?label .
+        BIND(URI(CONCAT(STR(?subject),\"_AnatomicalAspect\")) AS ?anatomical_aspect) .
+        BIND(URI(CONCAT(STR(?subject),\"_AnatomicalAspectVS\")) AS ?anatomical_aspect_VS) .
+        
+
+       } 
+       
+",
+"valueSetPattern": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+      SELECT DISTINCT $value ?label WHERE {          
+        ?? obo:IAO_0000136 ?ROIinstance .
+        ?ROIinstance a $ROIclass .
+        ?ROIclass rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
+        ?ROIclass rdfs:subClassOf ?myRS .
+        ?myRS a owl:Restriction ;
+              owl:onProperty ?myproperty ;
+              owl:someValuesFrom ?restriction_values .
+        ?restriction_values owl:intersectionOf ?whatelse .
+        ?whatelse ?p ?value_class .
+        ?value_class rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+        ?ppdataset obo:BFO_0000051 ?? .
+        ?ppinvest  obo:OBI_0000299 ?ppdataset.
+        ?ppinvest obo:OBI_0000293 ?mySkelSpecimen .
+        ?mySI <http://semanticscience.org/resource/SIO_000563> ?mySkelSpecimen .
+        ?mySI  obo:BFO_0000051 ?mysection.
+        ?mysection obo:BFO_0000051 ?MD .
+  		  ?MD obo:IAO_0000136 ?value .
+        ?value a $value_class .
+        ?MD     obo:OBI_0001938 ?VS .
+        ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/phaleron-si/Observable> .
+        ?whatelse rdf:rest ?rest .
+        ?rest rdf:first ?desc.
+        ?desc owl:hasValue ?index .
+	?value_class rdfs:label ?label.
+        } ORDER BY ?index "
+
+,
+"deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE {?? obo:BFO_0000051 $subject.} WHERE {?? obo:BFO_0000051 $subject.} "
+,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+   									         	?? obo:BFO_0000051 ?s.
+                              ?s obo:IAO_0000136 $value.
+                              
+  											    }}",
+                  "message": "This [[section_type]] Section already references this ROI"
+                  }]
+}]'>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='roispec'></semantic-form-select-input><button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+    <button name="reset" class="btn btn-secondary">Reset</button>
+</semantic-form>
+<br><br>
+<h3>Show all available ROI Specifications :</h3></hr>
+<semantic-table 
+  query="
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX phaleron-patho: <http://w3id.org/rdfbones/ext/phaleron-patho/>
+
+      SELECT DISTINCT ?roispec ?anatsite ?anataspect ?involvement WHERE { 
+             ?roispec a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronROIAspectSpecification> .
+             ?? obo:BFO_0000051 ?roispec .   
+             OPTIONAL {
+            ?roispec obo:BFO_0000051 ?anatomical_site .
+            ?anatomical_site a phaleron-patho:AnatomicalSite.
+            ?anatomical_site_VS a phaleron-patho:AnatomicalSiteValueSpecification.
+            ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS.
+            ?anatomical_site_VS obo:OBI_0000999 ?anatsite .          
+            }    
+          OPTIONAL {
+            ?roispec obo:BFO_0000051 ?anatomical_aspect .
+            ?anatomical_aspect a phaleron-patho:AnatomicalAspect.
+            ?anatomical_aspect_VS a phaleron-patho:AnatomicalAspectValueSpecification.
+            ?anatomical_aspect obo:OBI_0001938 ?anatomical_aspect_VS.
+            ?anatomical_aspect_VS obo:OBI_0000999 ?anataspect .      
+           }    
+           OPTIONAL {
+            ?roispec obo:BFO_0000051 ?ExtentOfInvolvement .
+            ?ExtentOfInvolvement a phaleron-patho:ExtentOfInvolvement.
+            ?ExtentOfInvolvement_VS a phaleron-patho:ExtentOfInvolvementValueSpecification.
+            ?ExtentOfInvolvement obo:OBI_0001938 ?ExtentOfInvolvement_VS.
+            ?ExtentOfInvolvement_VS obo:OBI_0000999 ?involvement .      
+           }          
+      }"
+     options='{
+      "enableGrouping": true,
+      "groupingOptions": {"groupedBy": ["roispec"]}
+    }'
+  column-configuration='[
+    {"variableName": "roispec", "displayName": "ROI Specification"},
+    {"variableName": "anatsite", "displayName": "Anatomical Site"},
+    {"variableName": "anataspect", "displayName": "Anatomical Aspect"}
+    ,
+    {"variableName": "involvement", "displayName": "Extent of Involvement"}
+    ]'
+></semantic-table>

@@ -24,7 +24,7 @@ fields='[{
         $subject a [[research_process_type]] .        
         ?role a $value .
         
-        $subject obo:BFO_0000054 ?role .        
+        ?role obo:BFO_0000054 $subject .        
         $subject rdfs:label ?label .
        }} WHERE {
         GRAPH ?mygraph {?? a ?o } .
@@ -100,7 +100,7 @@ SELECT $value WHERE {
              ?paleopath_observation obo:BFO_0000051  ?RP.
              ?RP a [[research_process_type]] .        
              OPTIONAL {?RP dc:date ?date } .
-             OPTIONAL {?RP obo:BFO_0000054 ?typeofEvent .
+             OPTIONAL {?typeofEvent obo:BFO_0000054 ?RP .
              ?typeofEvent a ?typeclass .
              ?typeclass rdfs:label ?typelabel} .
              ?RP obo:RO_0000057 ?homosapiens.
