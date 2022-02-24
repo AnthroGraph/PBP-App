@@ -1,10 +1,10 @@
 <div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
 <h4>You are currently viewing/editing Bone Addition Section: <strong>[[this.label]]</strong></h4>
 <br>
-[[>:PBP_Dataset_Section_Snippet_Header]]
+[[>:PBP_Patho_Dataset_Section_Snippet_Header]]
 
 
-[[>:PBP_AddPathologySectionNoROISpec_Template section_type="Osteoarthritis/Osteoporosis"]]
+[[>:PBP_Patho_AddPathologySectionNoROISpec_Template section_type="Osteoarthritis/Osteoporosis"]]
 
 
 <br> <hr>
@@ -18,15 +18,15 @@ form-id="additonal-info"
 browser-persistence='true'
 fields='[
 
-  [[>:PBP_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfBoneLipping" connected_class="phaleron-patho:DegreeOfBoneLipping" id="DegreeOfBoneLipping" label="Degree Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneLipping,  phaleron-patho:ExtentOfBoneLipping"]],
+  [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfBoneLipping" connected_class="phaleron-patho:DegreeOfBoneLipping" id="DegreeOfBoneLipping" label="Degree Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneLipping,  phaleron-patho:ExtentOfBoneLipping"]],
   
-   [[>:PBP_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneSurfacePorosityValueSpecification" connected_iristring="DegreeOfBoneSurfacePorosity" connected_class="phaleron-patho:DegreeOfBoneSurfacePorosity" id="DegreeOfBoneSurfacePorosity" label="Degree Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DegreeOfBoneSurfacePorosityLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneSurfacePorosity,  phaleron-patho:ExtentOfBoneSurfacePorosity"]],
+   [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneSurfacePorosityValueSpecification" connected_iristring="DegreeOfBoneSurfacePorosity" connected_class="phaleron-patho:DegreeOfBoneSurfacePorosity" id="DegreeOfBoneSurfacePorosity" label="Degree Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DegreeOfBoneSurfacePorosityLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneSurfacePorosity,  phaleron-patho:ExtentOfBoneSurfacePorosity"]],
 
-    [[>:PBP_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneSurfaceEburnationValueSpecification" connected_iristring="DegreeOfBoneSurfaceEburnation" connected_class="phaleron-patho:DegreeOfBoneSurfaceEburnation" id="DegreeOfBoneSurfaceEburnation" label="Degree Of Bone Surface Eburnation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DegreeOfBoneSurfaceEburnationLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneSurfaceEburnation,  phaleron-patho:ExtentOfBoneSurfaceEburnation"]],
+    [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneSurfaceEburnationValueSpecification" connected_iristring="DegreeOfBoneSurfaceEburnation" connected_class="phaleron-patho:DegreeOfBoneSurfaceEburnation" id="DegreeOfBoneSurfaceEburnation" label="Degree Of Bone Surface Eburnation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DegreeOfBoneSurfaceEburnationLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneSurfaceEburnation,  phaleron-patho:ExtentOfBoneSurfaceEburnation"]],
   
-  [[>:PBP_SectionForms_Template value_spec="phaleron-patho:PresenceAndPerceptibilityOfFeatureValueSpecification" connected_iristring="PresenceAndPerceptibilityOfOsteophytes" connected_class="phaleron-patho:PresenceAndPerceptibilityOfOsteophytes" id="PresenceAndPerceptibilityOfOsteophytes" label="Presence and Perceptibility of Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]],
+  [[>:PBP_Patho_SectionForms_Template value_spec="phaleron-patho:PresenceAndPerceptibilityOfFeatureValueSpecification" connected_iristring="PresenceAndPerceptibilityOfOsteophytes" connected_class="phaleron-patho:PresenceAndPerceptibilityOfOsteophytes" id="PresenceAndPerceptibilityOfOsteophytes" label="Presence and Perceptibility of Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]],
   
-  [[>:PBP_SectionFormsSwitch_Template value_spec="phaleron-patho:PresenceAndPerceptibilityOfFeatureValueSpecification" connected_iristring="PresenceAndPerceptibilityOfFeatureValueSpecification" connected_class="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" id="PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" label="Presence And Perceptibility Of Periarticular Resorptive Foci" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci,  phaleron-patho:ExtentOfPeriarticularResorptiveFoci"]]
+  [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:PresenceAndPerceptibilityOfFeatureValueSpecification" connected_iristring="PresenceAndPerceptibilityOfFeatureValueSpecification" connected_class="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" id="PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" label="Presence And Perceptibility Of Periarticular Resorptive Foci" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci,  phaleron-patho:ExtentOfPeriarticularResorptiveFoci"]]
   
 ]'
 
@@ -47,17 +47,17 @@ fields='[
  [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
 
 
-[[>:PBP_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneLipping" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneLipping" connected_class="phaleron-patho:ExtentOfBoneLipping" id="ExtentOfBoneLipping" label="Extent Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+[[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneLipping" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneLipping" connected_class="phaleron-patho:ExtentOfBoneLipping" id="ExtentOfBoneLipping" label="Extent Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
-  [[>:PBP_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneSurfacePorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneSurfacePorosity" connected_class="phaleron-patho:ExtentOfBoneSurfacePorosity" id="ExtentOfBoneSurfacePorosity" label="Extent Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+  [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneSurfacePorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneSurfacePorosity" connected_class="phaleron-patho:ExtentOfBoneSurfacePorosity" id="ExtentOfBoneSurfacePorosity" label="Extent Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
-    [[>:PBP_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneSurfaceEburnation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneSurfaceEburnation" connected_class="phaleron-patho:ExtentOfBoneSurfaceEburnation" id="ExtentOfBoneSurfaceEburnation" label="Extent Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+    [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:DegreeOfBoneSurfaceEburnation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneSurfaceEburnation" connected_class="phaleron-patho:ExtentOfBoneSurfaceEburnation" id="ExtentOfBoneSurfaceEburnation" label="Extent Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
-       [[>:PBP_OAOP_Switch_Template type="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfPeriarticularResorptiveFoci" connected_class="phaleron-patho:ExtentOfPeriarticularResorptiveFoci" id="ExtentOfPeriarticularResorptiveFoci" label="Extent Of Periarticular ResorptiveFoci" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+       [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfPeriarticularResorptiveFoci" connected_class="phaleron-patho:ExtentOfPeriarticularResorptiveFoci" id="ExtentOfPeriarticularResorptiveFoci" label="Extent Of Periarticular ResorptiveFoci" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
 <hr>
 <h4> Create New Observer/Editing Event</h4>
-[[>:PBP_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfOsteoarthritisAndOsteoporosis>"]]
+[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfOsteoarthritisAndOsteoporosis>"]]
 
 
 <semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>

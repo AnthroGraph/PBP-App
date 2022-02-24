@@ -1,12 +1,12 @@
 <div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
 <h4>You are currently viewing/editing Bone Addition Section: <strong>[[this.label]]</strong></h4>
 <br>
-[[>:PBP_Dataset_Section_Snippet_Header]]
+[[>:PBP_Patho_Dataset_Section_Snippet_Header]]
 <br>
 <hr>
 
 
-[[>:PBP_AddPathologySection_Template section_type="Bone Addition"]]
+[[>:PBP_Patho_AddPathologySection_Template section_type="Bone Addition"]]
 
 
 <br> <hr>
@@ -19,12 +19,12 @@ id="additonal-info"
 form-id="additonal-info"
 browser-persistence='true'
 fields='[
-  [[>:PBP_SectionForms_Template connected value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalMatrix" connected_class="phaleron-patho:PresenceOfAbnormalMatrix" id="PresenceOfAbnormalMatrix" label="Presence of Abnormal Matrix" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"]],
+  [[>:PBP_Patho_SectionForms_Template connected value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalMatrix" connected_class="phaleron-patho:PresenceOfAbnormalMatrix" id="PresenceOfAbnormalMatrix" label="Presence of Abnormal Matrix" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"]],
 
-   [[>:PBP_SectionForms_Template connected value_spec="phaleron-patho:EndostealSurfaceBoneFormationCharacteristicsValueSpecification" connected_iristring="EndostealSurfaceBoneFormationCharacteristics"  connected_class="phaleron-patho:BoneFormationCharacteristics" id="EndostealSurfaceBoneFormationCharacteristics" label="Endosteal Surface Bone Formation Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/EndostealSurfaceBoneFormationCharacteristicsLabelSorting>" ]],
+   [[>:PBP_Patho_SectionForms_Template connected value_spec="phaleron-patho:EndostealSurfaceBoneFormationCharacteristicsValueSpecification" connected_iristring="EndostealSurfaceBoneFormationCharacteristics"  connected_class="phaleron-patho:BoneFormationCharacteristics" id="EndostealSurfaceBoneFormationCharacteristics" label="Endosteal Surface Bone Formation Characteristics" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/EndostealSurfaceBoneFormationCharacteristicsLabelSorting>" ]],
 
   
-   [[>:PBP_SectionForms_Template connected value_spec="standards-patho:TypeOfBoneValueSpecification" connected_iristring="AddedBoneCharacteristics" connected_class="phaleron-patho:AddedBoneCharacteristics" id="AddedBoneCharacteristics" label="Added Bone Characteristics" sortingclass="<http://dummy>"]]
+   [[>:PBP_Patho_SectionForms_Template connected value_spec="standards-patho:TypeOfBoneValueSpecification" connected_iristring="AddedBoneCharacteristics" connected_class="phaleron-patho:AddedBoneCharacteristics" id="AddedBoneCharacteristics" label="Added Bone Characteristics" sortingclass="<http://dummy>"]]
 ]'
 
 >
@@ -42,7 +42,7 @@ fields='[
 
 <hr>
 <h4> Create New Observer/Editing Event</h4>
-[[>:PBP_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>"]]
+[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfAddedBone>"]]
 
 
 <semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
