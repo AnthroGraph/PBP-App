@@ -73,7 +73,8 @@ fields='[{
   ?? obo:IAO_0000136 $value .
   ?? obo:IAO_0000136 ?ROIinstance .
         ?ROIinstance a $ROIclass .
-        ?ROIclass rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
+        ?ROIclass rdfs:subClassOf* <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
+
         ?ROIclass rdfs:subClassOf ?myRS .
         ?myRS a owl:Restriction ;
               owl:onProperty ?myproperty ;
@@ -124,7 +125,7 @@ fields='[{
        SELECT DISTINCT $value ?label $ROI WHERE {          
         ?? obo:IAO_0000136 ?ROIinstance .
         ?ROIinstance a $ROIclass .
-        ?ROIclass rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
+        ?ROIclass rdfs:subClassOf* <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
         ?ROIclass rdfs:subClassOf ?myRS .
         ?myRS a owl:Restriction ;
               owl:onProperty ?myproperty ;
