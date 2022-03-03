@@ -125,8 +125,11 @@ fields='[{
   		  ?MD obo:IAO_0000136 ?value .
         ?value a $value_class .
         ?MD     obo:OBI_0001938 ?VS .
-        ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/phaleron-si/Observable> .
-        ?whatelse rdf:rest ?rest .
+	FILTER(
+	NOT EXISTS {
+        ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/standards-si/missing> 
+	})
+	?whatelse rdf:rest ?rest .
         ?rest rdf:first ?desc.
         ?desc owl:hasValue ?index .
 	?value_class rdfs:label ?label.
