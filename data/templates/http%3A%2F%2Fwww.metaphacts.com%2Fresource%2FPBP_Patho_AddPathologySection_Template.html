@@ -135,11 +135,13 @@ fields='[{
         ?mySI <http://semanticscience.org/resource/SIO_000563> ?mySkelSpecimen .
         ?mySI  obo:BFO_0000051 ?mysection.
         ?mysection obo:BFO_0000051 ?MD .
-  		  ?MD obo:IAO_0000136 ?value .
+  	?MD obo:IAO_0000136 ?value .
+	?MD a <http://w3id.org/rdfbones/ext/standards-si/Representation4States> .
         ?value a $value_class .
         ?MD     obo:OBI_0001938 ?VS .
-        ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/phaleron-si/Observable> .
-        ?whatelse rdf:rest ?rest .
+	?VS obo:OBI_0000999 ?MDV .
+	Filter(?MDV NOT IN (<http://w3id.org/rdfbones/ext/standards-si/missing>) )
+	?whatelse rdf:rest ?rest .
         ?rest rdf:first ?desc.
         ?desc owl:hasValue ?index .
 	?value_class rdfs:label ?label.
