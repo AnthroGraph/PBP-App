@@ -122,13 +122,12 @@ fields='[{
         ?mySI <http://semanticscience.org/resource/SIO_000563> ?mySkelSpecimen .
         ?mySI  obo:BFO_0000051 ?mysection.
         ?mysection obo:BFO_0000051 ?MD .
-  		  ?MD obo:IAO_0000136 ?value .
+  	?MD obo:IAO_0000136 ?value .
+	?MD a <http://w3id.org/rdfbones/ext/standards-si/Representation4States> .
         ?value a $value_class .
         ?MD     obo:OBI_0001938 ?VS .
-	FILTER(
-	NOT EXISTS {
-        ?VS obo:OBI_0000999 <http://w3id.org/rdfbones/ext/standards-si/missing> 
-	})
+	?VS obo:OBI_0000999 ?MDV .
+	Filter(?MDV NOT IN (<http://w3id.org/rdfbones/ext/standards-si/missing>) )
 	?whatelse rdf:rest ?rest .
         ?rest rdf:first ?desc.
         ?desc owl:hasValue ?index .
@@ -148,8 +147,8 @@ fields='[{
                          PREFIX obo: <http://purl.obolibrary.org/obo/>
                          PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
                          ASK WHERE { FILTER NOT EXISTS {
-   									         	?? obo:BFO_0000051 ?s.
-                              ?s obo:IAO_0000136 $value.
+   			 ?? obo:BFO_0000051 ?s.
+                         ?s obo:IAO_0000136 $value.
                               
   											    }}",
                   "message": "This [[section_type]] Section already references this ROI"
