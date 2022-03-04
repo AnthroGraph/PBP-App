@@ -18,6 +18,8 @@ form-id="additonal-info"
 browser-persistence='true'
 fields='[
 
+	[[>:PBP_Patho_SectionForms_Template value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfOsteoarthritisOrOsteoporosisLesion" connected_class="phaleron-patho:LocationOfOsteoarthritisOrOsteoporosisLesion" id="LocationOfOsteoarthritisOrOsteoporosisLesion" label="Location Of Osteoarthritis Or Osteoporosis Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]],
+
   [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfBoneLipping" connected_class="phaleron-patho:DegreeOfBoneLipping" id="DegreeOfBoneLipping" label="Degree Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneLipping,  phaleron-patho:ExtentOfBoneLipping"]],
   
    [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="phaleron-patho:DegreeOfBoneSurfacePorosityValueSpecification" connected_iristring="DegreeOfBoneSurfacePorosity" connected_class="phaleron-patho:DegreeOfBoneSurfacePorosity" id="DegreeOfBoneSurfacePorosity" label="Degree Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DegreeOfBoneSurfacePorosityLabelSorting>" connected_class_delete="phaleron-patho:DegreeOfBoneSurfacePorosity,  phaleron-patho:ExtentOfBoneSurfacePorosity"]],
@@ -32,6 +34,7 @@ fields='[
 
 >
   <semantic-form-recover-notification></semantic-form-recover-notification>
+  <semantic-form-select-input for='LocationOfOsteoarthritisOrOsteoporosisLesion'></semantic-form-select-input>
   <semantic-form-select-input for='DegreeOfBoneLipping'></semantic-form-select-input>
   <semantic-form-select-input for='DegreeOfBoneSurfacePorosity'></semantic-form-select-input>
   <semantic-form-select-input for='DegreeOfBoneSurfaceEburnation'></semantic-form-select-input>
