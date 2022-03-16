@@ -1,6 +1,6 @@
-<h2><strong>Splanchnocranium</strong></h2> 
+<h2><strong>Splanchnocranium</strong></h2>
 <hr>
-          
+
             <!-- Maxilla Form -->
             <semantic-form
               id="Maxilla"
@@ -10,20 +10,20 @@
               form-id='Maxilla'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftmaxillacomp" MyID_Obs="leftmaxillaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53650>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftmaxillacomp" MyID_Obs="leftmaxillaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53650>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightmaxillacomp" MyID_Obs="rightmaxillaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53649>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightmaxillacomp" MyID_Obs="rightmaxillaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53649>" ]]
                   ,
                   [[>:PSI_SI_MD_FormSnippet MyID="maxillafrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9711>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
-                                                                         
+
               ]'
             >
             <h2><strong>Maxilla</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftmaxillacomp" MyID_Obs="leftmaxillaobs" WHERE="Left"]]              
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightmaxillacomp" MyID_Obs="rightmaxillaobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftmaxillacomp" MyID_Obs="leftmaxillaobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightmaxillacomp" MyID_Obs="rightmaxillaobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Maxilla</h6>
                       <semantic-form-text-input for='maxillafrag'></semantic-form-text-input>
@@ -31,14 +31,14 @@
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Maxilla-update" ufbTemplate="Maxilla-Template" ufbname="Maxilla"]]
                   </div>
-                </div>                
-            </semantic-form>  
-           [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Maxilla" event-target="show-after-Maxilla-update"]]  
-           
+                </div>
+            </semantic-form>
+           [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Maxilla" event-target="show-after-Maxilla-update"]]
+
             <hr>
 
-            <!-- Zygomatic Bone Form --> 
-            
+            <!-- Zygomatic Bone Form -->
+
             <semantic-form
               id='ZygomaticBone'
               subject='[[this]]'
@@ -47,35 +47,35 @@
               form-id='ZygomaticBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftzygomaticcomp" MyID_Obs="leftzygomaticobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52893>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftzygomaticcomp" MyID_Obs="leftzygomaticobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52893>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightzygomaticcomp" MyID_Obs="rightzygomaticobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52892>" ]]
                   ,
                   [[>:PSI_SI_MD_FormSnippet MyID="zygomaticfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52747>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
-                                                                            
+
               ]'
             >
             <h2><strong>Zygomatic Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftzygomaticcomp" MyID_Obs="leftzygomaticobs" WHERE="Left"]]               
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightzygomaticcomp" MyID_Obs="rightzygomaticobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftzygomaticcomp" MyID_Obs="leftzygomaticobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightzygomaticcomp" MyID_Obs="rightzygomaticobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Zygomatic Bone</h6>
                       <semantic-form-text-input for='zygomaticfrag'></semantic-form-text-input>
                      <button name="submit" class="btn btn-primary"><strong>Save Zygomatic Bone</strong></button>
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ZygomaticBone-update" ufbTemplate="ZygomaticBone-Template" ufbname="Zygomatic Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="ZygomaticBone" event-target="show-after-ZygomaticBone-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="ZygomaticBone" event-target="show-after-ZygomaticBone-update"]]
             <hr>
 
-            <!-- Nasal Bone Form --> 
-            
+            <!-- Nasal Bone Form -->
+
             <semantic-form
               id='NasalBone'
               subject='[[this]]'
@@ -84,31 +84,31 @@
               form-id='NasalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftnasalcomp" MyID_Obs="leftnasalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53648>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftnasalcomp" MyID_Obs="leftnasalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53648>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightnasalcomp" MyID_Obs="rightnasalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53647>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="nasalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52745>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="nasalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52745>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Nasal Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftnasalcomp" MyID_Obs="leftnasalobs" WHERE="Left"]]               
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightnasalcomp" MyID_Obs="rightnasalobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftnasalcomp" MyID_Obs="leftnasalobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightnasalcomp" MyID_Obs="rightnasalobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Nasal Bone</h6>
                       <semantic-form-text-input for='nasalfrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Nasal Bone</strong></button>
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-NasalBone-update" ufbTemplate="NasalBone-Template" ufbname="Nasal Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="NasalBone" event-target="show-after-NasalBone-update"]]  
-            
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="NasalBone" event-target="show-after-NasalBone-update"]]
+
             <hr>
 
             <!-- Palatine Bone -->
@@ -121,35 +121,35 @@
               form-id='PalatineBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftpalatinecomp" MyID_Obs="leftpalatineobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53656>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftpalatinecomp" MyID_Obs="leftpalatineobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53656>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightpalatinecomp" MyID_Obs="rightpalatineobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53655>" ]]   
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightpalatinecomp" MyID_Obs="rightpalatineobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53655>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="palatinefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52746>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                                           
+                  [[>:PSI_SI_MD_FormSnippet MyID="palatinefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52746>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Palatine Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftpalatinecomp" MyID_Obs="leftpalatineobs" WHERE="Left"]]               
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightpalatinecomp" MyID_Obs="rightpalatineobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftpalatinecomp" MyID_Obs="leftpalatineobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightpalatinecomp" MyID_Obs="rightpalatineobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Palatine Bone</h6>
                       <semantic-form-text-input for='palatinefrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Palatine Bone</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PalatineBone-update" ufbTemplate="PalatineBone-Template" ufbname="Palatine Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PalatineBone" event-target="show-after-PalatineBone-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PalatineBone" event-target="show-after-PalatineBone-update"]]
             <hr>
 
 
-            <!-- Lacrimal Bone Form --> 
-            
+            <!-- Lacrimal Bone Form -->
+
             <semantic-form
               id='LacrimalBone'
               subject='[[this]]'
@@ -158,34 +158,34 @@
               form-id='LacrimalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftlacrimalcomp" MyID_Obs="leftlacrimalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53646>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftlacrimalcomp" MyID_Obs="leftlacrimalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53646>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightlacrimalcomp" MyID_Obs="rightlacrimalobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma53645>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="lacrimalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52741>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="lacrimalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52741>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Lacrimal Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftlacrimalcomp" MyID_Obs="leftlacrimalobs" WHERE="Left"]]          
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightlacrimalcomp" MyID_Obs="rightlacrimalobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftlacrimalcomp" MyID_Obs="leftlacrimalobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightlacrimalcomp" MyID_Obs="rightlacrimalobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Lacrimal Bone</h6>
                       <semantic-form-text-input for='lacrimalfrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Lacrimal Bone</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-LacrimalBone-update" ufbTemplate="LacrimalBone-Template" ufbname="Lacrimal Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="LacrimalBone" event-target="show-after-LacrimalBone-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="LacrimalBone" event-target="show-after-LacrimalBone-update"]]
             <hr>
 
-            <!-- Inferior nasal concha Form --> 
-            
+            <!-- Inferior nasal concha Form -->
+
             <semantic-form
               id='InferiorNasalConcha'
               subject='[[this]]'
@@ -194,34 +194,34 @@
               form-id='InferiorNasalConcha'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftinferiornasalconchacomp" MyID_Obs="leftinferiornasalconchaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma54738>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftinferiornasalconchacomp" MyID_Obs="leftinferiornasalconchaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma54738>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightinferiornasalconchacomp" MyID_Obs="rightinferiornasalconchaobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma54737>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="inferiornasalconchafrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma54736>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="inferiornasalconchafrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma54736>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Inferior Nasal Concha</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftinferiornasalconchacomp" MyID_Obs="leftinferiornasalconchaobs" WHERE="Left"]]          
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightinferiornasalconchacomp" MyID_Obs="rightinferiornasalconchaobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftinferiornasalconchacomp" MyID_Obs="leftinferiornasalconchaobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightinferiornasalconchacomp" MyID_Obs="rightinferiornasalconchaobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Inferior Nasal Concha</h6>
                       <semantic-form-text-input for='inferiornasalconchafrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Inferior Nasal Concha</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-InferiorNasalConcha-update" ufbTemplate="InferiorNasalConcha-Template" ufbname="Inferior Nasal Concha"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
+                </div>
+            </semantic-form>
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="InferiorNasalConcha" event-target="show-after-InferiorNasalConcha-update"]]
             <hr>
 
-             <!-- Ethmoid Bone Form --> 
-            
+             <!-- Ethmoid Bone Form -->
+
             <semantic-form
               id='EthmoidBone'
               subject='[[this]]'
@@ -230,27 +230,27 @@
               form-id='EthmoidBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="ethmoidcomp" MyID_Obs="ethmoidobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52740>" ]]                                   
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="ethmoidcomp" MyID_Obs="ethmoidobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52740>" ]]
               ]'
             >
             <h2><strong>Ethmoid Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="ethmoidcomp" MyID_Obs="ethmoidobs" WHERE="Center"]]          
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="ethmoidcomp" MyID_Obs="ethmoidobs" WHERE="Center"]]
 
                   <div class="grid-demo">
                       <button name="submit" class="btn btn-primary"><strong>Save Ethmoid Bone</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-EthmoidBone-update" ufbTemplate="EthmoidBone-Template" ufbname="Ethmoid Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="EthmoidBone" event-target="show-after-EthmoidBone-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="EthmoidBone" event-target="show-after-EthmoidBone-update"]]
             <hr>
 
-            <!-- Vomer Bone Form --> 
-            
+            <!-- Vomer Bone Form -->
+
             <semantic-form
               id='VomerBone'
               subject='[[this]]'
@@ -259,27 +259,27 @@
               form-id='VomerBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="vomercomp" MyID_Obs="vomerobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9710>" ]]                                   
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="vomercomp" MyID_Obs="vomerobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9710>" ]]
               ]'
             >
             <h2><strong>Vomer Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="vomercomp" MyID_Obs="vomerobs" WHERE="Center"]]          
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="vomercomp" MyID_Obs="vomerobs" WHERE="Center"]]
 
                   <div class="grid-demo">
                       <button name="submit" class="btn btn-primary"><strong>Save Vomer Bone</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-VomerBone-update" ufbTemplate="VomerBone-Template" ufbname="Vomer Bone"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="VomerBone" event-target="show-after-VomerBone-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="VomerBone" event-target="show-after-VomerBone-update"]]
             <hr>
 
-            <!-- Mandible Form --> 
-            
+            <!-- Mandible Form -->
+
             <semantic-form
               id='Mandible'
               subject='[[this]]'
@@ -288,34 +288,34 @@
               form-id='Mandible'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftmandiblecomp" MyID_Obs="leftmandibleobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftSideOfMandible>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftmandiblecomp" MyID_Obs="leftmandibleobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/LeftSideOfMandible>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightmandiblecomp" MyID_Obs="rightmandibleobs" ROIVar="<http://w3id.org/rdfbones/ext/standards-si/RightSideOfMandible>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="mandiblefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52748>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="mandiblefrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52748>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Mandible</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftmandiblecomp" MyID_Obs="leftmandibleobs" WHERE="Left"]]       
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightmandiblecomp" MyID_Obs="rightmandibleobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftmandiblecomp" MyID_Obs="leftmandibleobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightmandiblecomp" MyID_Obs="rightmandibleobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Mandible</h6>
                       <semantic-form-text-input for='mandiblefrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Mandible</strong></button>
                       <button name="reset" class="btn btn-secondary">Reset</button>
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Mandible-update" ufbTemplate="Mandible-Template" ufbname="Mandible"]]
-           
+
                    </div>
-                </div>              
-            </semantic-form>  
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Mandible" event-target="show-after-Mandible-update"]]  
+                </div>
+            </semantic-form>
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Mandible" event-target="show-after-Mandible-update"]]
 
 <hr>
 
-<!-- skull fragments Form --> 
+<!-- skull fragments Form -->
 
 <semantic-form
   id='SkullFragments'
@@ -326,14 +326,14 @@
   persistence='sparql'
   fields='[
 
- [[>:PSI_SI_MD_FormSnippet MyID="skullfrag" MyLabel="Range of Skull fragmentation" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/FiftyElementsAssessment>" ConnectValue="obo:OBI_0000999" xsdDatatype="xsd:anyURI"]]   
- ]' 
+ [[>:PSI_SI_MD_FormTaphonomySnippet MyID_Taph="skulltaph" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" ]]
+ ]'
 >
- <h2><strong>Range of Skull fragments</strong></h2> 
+ <h2><strong>Range of Skull fragments</strong></h2>
  <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                              
-                 
+
+
                   <div class="grid-demo">
                     <semantic-form-select-input for='skullfrag'></semantic-form-select-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Range of Skull fragments</strong></button>
@@ -341,13 +341,13 @@
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SkullFragments-update" ufbTemplate="SkullFragments-Template" ufbname="SkullFragments"]]
                   </div>
                 </div>
-              
+
             </semantic-form>
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SkullFragments" event-target="show-after-SkullFragments-update"]]  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SkullFragments" event-target="show-after-SkullFragments-update"]]
 
             <hr>
 
-<!-- skull taphonomy Form --> 
+<!-- skull taphonomy Form -->
 
 <semantic-form
   id='SkullTaph'
@@ -357,11 +357,11 @@
   form-id='SkullTaph'
   persistence='sparql'
   fields='[
-   [[>:PSI_SI_MD_FormSnippet MyID="skulltaph" MyLabel="Skull Taphonomy" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/TaphonomicTraceAssessment>" ConnectValue="obo:OBI_0000999" xsdDatatype="xsd:anyURI"]]   
-    
-  ]' 
+   [[>:PSI_SI_MD_FormSnippet MyID="skulltaph" MyLabel="Skull Taphonomy" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/EntireSetOfCranialBones>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/TaphonomicTraceAssessment>" ConnectValue="obo:OBI_0000999" xsdDatatype="xsd:anyURI"]]
+
+  ]'
 >
-<h2><strong>Skull Taphonomy</strong></h2> 
+<h2><strong>Skull Taphonomy</strong></h2>
  <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
                   <div class="grid-demo">
@@ -371,6 +371,6 @@
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SkullTaph-update" ufbTemplate="SkullTaph-Template" ufbname="SkullTaph"]]
                   </div>
                 </div>
-              
+
             </semantic-form>
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SkullTaph" event-target="show-after-SkullTaph-update"]]  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SkullTaph" event-target="show-after-SkullTaph-update"]]

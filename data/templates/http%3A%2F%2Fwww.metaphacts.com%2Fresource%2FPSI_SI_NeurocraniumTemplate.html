@@ -1,4 +1,4 @@
-<h2><strong>Neurocranium</strong></h2> 
+<h2><strong>Neurocranium</strong></h2>
 
 <hr>
 
@@ -11,33 +11,33 @@
               form-id='FrontalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalleftorbitalcomp" MyID_Obs="frontalleftorbitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftOrbitalPartOfFrontalBone>" ]]                       
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalleftorbitalcomp" MyID_Obs="frontalleftorbitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftOrbitalPartOfFrontalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalrightorbitalcomp" MyID_Obs="frontalrightorbitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightOrbitalPartOfFrontalBone>" ]]  
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalrightorbitalcomp" MyID_Obs="frontalrightorbitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightOrbitalPartOfFrontalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalleftsquamouscomp" MyID_Obs="frontalleftsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSquamousPartOfFrontalBone>" ]]                       
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalleftsquamouscomp" MyID_Obs="frontalleftsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSquamousPartOfFrontalBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="frontalrightsquamouscomp" MyID_Obs="frontalrightsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightSquamousPartOfFrontalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="frontalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52734>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                                                        
+                  [[>:PSI_SI_MD_FormSnippet MyID="frontalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52734>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Frontal Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
-                   <h3>Pars Petrosa</h3>
+                   <h3>Pars Orbitalis</h3>
                     <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalleftorbitalcomp" MyID_Obs="frontalleftorbitalobs" 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalleftorbitalcomp" MyID_Obs="frontalleftorbitalobs"
                   WHERE="Pars orbitalis left"]]
                   [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalrightorbitalcomp" MyID_Obs="frontalrightorbitalobs" WHERE="Pars orbitalis right"]]
                   </div>
                   <div class="grid-demo">
                   <h3>Pars Squama</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalleftsquamouscomp" MyID_Obs="frontalleftsquamousobs" 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalleftsquamouscomp" MyID_Obs="frontalleftsquamousobs"
                   WHERE="Pars squama left"]]
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalrightsquamouscomp" MyID_Obs="frontalrightsquamousobs" WHERE="Pars squama right"]]  
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="frontalrightsquamouscomp" MyID_Obs="frontalrightsquamousobs" WHERE="Pars squama right"]]
                   </div>
-             
+
                 <div class="grid-demo">
                   <h6>Unsided fragments of Frontal Bone</h6>
                       <semantic-form-text-input for='frontalfrag'></semantic-form-text-input>
@@ -47,14 +47,14 @@
                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-FrontalBone-update" ufbTemplate="FrontalBone-Template" ufbname="Frontal Bone"]]
                   </div>
                 </div>
-            </semantic-form>  
+            </semantic-form>
             <!-- user feedback on form update -->
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="FrontalBone" event-target="show-after-FrontalBone-update"]]
-            
+
             <hr>
 
-            <!-- Temporal Bone Form --> 
-            
+            <!-- Temporal Bone Form -->
+
             <semantic-form
               id='TemporalBone'
               subject='[[this]]'
@@ -63,30 +63,30 @@
               form-id='TemporalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalleftpetrouscomp" MyID_Obs="temporalleftpetrousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfLeftTemporalBone>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalleftpetrouscomp" MyID_Obs="temporalleftpetrousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfLeftTemporalBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalrightpetrouscomp" MyID_Obs="temporalrightpetrousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfRightTemporalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalleftsquamouscomp" MyID_Obs="temporalleftsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/SquamousPartOfLeftTemporalBone>" ]]                         
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalleftsquamouscomp" MyID_Obs="temporalleftsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/SquamousPartOfLeftTemporalBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="temporalrightsquamouscomp" MyID_Obs="temporalrightsquamousobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/SquamousPartOfRightTemporalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="temporalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52737>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                                           
+                  [[>:PSI_SI_MD_FormSnippet MyID="temporalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52737>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Temporal Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
               <h3>Pars Petrosa</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalleftpetrouscomp" MyID_Obs="temporalleftpetrousobs" WHERE="Left"]]               
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalrightpetrouscomp" MyID_Obs="temporalrightpetrousobs" WHERE="Right"]] 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalleftpetrouscomp" MyID_Obs="temporalleftpetrousobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalrightpetrouscomp" MyID_Obs="temporalrightpetrousobs" WHERE="Right"]]
                  </div>
                   <div class="grid-demo">
-                    
+
              <h3>Pars Squama</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalleftsquamouscomp" MyID_Obs="temporalleftsquamousobs" WHERE="Left"]]              
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalrightsquamouscomp" MyID_Obs="temporalrightsquamousobs" WHERE="Right"]] 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalleftsquamouscomp" MyID_Obs="temporalleftsquamousobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="temporalrightsquamouscomp" MyID_Obs="temporalrightsquamousobs" WHERE="Right"]]
                 </div>
                   <div class="grid-demo">
                     <h6>Unsided fragments of Temporal Bone</h6>
@@ -95,14 +95,14 @@
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-TemporalBone-update" ufbTemplate="TemporalBone-Template" ufbname="Temporal Bone"]]
                 </div>
-              
-            </semantic-form> 
+
+            </semantic-form>
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="TemporalBone" event-target="show-after-TemporalBone-update"]]
 
             <hr>
 
-            <!-- Parietal Bone Form --> 
-            
+            <!-- Parietal Bone Form -->
+
             <semantic-form
               id='ParietalBone'
               subject='[[this]]'
@@ -111,30 +111,30 @@
               form-id='ParietalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="parietalleftcomp" MyID_Obs="parietalleftobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52789>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="parietalleftcomp" MyID_Obs="parietalleftobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52789>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="parietalrightcomp" MyID_Obs="parietalrightobs" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52788>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="parietalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9613>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="parietalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma9613>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Parietal Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="parietalleftcomp" MyID_Obs="parietalleftobs" WHERE="Left"]]               
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="parietalrightcomp" MyID_Obs="parietalrightobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="parietalleftcomp" MyID_Obs="parietalleftobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="parietalrightcomp" MyID_Obs="parietalrightobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Parietal Bone</h6>
                       <semantic-form-text-input for='parietalfrag'></semantic-form-text-input>
                       <button name="submit" class="btn btn-primary"><strong>Save Parietal Bone</strong></button>
                     <button name="reset" class="btn btn-secondary">Reset</button>
-                    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ParietalBone-update" ufbTemplate="ParietalBone-Template" ufbname="Parietal Bone"]]                  
+                    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-ParietalBone-update" ufbTemplate="ParietalBone-Template" ufbname="Parietal Bone"]]
                   </div>
                 </div>
-              
+
             </semantic-form>
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="ParietalBone" event-target="show-after-ParietalBone-update"]]  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="ParietalBone" event-target="show-after-ParietalBone-update"]]
             <hr>
 
             <!-- Occipital Bones -->
@@ -147,34 +147,34 @@
               form-id='OccipitalBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="basilaroccipitalcomp" MyID_Obs="basilaroccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/BasilarPartOfOccipitalBone>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="basilaroccipitalcomp" MyID_Obs="basilaroccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/BasilarPartOfOccipitalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftlateraloccipitalcomp" MyID_Obs="leftlateraloccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftLateralPartOfOccipitalBone>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="leftlateraloccipitalcomp" MyID_Obs="leftlateraloccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftLateralPartOfOccipitalBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="rightlateraloccipitalcomp" MyID_Obs="rightlateraloccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightLateralPartOfOccipitalBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="squamousoccipitalcomp" MyID_Obs="squamousoccipitalobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/SquamousPartOfOccipitalBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="occipitalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52735>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                                           
+                  [[>:PSI_SI_MD_FormSnippet MyID="occipitalfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52735>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Occipital Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
               <h3>Pars Squama</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="squamousoccipitalcomp" MyID_Obs="squamousoccipitalobs" WHERE="Center"]]     
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="squamousoccipitalcomp" MyID_Obs="squamousoccipitalobs" WHERE="Center"]]
                 </div>
-                
+
               <h3>Pars Basilaris</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="basilaroccipitalcomp" MyID_Obs="basilaroccipitalobs" WHERE="Center"]]                
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="basilaroccipitalcomp" MyID_Obs="basilaroccipitalobs" WHERE="Center"]]
+
                 </div>
              <h3>Pars Lateralis</h3>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftlateraloccipitalcomp" MyID_Obs="leftlateraloccipitalobs" WHERE="Left"]]              
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="leftlateraloccipitalcomp" MyID_Obs="leftlateraloccipitalobs" WHERE="Left"]]
                   [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="rightlateraloccipitalcomp" MyID_Obs="rightlateraloccipitalobs" WHERE="Right"]]
-                </div> 
+                </div>
 
                   <div class="grid-demo">
                     <h3>Unsided fragments of Occipital Bone</h3>
@@ -183,14 +183,14 @@
                     <button name="reset" class="btn btn-secondary">Reset</button>
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-OccipitalBone-update" ufbTemplate="OccipitalBone-Template" ufbname="Occipital Bone"]]
                 </div>
-              
+
             </semantic-form>
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OccipitalBone" event-target="show-after-OccipitalBone-update"]]  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OccipitalBone" event-target="show-after-OccipitalBone-update"]]
             <hr>
 
 
-            <!-- Sphenoid Bone Form --> 
-            
+            <!-- Sphenoid Bone Form -->
+
             <semantic-form
               id='SphenoidBone'
               subject='[[this]]'
@@ -199,22 +199,22 @@
               form-id='SphenoidBone'
               persistence='sparql'
               fields='[
-                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="sphenoidleftcomp" MyID_Obs="sphenoidleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSideOfSphenoidBone>" ]]               
+                  [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="sphenoidleftcomp" MyID_Obs="sphenoidleftobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSideOfSphenoidBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="sphenoidrightcomp" MyID_Obs="sphenoidrightobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/RightSideOfSphenoidBone>" ]]
                   ,
                   [[>:PSI_SI_MD_FormTupelSnippet MyID_Comp="sphenoidmidcomp" MyID_Obs="sphenoidmidobs" ROIVar="<http://w3id.org/rdfbones/ext/phaleron-si/BodyOfSphenoidBone>" ]]
                   ,
-                  [[>:PSI_SI_MD_FormSnippet MyID="sphenoidfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52736>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]                                         
+                  [[>:PSI_SI_MD_FormSnippet MyID="sphenoidfrag" MyLabel="Unsided Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireBoneOrgan_fma52736>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
               ]'
             >
             <h2><strong>Sphenoid Bone</strong></h2>
             <semantic-form-recover-notification></semantic-form-recover-notification>
                 <div data-flex-layout="row md-column top-spread">
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidleftcomp" MyID_Obs="sphenoidleftobs" WHERE="Left"]]   
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidmidcomp" MyID_Obs="sphenoidmidobs" WHERE="Center"]]          
-                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidrightcomp" MyID_Obs="sphenoidrightobs" WHERE="Right"]] 
-                 
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidleftcomp" MyID_Obs="sphenoidleftobs" WHERE="Left"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidmidcomp" MyID_Obs="sphenoidmidobs" WHERE="Center"]]
+                  [[>:PSI_SI_MD_FormTupelGUISnippet MyID_Comp="sphenoidrightcomp" MyID_Obs="sphenoidrightobs" WHERE="Right"]]
+
                   <div class="grid-demo">
                     <h6>Unsided fragments of Sphenoid Bone</h6>
                       <semantic-form-text-input for='sphenoidfrag'></semantic-form-text-input>
@@ -223,10 +223,8 @@
                     [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SphenoidBone-update" ufbTemplate="SphenoidBone-Template" ufbname="Sphenoid Bone"]]
                   </div>
                 </div>
-              
+
             </semantic-form>
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SphenoidBone" event-target="show-after-SphenoidBone-update"]]  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SphenoidBone" event-target="show-after-SphenoidBone-update"]]
 
             <hr>
-
-          
