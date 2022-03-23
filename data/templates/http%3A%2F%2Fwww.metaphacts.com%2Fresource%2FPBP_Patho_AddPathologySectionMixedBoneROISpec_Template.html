@@ -27,17 +27,30 @@ fields='[{
         $subject obo:IAO_0000136 $value .
         $subject rdfs:label ?label .
         
+         $subject obo:BFO_0000051 ?anatomical_site .
+        ?anatomical_site a phaleron-patho:AnatomicalSite.
+        ?anatomical_site_VS a phaleron-patho:AnatomicalSiteValueSpecification.
+        ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+
         $subject obo:BFO_0000051 ?anatomical_aspect .
         ?anatomical_aspect a phaleron-patho:AnatomicalAspect.
         ?anatomical_aspect_VS a phaleron-patho:AnatomicalAspectValueSpecification.
         ?anatomical_aspect obo:OBI_0001938 ?anatomical_aspect_VS .
         
-        }} WHERE {GRAPH ?mygraph {?? a ?o }
+        $subject obo:BFO_0000051 ?extent_involvement .
+        ?extent_involvement a phaleron-patho:ExtentOfInvolvement.
+        ?extent_involvement_VS a phaleron-patho:ExtentOfInvolvementValueSpecification.
+        ?extent_involvement obo:OBI_0001938 ?extent_involvement_VS .
+
+       }} WHERE {GRAPH ?mygraph {?? a ?o }
         $value  a $value_class .
 	$value_class rdfs:label ?label .
+        BIND(URI(CONCAT(STR(?subject),\"_AnatomicalSite\")) AS ?anatomical_site) .
+        BIND(URI(CONCAT(STR(?subject),\"_AnatomicalSiteVS\")) AS ?anatomical_site_VS) .
         BIND(URI(CONCAT(STR(?subject),\"_AnatomicalAspect\")) AS ?anatomical_aspect) .
         BIND(URI(CONCAT(STR(?subject),\"_AnatomicalAspectVS\")) AS ?anatomical_aspect_VS) .
-        
+        BIND(URI(CONCAT(STR(?subject),\"_ExtentOfInvolvement\")) AS ?extent_involvement) .
+        BIND(URI(CONCAT(STR(?subject),\"_ExtentOfInvolvementVS\")) AS ?extent_involvement_VS) .
 
        } 
        

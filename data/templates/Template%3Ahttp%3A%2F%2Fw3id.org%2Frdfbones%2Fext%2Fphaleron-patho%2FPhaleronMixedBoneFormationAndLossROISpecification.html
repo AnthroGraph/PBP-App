@@ -52,9 +52,9 @@ confirmation-options='{
 <hr>
 
 <semantic-form
-
+id="anatomical_stuff"
 subject='[[this]]'
-post-action='[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]'
+post-action='event'
 persistence='sparql'
 
 fields='[
@@ -72,8 +72,9 @@ fields='[
 <semantic-form-select-input for='ExtentOfInvolvement'></semantic-form-select-input> 
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+[[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Anatomical Information"]]
 </semantic-form>
-
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="anatomical_stuff" event-target="show-after-label-update"]]
 
 [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCranialVaultPorosity" connected_class="phaleron-patho:ExtentOfCranialVaultPorosity" id="ExtentOfCranialVaultPorosity" label="Extent Of Cranial Vault Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
@@ -235,5 +236,10 @@ fields='[
 </template>
 </semantic-query>
 		      
-
+<br><hr>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" >
+<span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; 
+Back to <strong>[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?label WHERE {?object obo:BFO_0000051 ??. ?object rdfs:label ?label}" ]]</strong> Section Summary
+</semantic-link>
+<br>
 </div>
