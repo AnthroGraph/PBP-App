@@ -1,25 +1,4 @@
-<!-- SWITCH EVENT -->
-  <semantic-query query="PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>                    
-                    SELECT ?value WHERE {
-                          ?? obo:BFO_0000051 ?presence .
-                          ?presence a [[type]] .
-                          ?presence obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
-                          
-                    }" template="{{> t}}">
-    <template id="t">
-   {{#ifCond bindings.0.value.value "!=" "[[value_check]]"}}
-      <semantic-form
-	subject='[[this]]'
-	post-action='event'
-	persistence='sparql'
-	id="additonal-info-switch-1"
-	form-id="additonal-info"
-	browser-persistence='true'
-	fields='[
+
     {
     "id": "[[id]]",
     "label": "[[label]]",
@@ -39,7 +18,7 @@
                           
                     }",
 
-                  "valueSetPattern": "
+                   "valueSetPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
@@ -96,20 +75,3 @@
                           ?ValueSpec obo:OBI_0000999 $value .
                         }"
 }  
-]'
-
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-
-<semantic-form-select-input for='[[id]]'></semantic-form-select-input>
-
-<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-<button name="reset" class="btn btn-secondary">Reset</button>
-
-    </semantic-form>
-    
-{{/ifCond}}
-      
-
-    </template>
-  </semantic-query>

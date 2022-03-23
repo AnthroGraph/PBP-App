@@ -62,27 +62,76 @@ fields='[{
 <!-- If Skull ROI -->
 [[>:PBP_Patho_MixedBone_CranialSwitch_Template]]
 <!-- Dependant on Presence of Orbital Porosity -->
-[[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfOrbitalPoroticLesion" id="ActivityOfOrbitalPoroticLesion" label="Activity Of Orbital Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]]
-  
-  [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfRaisedOrbitalSurface" connected_class="phaleron-patho:PresenceOfRaisedOrbitalSurface" id="PresenceOfRaisedOrbitalSurface" label="Presence Of Raised Orbital Surface" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]]
+
+[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"]]
+
+	fields='[
+[[>:PBP_Patho_Multi_Switch_Body_Template value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfOrbitalPoroticLesion" id="ActivityOfOrbitalPoroticLesion" label="Activity Of Orbital Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
+
+  [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfRaisedOrbitalSurface" connected_class="phaleron-patho:PresenceOfRaisedOrbitalSurface" id="PresenceOfRaisedOrbitalSurface" label="Presence Of Raised Orbital Surface" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]],
     
-    [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="OrbitalPitDensity" connected_class="phaleron-patho:OrbitalPitDensity" id="OrbitalPitDensity" label="Orbital Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]]
+    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="OrbitalPitDensity" connected_class="phaleron-patho:OrbitalPitDensity" id="OrbitalPitDensity" label="Orbital Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]],
       
-      [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:OrbitalPittingSeverityValueSpecification" connected_iristring="OrbitalPittingSeverity" connected_class="phaleron-patho:OrbitalPittingSeverity" id="OrbitalPittingSeverity" label="Orbital Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/OrbitalPittingSeverityLabelSorting>"]]
-	
-	 [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfOrbitalPorosity" connected_class="phaleron-patho:ExtentOfOrbitalPorosity" id="ExtentOfOrbitalPorosity" label="Extent Of Orbital Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+      [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:OrbitalPittingSeverityValueSpecification" connected_iristring="OrbitalPittingSeverity" connected_class="phaleron-patho:OrbitalPittingSeverity" id="OrbitalPittingSeverity" label="Orbital Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/OrbitalPittingSeverityLabelSorting>"]]
 
-	  <!-- Dependant on Presence of Orbital Porosity -->
+]'>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='ActivityOfOrbitalPoroticLesion'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfRaisedOrbitalSurface'></semantic-form-select-input>
+<semantic-form-select-input for='OrbitalPitDensity'></semantic-form-select-input>
+<semantic-form-select-input for='OrbitalPittingSeverity'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Orbita dependent Items"]]
+
+</semantic-form>
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-switch-header" event-target="show-after-label-update"]]
+
+{{/ifCond}}
+</template>
+</semantic-query>
+<!-- End Dependant on Presence of Orbital Porosity -->
+
+  
+  
+
+<!-- Dependent on Presence of Orbital Porosity -->
+[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"]]
+
+	fields='[
+ [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfCranialVaultPoroticLesion" id="ActivityOfCranialVaultPoroticLesion" label="Activity Of Cranial Vault Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
+
+	    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfCranialVaultDiploicExpansion" connected_class="phaleron-patho:PresenceOfCranialVaultDiploicExpansion" id="PresenceOfCranialVaultDiploicExpansion" label="Presence Of Cranial Vault Diploic Expansion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]],
+
+	    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="CranialVaultPitDensity" connected_class="phaleron-patho:CranialVaultPitDensity" id="CranialVaultPitDensity" label="Cranial Vault Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]],
+
+		[[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CranialPittingSeverityValueSpecification" connected_iristring="CranialVaultPittingSeverity" connected_class="phaleron-patho:CranialVaultPittingSeverity" id="CranialVaultPittingSeverity" label="Cranial Vault Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CranialPittingSeverityLabelSorting>"]]
+	
+
+]'>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='ActivityOfCranialVaultPoroticLesion'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfCranialVaultDiploicExpansion'></semantic-form-select-input>
+<semantic-form-select-input for='CranialVaultPitDensity'></semantic-form-select-input>
+<semantic-form-select-input for='CranialVaultPittingSeverity'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Cranial Vault dependent Items"]]
+
+</semantic-form>
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-switch-header" event-target="show-after-label-update"]]
+
+{{/ifCond}}
+</template>
+</semantic-query>
+<!-- End Dependent on Presence of Orbital Porosity -->
+
 	  
-	  [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfCranialVaultPoroticLesion" id="ActivityOfCranialVaultPoroticLesion" label="Activity Of Cranial Vault Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]]
-
-	    [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfCranialVaultDiploicExpansion" connected_class="phaleron-patho:PresenceOfCranialVaultDiploicExpansion" id="PresenceOfCranialVaultDiploicExpansion" label="Presence Of Cranial Vault Diploic Expansion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]]
-
-	    [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="CranialVaultPitDensity" connected_class="phaleron-patho:CranialVaultPitDensity" id="CranialVaultPitDensity" label="Cranial Vault Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]]
-
-		[[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CranialPittingSeverityValueSpecification" connected_iristring="CranialVaultPittingSeverity" connected_class="phaleron-patho:CranialVaultPittingSeverity" id="CranialVaultPittingSeverity" label="Cranial Vault Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CranialPittingSeverityLabelSorting>"]]
-	
-	 [[>:PBP_Patho_OAOP_Switch_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCranialVaultPorosity" connected_class="phaleron-patho:ExtentOfCranialVaultPorosity" id="ExtentOfCranialVaultPorosity" label="Extent Of Cranial Vault Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+	 
 	 
 
 <!-- End Skull ROI -->
