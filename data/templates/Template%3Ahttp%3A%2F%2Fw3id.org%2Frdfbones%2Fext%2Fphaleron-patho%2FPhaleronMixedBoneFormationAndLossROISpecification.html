@@ -1,0 +1,110 @@
+<div class="page" style="margin-left:30px; margin-right: 30px">
+
+<h4>You are currently viewing/editing ROI specification <strong>"[[this.label]]"</strong> which is part of "[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?label WHERE {?object obo:BFO_0000051 ??. ?object rdfs:label ?label}" ]]"</h4>
+<br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" >
+<span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; 
+Back to <strong>[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?label WHERE {?object obo:BFO_0000051 ??. ?object rdfs:label ?label}" ]]</strong> Section Summary
+</semantic-link>
+<hr>
+<semantic-update query='
+PREFIX : <http://www.metaphacts.com/resource/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+        DELETE {GRAPH ?mygraph { 
+                 ?parent obo:BFO_0000051 ??.
+                 ?? a ?myclass.
+                 ?? obo:BFO_0000051 ?anatomical_site.
+                 ?anatomical_site a ?MD .
+                 ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+                 ?anatomical_site_VS obo:OBI_0000999 $value .
+              }}
+         WHERE {               
+           GRAPH ?mygraph {?? a ?o }
+             ?parent obo:BFO_0000051 ??.
+             ?? a ?myclass.
+             ?? obo:BFO_0000051 ?anatomical_site.
+             ?anatomical_site a ?MD .
+             ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS .
+             OPTIONAL {
+              ?anatomical_site_VS obo:OBI_0000999 $value .    
+             }
+          }
+        
+      
+'
+id="DeleteDatasetSection"
+variable-params='["mygraph","parent","myclass","anatomical_site","MD","anatomical_site_VS", "value","o"]'
+post-action="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]"
+show-confirmation="true"
+confirmation-options='{
+     "message": "Do you really want to delete this Bone Addition instance [[this.label]] and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+>
+<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Bone Addition Section: [[this.label]]</strong></button>
+</semantic-update>
+<hr>
+
+<semantic-form
+
+subject='[[this]]'
+post-action='[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]'
+persistence='sparql'
+
+fields='[
+
+  [[>:PBP_Patho_PhaleronROISpecification_Template value_spec="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectValueSpecification>" MD="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspect>" id="AnatomicalAspect" label="Anatomical Aspect" maxOccurs="10" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]],
+
+  [[>:PBP_Patho_PhaleronROISpecification_Template value_spec="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalSiteValueSpecification>" MD="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalSite>" id="AnatomicalSite" label="Antatomical Site" maxOccurs="10" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalSiteLabelSorting>"]],
+
+
+  [[>:PBP_Patho_PhaleronROISpecification_Template value_spec="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementValueSpecification>" MD="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvement>" id="ExtentOfInvolvement" label="Extent of Involvement" maxOccurs="1" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+]'>
+<semantic-form-select-input for='AnatomicalAspect'></semantic-form-select-input> 
+<semantic-form-select-input for='AnatomicalSite'></semantic-form-select-input> 
+<semantic-form-select-input for='ExtentOfInvolvement'></semantic-form-select-input> 
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+</semantic-form>
+
+<!-- conditional Items based on PresenceOfSunburstEffect  -->
+[[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSunburstEffect" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfSunburstEffect" connected_class="phaleron-patho:LocationOfSunburstEffect" id="LocationOfSunburstEffect" label="Location Of Sunburst Effect" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+  [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSunburstEffect" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfSunburstEffect" connected_class="phaleron-patho:ExtentOfSunburstEffect" id="ExtentOfSunburstEffect" label="Extent Of Sunburst Effect" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+    <!-- conditional Items based on PresenceOfCauliflowerAppearance  -->
+    [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCauliflowerAppearance" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfCauliflowerAppearance" connected_class="phaleron-patho:LocationOfCauliflowerAppearance" id="LocationOfCauliflowerAppearance" label="Location Of Cauliflower Appearance" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+      [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCauliflowerAppearance" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCauliflowerAppearance" connected_class="phaleron-patho:ExtentOfCauliflowerAppearance" id="ExtentOfCauliflowerAppearance" label="Extent Of Cauliflower Appearance" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+	    <!-- conditional Items based on PresenceOfExpansiveShell  -->
+    [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfExpansiveShell" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfExpansiveShell" connected_class="phaleron-patho:LocationOfExpansiveShell" id="LocationOfExpansiveShell" label="Location Of Expansive Shell" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+	  [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfExpansiveShell" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfExpansiveShell" connected_class="phaleron-patho:ExtentOfExpansiveShell" id="ExtentOfExpansiveShell" label="Extent Of Expansive Shell" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+	    <!-- conditional Items based on PresenceOfSequestrum  -->
+	    [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSequestrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfSequestrum" connected_class="phaleron-patho:LocationOfSequestrum" id="LocationOfSequestrum" label="Location Of Sequestrum" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+	      [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSequestrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfSequestrum" connected_class="phaleron-patho:ExtentOfSequestrum" id="ExtentOfSequestrum" label="Extent Of Sequestrum" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+			    <!-- conditional Items based on PresenceOfInvolucrum  -->
+	    [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfInvolucrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfInvolucrum" connected_class="phaleron-patho:LocationOfInvolucrum" id="LocationOfInvolucrum" label="Location Of Involucrum" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+		  [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfInvolucrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfInvolucrum" connected_class="phaleron-patho:ExtentOfInvolucrum" id="ExtentOfInvolucrum" label="Extent Of Involucrum" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+		    <!-- conditional Items based on PresenceOfCloaca  -->
+		    PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCloaca" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfCloaca" connected_class="phaleron-patho:LocationOfCloaca" id="LocationOfCloaca" label="Location Of Cloaca" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]]
+
+	      [[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCloaca" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCloaca" connected_class="phaleron-patho:ExtentOfCloaca" id="ExtentOfCloaca" label="Extent Of Cloaca" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+		
+	    
+
+</div>
