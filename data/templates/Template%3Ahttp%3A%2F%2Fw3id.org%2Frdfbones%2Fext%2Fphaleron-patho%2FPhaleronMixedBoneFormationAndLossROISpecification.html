@@ -72,16 +72,63 @@ fields='[
 <semantic-form-select-input for='ExtentOfInvolvement'></semantic-form-select-input> 
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-[[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Anatomical Information"]]
+[[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="anatomical_stuff" ufbTemplate="label-Template" ufbname="Anatomical Information"]]
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="anatomical_stuff" event-target="show-after-label-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="anatomical_stuff" event-target="anatomical_stuff"]]
 
-[[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCranialVaultPorosity" connected_class="phaleron-patho:ExtentOfCranialVaultPorosity" id="ExtentOfCranialVaultPorosity" label="Extent Of Cranial Vault Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+<br><hr>
 
-[[>:PBP_Patho_ROISpec_Switch_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfOrbitalPorosity" connected_class="phaleron-patho:ExtentOfOrbitalPorosity" id="ExtentOfOrbitalPorosity" label="Extent Of Orbital Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+
+
+<!-- conditional Items based on PresenceOfOrbitalPorosity  -->
+
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" form-id="OrbitalPorosity" heading="<h4>Specify Orbital Porosity</h4>"]]
+
+    fields='[
+  [[>:PBP_Patho_ROISpecMulti_Switch_Body_Template   value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfOrbitalPorosity" connected_class="phaleron-patho:ExtentOfOrbitalPorosity" id="ExtentOfOrbitalPorosity" label="Extent Of Orbital Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+  ]'>
+	
+<semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='ExtentOfOrbitalPorosity'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="OrbitalPorosity" ufbTemplate="label-Template" ufbname="Extent Of Orbital Porosity"]]
+</semantic-form>
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OrbitalPorosity" event-target="OrbitalPorosity"]]
+<br><hr>
+
+{{/ifCond}}
+</template>
+</semantic-query>
+
+
+<!-- conditional Items based on PresenceOfCranialVaultPorosity  -->
+
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" form-id="CranialVaultPorosity" heading="<h4>Specify Cranial Vault Porosity</h4>"]]
+
+fields='[
+[[>:PBP_Patho_ROISpecMulti_Switch_Body_Template  value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfCranialVaultPorosity" connected_class="phaleron-patho:ExtentOfCranialVaultPorosity" id="ExtentOfCranialVaultPorosity" label="Extent Of Cranial Vault Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
+  ]'>
+	
+<semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='ExtentOfCranialVaultPorosity'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="CranialVaultPorosity" ufbTemplate="label-Template" ufbname="Extent Of Cranial Vault Porosity"]]
+</semantic-form>
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CranialVaultPorosity" event-target="CranialVaultPorosity"]]
+<br><hr>
+
+{{/ifCond}}
+</template>
+</semantic-query>
+
+
 
 <!-- conditional Items based on PresenceOfSunburstEffect  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  type="phaleron-patho:PresenceOfSunburstEffect" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" heading="<h4>Specify Sunburst Effect</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  type="phaleron-patho:PresenceOfSunburstEffect" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" heading="<h4>Specify Sunburst Effect</h4>" form-id="SunburstEffect"]]
 
     fields='[
     
@@ -96,17 +143,17 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Presence Of Sunburst Effect dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="SunburstEffect" ufbTemplate="label-Template" ufbname="Presence Of Sunburst Effect dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SunburstEffect" event-target="SunburstEffect"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
 </semantic-query>
-<br><hr>
 
  <!-- conditional Items based on PresenceOfCauliflowerAppearance  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCauliflowerAppearance" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cauliflower Appearance</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCauliflowerAppearance" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cauliflower Appearance</h4>" form-id="CauliflowerAppearance"]]
 
     fields='[
 
@@ -121,9 +168,10 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="PresenceOfCauliflowerAppearance dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="CauliflowerAppearance" ufbTemplate="label-Template" ufbname="PresenceOfCauliflowerAppearance dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CauliflowerAppearance" event-target="CauliflowerAppearance"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
@@ -132,7 +180,7 @@ fields='[
 
 
 <!-- conditional Items based on PresenceOfExpansiveShell  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfExpansiveShell" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Expansive Shell</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfExpansiveShell" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Expansive Shell</h4>" form-id="ExpansiveShell"]]
 
     fields='[
 
@@ -148,14 +196,14 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Presence Of Expansive Shell dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="ExpansiveShell" ufbTemplate="label-Template" ufbname="Presence Of Expansive Shell dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="ExpansiveShell" event-target="ExpansiveShell"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
 </semantic-query>
-<br><hr>
   
    
 
@@ -163,7 +211,7 @@ fields='[
   
 
 <!-- conditional Items based on PresenceOfSequestrum  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSequestrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Sequestrum</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfSequestrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Sequestrum</h4>" form-id="Sequestrum"]]
 
     fields='[
 
@@ -178,19 +226,19 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Presence Of Sequestrum dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="Sequestrum" ufbTemplate="label-Template" ufbname="Presence Of Sequestrum dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Sequestrum" event-target="Sequestrum"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
 </semantic-query>
-<br><hr>
 
 	  
 
 <!-- conditional Items based on PresenceOfInvolucrum  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfInvolucrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Involucrum</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfInvolucrum" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Involucrum</h4>" form-id="Involucrum"]]
 
     fields='[
 [[>:PBP_Patho_ROISpecMulti_Switch_Body_Template value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfInvolucrum" connected_class="phaleron-patho:LocationOfInvolucrum" id="LocationOfInvolucrum" label="Location Of Involucrum" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]],
@@ -206,18 +254,18 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Presence Of Involucrum dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="Involucrum" ufbTemplate="label-Template" ufbname="Presence Of Involucrum dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Involucrum" event-target="Involucrum"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
 </semantic-query>
-<br><hr>
 	   
 
 <!-- conditional Items based on PresenceOfCloaca  -->
-[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCloaca" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cloaca</h4>"]]
+[[>:PBP_Patho_ROISpecMulti_Switch_Header_Template  datasection_type="phaleron-patho:MixedCranialBoneFormationAndLossDatasetSection" type="phaleron-patho:PresenceOfCloaca" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cloaca</h4>" form-id="Cloaca"]]
 
     fields='[
   [[>:PBP_Patho_ROISpecMulti_Switch_Body_Template value_spec="phaleron-patho:AnatomicalAspectValueSpecification" connected_iristring="LocationOfCloaca" connected_class="phaleron-patho:LocationOfCloaca" id="LocationOfCloaca" label="Location Of Cloaca" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AnatomicalAspectLabelSorting>"]],
@@ -232,15 +280,15 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Presence Of Cloaca dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="Cloaca" ufbTemplate="label-Template" ufbname="Presence Of Cloaca dependent Items"]]
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-ROIspec-switch" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Cloaca" event-target="Cloaca"]]
+<br><hr>
 
 {{/ifCond}}
 </template>
 </semantic-query>
 		      
-<br><hr>
 <semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" >
 <span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; 
 Back to <strong>[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?label WHERE {?object obo:BFO_0000051 ??. ?object rdfs:label ?label}" ]]</strong> Section Summary
