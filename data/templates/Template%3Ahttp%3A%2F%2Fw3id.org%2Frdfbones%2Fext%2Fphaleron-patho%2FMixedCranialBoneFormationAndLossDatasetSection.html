@@ -60,9 +60,10 @@ fields='[{
 
 <!-- If Skull ROI -->
 [[>:PBP_Patho_MixedBone_CranialSwitch_Template]]
-<!-- Dependant on Presence of Orbital Porosity -->
+<hr><br>
 
-[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"]]
+<!-- Dependant on Presence of Orbital Porosity -->
+[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Orbital Porosity</h4>" form-id="OrbitalPorosity"]]
 
 	fields='[
 [[>:PBP_Patho_Multi_Switch_Body_Template value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfOrbitalPoroticLesion" id="ActivityOfOrbitalPoroticLesion" label="Activity Of Orbital Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
@@ -83,24 +84,26 @@ fields='[{
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Orbita dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="OrbitalPorosity" ufbTemplate="label-Template" ufbname="Orbita dependent Items"]]
 
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-switch-header" event-target="show-after-label-update"]]
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OrbitalPorosity" event-target="OrbitalPorosity"]]
+
 
 {{/ifCond}}
 </template>
 </semantic-query>
+<hr><br>
 <!-- End Dependant on Presence of Orbital Porosity -->
 
   
   
 
 <!-- Dependent on Presence of Orbital Porosity -->
-[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"]]
+[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cranial Vault Porosity</h4>"  form-id="CranialVaultPorosity"]]
 
 	fields='[
- [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfCranialVaultPoroticLesion" id="ActivityOfCranialVaultPoroticLesion" label="Activity Of Cranial Vault Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
+ [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfCranialVaultPoroticLesion" connected_class="phaleron-patho:ActivityOfCranialVaultPoroticLesion" id="ActivityOfCranialVaultPoroticLesion" label="Activity Of Cranial Vault Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
 
 	    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfCranialVaultDiploicExpansion" connected_class="phaleron-patho:PresenceOfCranialVaultDiploicExpansion" id="PresenceOfCranialVaultDiploicExpansion" label="Presence Of Cranial Vault Diploic Expansion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]],
 
@@ -119,11 +122,10 @@ fields='[{
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
- [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Cranial Vault dependent Items"]]
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="CranialVaultPorosity" ufbTemplate="label-Template" ufbname="Cranial Vault dependent Items"]]
 
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="multi-switch-header" event-target="show-after-label-update"]]
-<div><strong>INFO:</strong> After saving this sub-form, a new entry fields will appear below to specify the type of response</div><br>
+   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CranialVaultPorosity" event-target="CranialVaultPorosity"]]
 {{/ifCond}}
 </template>
 </semantic-query>

@@ -11,12 +11,13 @@
                           
                     }" template="{{> t}}">
     <template id="t">
-   {{#ifCond bindings.0.value.value "!=" "[[value_check]]"}}
+      {{#ifCond bindings.0.value.value "!=" "[[value_check]]"}}
+      [[heading]]
       <semantic-form
 	subject='[[this]]'
 	post-action='event'
 	persistence='sparql'
-	id="multi-switch-header"
+	id="[[form-id]]"
 	form-id="additonal-info"
 	browser-persistence='true'
 
