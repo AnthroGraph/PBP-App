@@ -172,6 +172,19 @@ fields='[{
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
 <br><br>
+
+<semantic-query query="PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		       PREFIX obo: <http://purl.obolibrary.org/obo/>
+		       PREFIX phaleron-patho: <http://w3id.org/rdfbones/ext/phaleron-patho/>
+
+		       SELECT (count(DISTINCT ?roispec) AS ?value)  WHERE { 
+		       ?roispec a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronROISpecification> .
+		       ?? obo:BFO_0000051 ?roispec . } GROUP BY ?roispec
+		       " template="{{> t}}">
+  <template id="t">
+    {{#ifCond bindings.0.value.value ">" "0"}}
+    
 <h3>Show all available ROI Specifications :</h3></hr>
 <semantic-table 
   query="
@@ -217,3 +230,7 @@ fields='[{
     {"variableName": "involvement", "displayName": "Extent of Involvement"}
     ]'
 ></semantic-table>
+{{/ifCond}}
+    
+  </template>
+</semantic-query>

@@ -57,10 +57,9 @@ fields='[{
 </semantic-form>
  [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="label" event-target="show-after-label-update"]]
 
-
+ <br><hr><br>
 <!-- If Skull ROI -->
 [[>:PBP_Patho_MixedBone_CranialSwitch_Template]]
-<hr><br>
 
 <!-- Dependant on Presence of Orbital Porosity -->
 [[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Orbital Porosity</h4>" form-id="OrbitalPorosity"]]
@@ -89,11 +88,10 @@ fields='[{
 </semantic-form>
    [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OrbitalPorosity" event-target="OrbitalPorosity"]]
 
-
+<br> <hr> <br>
 {{/ifCond}}
 </template>
 </semantic-query>
-<hr><br>
 <!-- End Dependant on Presence of Orbital Porosity -->
 
   
@@ -125,7 +123,8 @@ fields='[{
  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="CranialVaultPorosity" ufbTemplate="label-Template" ufbname="Cranial Vault dependent Items"]]
 
 </semantic-form>
-   [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CranialVaultPorosity" event-target="CranialVaultPorosity"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CranialVaultPorosity" event-target="CranialVaultPorosity"]]
+<br> <hr><br>
 {{/ifCond}}
 </template>
 </semantic-query>
@@ -138,7 +137,7 @@ fields='[{
 <!-- End Skull ROI -->
 
 
-<br> <hr>
+
 <h4>Add Additional Information</h4>
 <div style="color:red"><strong>INFO:</strong> Please fill these fields <strong>before</strong> creating ROI Specifications!</div>
 <semantic-form
