@@ -1,0 +1,196 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing "Mixed Bone Formation And Loss" Section: <strong>[[this.label]]</strong></h4>
+<br>
+[[>:PBP_Patho_Dataset_Section_Snippet_Header]]
+
+<semantic-form
+post-action='event'
+persistence='sparql'
+browser-persistence=true
+form-id="labelupdate"
+id="label"
+subject=[[this]]
+fields='[{ 
+    "id": "label",
+    "label": "Edit Label",
+    "xsdDatatype": "xsd:string",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "selectPattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               SELECT ?value WHERE {$subject rdfs:label ?value}"
+    ,
+    "insertPattern":"
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               INSERT {GRAPH ?mygraph { $subject rdfs:label ?value }} WHERE {
+                 GRAPH ?mygraph {$subject a ?o }}            
+              ",
+      "deletePattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               DELETE {$subject rdfs:label ?value }  WHERE {
+                 $subject rdfs:label ?value               
+               }"
+               ,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+                              ?? a ?paleopath_datasection_type .
+                              ?s a ?paleopath_datasection_type .
+                              ?paleopath obo:BFO_0000051 ?? .
+   		              ?paleopath obo:BFO_0000051 ?s .
+                              ?s rdfs:label $value.
+                        }}",
+                  "message": "This Paleopath Instance already has an identically named item"
+                  }]
+    
+               
+
+}]'
+>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-text-input for="label"></semantic-form-text-input>
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button> [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Label"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="label" event-target="show-after-label-update"]]
+
+ <br><hr><br>
+<!-- If Skull ROI -->
+[[>:PBP_Patho_MixedBone_CranialSwitch_Template]]
+
+<!-- Dependant on Presence of Orbital Porosity -->
+ [[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Orbital Porosity</h4>" form-id="OrbitalPorosity"]]
+
+
+
+  fields='[
+ [[>:PBP_Patho_Multi_Switch_Body_Template value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfOrbitalPoroticLesion" connected_class="phaleron-patho:ActivityOfOrbitalPoroticLesion" id="ActivityOfOrbitalPoroticLesion" label="Activity Of Orbital Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
+   
+   [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfRaisedOrbitalSurface" connected_class="phaleron-patho:PresenceOfRaisedOrbitalSurface" id="PresenceOfRaisedOrbitalSurface" label="Presence Of Raised Orbital Surface" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]],
+     
+     [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="OrbitalPitDensity" connected_class="phaleron-patho:OrbitalPitDensity" id="OrbitalPitDensity" label="Orbital Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]],
+       
+       [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:OrbitalPittingSeverityValueSpecification" connected_iristring="OrbitalPittingSeverity" connected_class="phaleron-patho:OrbitalPittingSeverity" id="OrbitalPittingSeverity" label="Orbital Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/OrbitalPittingSeverityLabelSorting>"]]
+	 
+	 ]'>
+	 
+	 <semantic-form-recover-notification></semantic-form-recover-notification>
+	 <semantic-form-select-input for='ActivityOfOrbitalPoroticLesion'></semantic-form-select-input>
+	 <semantic-form-select-input for='PresenceOfRaisedOrbitalSurface'></semantic-form-select-input>
+	 <semantic-form-select-input for='OrbitalPitDensity'></semantic-form-select-input>
+	 <semantic-form-select-input for='OrbitalPittingSeverity'></semantic-form-select-input>
+	 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+	 <button name="reset" class="btn btn-secondary">Reset</button>
+	 [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="OrbitalPorosity" ufbTemplate="label-Template" ufbname="Orbita dependent Items"]]
+	 
+</semantic-form>
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OrbitalPorosity" event-target="OrbitalPorosity"]]
+
+<br> <hr> <br>
+{{/ifCond}}
+</template>
+</semantic-query>
+<!-- End Dependant on Presence of Orbital Porosity -->
+<!-- Dependent on Presence of Orbital Porosity -->
+[[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Cranial Vault Porosity</h4>"  form-id="CranialVaultPorosity"]]
+
+
+
+fields='[
+ [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-patho:ActivityOfPathologicalProcessValueSpecification" connected_iristring="ActivityOfCranialVaultPoroticLesion" connected_class="phaleron-patho:ActivityOfCranialVaultPoroticLesion" id="ActivityOfCranialVaultPoroticLesion" label="Activity Of Cranial Vault Porotic Lesion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ActivityOfPathologicalProcessLabelSorting>"]],
+
+	    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CertaintyOfExistenceOfFeatureValueSpecification" connected_iristring="PresenceOfCranialVaultDiploicExpansion" connected_class="phaleron-patho:PresenceOfCranialVaultDiploicExpansion" id="PresenceOfCranialVaultDiploicExpansion" label="Presence Of Cranial Vault Diploic Expansion" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CertaintyOfExistenceOfFeatureLabelSorting>"]],
+
+	    [[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:15To50PerSquarecentimeterFourStagesDensityValueSpecification" connected_iristring="CranialVaultPitDensity" connected_class="phaleron-patho:CranialVaultPitDensity" id="CranialVaultPitDensity" label="Cranial Vault Pit Density" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/DensityLabelSorting>"]],
+
+		[[>:PBP_Patho_Multi_Switch_Body_Template type="phaleron-patho:PresenceOfCranialVaultPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:CranialPittingSeverityValueSpecification" connected_iristring="CranialVaultPittingSeverity" connected_class="phaleron-patho:CranialVaultPittingSeverity" id="CranialVaultPittingSeverity" label="Cranial Vault Pitting Severity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/CranialPittingSeverityLabelSorting>"]]
+	
+]'>
+	
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='ActivityOfCranialVaultPoroticLesion'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfCranialVaultDiploicExpansion'></semantic-form-select-input>
+<semantic-form-select-input for='CranialVaultPitDensity'></semantic-form-select-input>
+<semantic-form-select-input for='CranialVaultPittingSeverity'></semantic-form-select-input>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+[[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="CranialVaultPorosity" ufbTemplate="label-Template" ufbname="Cranial Vault dependent Items"]]
+
+</semantic-form>
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="CranialVaultPorosity" event-target="CranialVaultPorosity"]]
+<br> <hr><br>
+ {{/ifCond}}
+</template>
+</semantic-query>
+
+
+<!-- End Dependent on Presence of Orbital Porosity -->
+<!-- End Skull ROI -->
+
+
+
+ <h4>Add Additional Information</h4>
+ <div style="color:red"><strong>INFO:</strong> Please fill these fields <strong>before</strong> creating ROI Specifications!</div>
+ <semantic-form
+ subject='[[this]]'
+ post-action='event'
+ persistence='sparql'
+ id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+
+	
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfSunburstEffect" connected_class="phaleron-patho:PresenceOfSunburstEffect" id="PresenceOfSunburstEffect" label="Presence Of Sunburst Effect" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfSunburstEffect, phaleron-patho:LocationOfSunburstEffect,  phaleron-patho:ExtentOfSunburstEffect" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]],
+	
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfCauliflowerAppearance" connected_class="phaleron-patho:PresenceOfCauliflowerAppearance" id="PresenceOfCauliflowerAppearance" label="Presence Of Cauliflower Appearance" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfCauliflowerAppearance, phaleron-patho:LocationOfCauliflowerAppearance,  phaleron-patho:ExtentOfCauliflowerAppearance" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]],
+	
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfExpansiveShell" connected_class="phaleron-patho:PresenceOfExpansiveShell" id="PresenceOfExpansiveShell" label="Presence Of Expansive Shell" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfExpansiveShell, phaleron-patho:LocationOfExpansiveShell,  phaleron-patho:ExtentOfExpansiveShell" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]],	
+	
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfSequestrum" connected_class="phaleron-patho:PresenceOfSequestrum" id="PresenceOfSequestrum" label="Presence Of Sequestrum" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfSequestrum, phaleron-patho:LocationOfSequestrum,  phaleron-patho:ExtentOfSequestrum" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]],
+	
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfInvolucrum" connected_class="phaleron-patho:PresenceOfInvolucrum" id="PresenceOfInvolucrum" label="Presence Of Involucrum" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfInvolucrum, phaleron-patho:LocationOfInvolucrum,  phaleron-patho:ExtentOfInvolucrum" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]],
+
+	[[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfCloaca" connected_class="phaleron-patho:PresenceOfCloaca" id="PresenceOfCloaca" label="Presence Of Cloaca" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfCloaca, phaleron-patho:LocationOfCloaca,  phaleron-patho:ExtentOfCloaca" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification" ]]
+    
+    ]'>
+
+  <semantic-form-recover-notification></semantic-form-recover-notification>
+  
+  <semantic-form-select-input for='PresenceOfSunburstEffect'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfCauliflowerAppearance'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfExpansiveShell'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfSequestrum'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfInvolucrum'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfCloaca'></semantic-form-select-input>
+
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+
+
+
+
+<br><br>
+<hr>
+<h4>Create a new ROI Specification</h4>
+[[>:PBP_Patho_AddPathologySectionMixedBoneROISpec_Template section_type="Mixed Bone Formation Loss"]]
+
+ 
+<hr>
+<h4> Create New Observer/Editing Event</h4>
+[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfMixedBoneFormationAndLoss>"]]
+
+<br><hr><br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]" urlqueryparam-tab="[[singleValueFromSelect "SELECT ?param WHERE {?? <http://purl.obolibrary.org/obo/IAO_0000136> ?roi. ?roi <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/urlparam>  ?param }"]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
+Back to Paleopath Summary</strong>
+</semantic-link>
+</div>

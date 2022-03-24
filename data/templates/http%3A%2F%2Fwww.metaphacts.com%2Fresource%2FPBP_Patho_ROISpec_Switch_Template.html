@@ -4,7 +4,9 @@
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
                     PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>                    
                     SELECT ?value WHERE {
-                          ?? obo:BFO_0000051 ?presence .
+                          ?MixBoneDataSection obo:BFO_0000051 ?? .
+			  ?MixBoneDataSection a [[datasection_type]] .
+			  ?MixBoneDataSection obo:BFO_0000051 ?presence .
                           ?presence a [[type]] .
                           ?presence obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec obo:OBI_0000999 $value .
@@ -39,7 +41,7 @@
                           
                     }",
 
-                  "valueSetPattern": "
+                   "valueSetPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>

@@ -87,7 +87,22 @@ SELECT $value WHERE {
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
 <br>
-<strong>Show all available Instances:</strong></hr>
+
+<semantic-query query="
+		       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		       PREFIX obo: <http://purl.obolibrary.org/obo/>
+		       PREFIX dc: <http://purl.org/dc#>
+		       SELECT (count(DISTINCT ?RP) AS ?value) WHERE { 
+		       ?paleopath_observation obo:OBI_0000299 ??.
+		       ?paleopath_observation a [[paleopath_observation_type]] .
+		       ?paleopath_observation obo:BFO_0000051  ?RP.
+		       ?RP a [[research_process_type]] .        
+		      
+      } GROUP BY ?RP" template="{{> t}}">
+  <template id="t">
+    {{#ifCond bindings.0.value.value ">" "0"}}
+<strong>Show all available Observer/Editing Events:</strong></hr>
 <semantic-table 
   query="
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -119,4 +134,5 @@ SELECT $value WHERE {
      {"variableName": "typelabel", "displayName": "Type of Event"},
      {"variableName": "homosapiens", "displayName": "Person involved"}
     ]'
-></semantic-table>
+  ></semantic-table>
+ {{/ifCond}}

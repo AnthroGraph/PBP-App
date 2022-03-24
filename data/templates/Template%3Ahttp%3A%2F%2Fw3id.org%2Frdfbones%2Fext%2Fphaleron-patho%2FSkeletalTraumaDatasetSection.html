@@ -36,7 +36,7 @@ fields='[
 <semantic-form-select-input for='PresenceOfDislocation'></semantic-form-select-input>
 <semantic-form-select-input for='TimingOfInjury'></semantic-form-select-input>
 
-<div><strong>INFO:</strong> After saving this sub-form, a new entry field will appear below to specify the type of response</div><br>
+      <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
@@ -98,10 +98,8 @@ fields='[
 <h4> Create New Observer/Editing Event</h4>
 [[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfSkeletalTrauma>"]]
 
-
-<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
-Back to Paleopath Summary</strong>
-</semantic-link>
+<br><hr><br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]" urlqueryparam-tab="[[singleValueFromSelect "SELECT ?param WHERE {?? <http://purl.obolibrary.org/obo/IAO_0000136> ?roi. ?roi <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/urlparam>  ?param }"]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
 </div>
 
 

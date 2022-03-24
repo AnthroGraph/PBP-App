@@ -172,48 +172,8 @@ fields='[{
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
 <br><br>
-<h3>Show all available ROI Specifications :</h3></hr>
-<semantic-table 
-  query="
-      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-      PREFIX obo: <http://purl.obolibrary.org/obo/>
-      PREFIX phaleron-patho: <http://w3id.org/rdfbones/ext/phaleron-patho/>
 
-      SELECT DISTINCT ?roispec ?anatsite ?anataspect ?involvement WHERE { 
-             ?roispec a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronROISpecification> .
-             ?? obo:BFO_0000051 ?roispec .   
-             OPTIONAL {
-            ?roispec obo:BFO_0000051 ?anatomical_site .
-            ?anatomical_site a phaleron-patho:AnatomicalSite.
-            ?anatomical_site_VS a phaleron-patho:AnatomicalSiteValueSpecification.
-            ?anatomical_site obo:OBI_0001938 ?anatomical_site_VS.
-            ?anatomical_site_VS obo:OBI_0000999 ?anatsite .          
-            }    
-          OPTIONAL {
-            ?roispec obo:BFO_0000051 ?anatomical_aspect .
-            ?anatomical_aspect a phaleron-patho:AnatomicalAspect.
-            ?anatomical_aspect_VS a phaleron-patho:AnatomicalAspectValueSpecification.
-            ?anatomical_aspect obo:OBI_0001938 ?anatomical_aspect_VS.
-            ?anatomical_aspect_VS obo:OBI_0000999 ?anataspect .      
-           }    
-           OPTIONAL {
-            ?roispec obo:BFO_0000051 ?ExtentOfInvolvement .
-            ?ExtentOfInvolvement a phaleron-patho:ExtentOfInvolvement.
-            ?ExtentOfInvolvement_VS a phaleron-patho:ExtentOfInvolvementValueSpecification.
-            ?ExtentOfInvolvement obo:OBI_0001938 ?ExtentOfInvolvement_VS.
-            ?ExtentOfInvolvement_VS obo:OBI_0000999 ?involvement .      
-           }          
-      }"
-     options='{
-      "enableGrouping": true,
-      "groupingOptions": {"groupedBy": ["roispec"]}
-    }'
-  column-configuration='[
-    {"variableName": "roispec", "displayName": "ROI Specification"},
-    {"variableName": "anatsite", "displayName": "Anatomical Site"},
-    {"variableName": "anataspect", "displayName": "Anatomical Aspect"}
-    ,
-    {"variableName": "involvement", "displayName": "Extent of Involvement"}
-    ]'
-></semantic-table>
+
+[[>:PBP_Patho_ROISpec_TableSnippet_Template ROIspecClass="<http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronROISpecification>"]]
+
+
