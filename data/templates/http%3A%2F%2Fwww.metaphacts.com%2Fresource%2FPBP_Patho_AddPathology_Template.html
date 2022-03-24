@@ -61,6 +61,18 @@ fields='[{
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
 <br>
+<semantic-query query="PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		       PREFIX obo: <http://purl.obolibrary.org/obo/>
+		       SELECT (count(DISTINCT ?boneAdd) AS ?value) WHERE { 
+		       ?boneAdd a [[paleopath_datasection_type]] .
+		       ?? obo:BFO_0000051 ?boneAdd .
+		       ?boneAdd obo:IAO_0000136 [[ROItype]].
+		       } GROUP BY ?boneAdd
+		       
+		       " template="{{> t}}">
+  <template id="t">
+    {{#ifCond bindings.0.value.value ">" "0"}}
 <strong>Show all available [[paleopath_type]] Instances:</strong></hr>
 <semantic-table 
   query="
@@ -78,3 +90,6 @@ fields='[{
     {"variableName": "boneAdd", "displayName": "[[paleopath_type]]"}
     ]'
 ></semantic-table>
+{{/ifCond}}
+  </template>
+</semantic-query>
