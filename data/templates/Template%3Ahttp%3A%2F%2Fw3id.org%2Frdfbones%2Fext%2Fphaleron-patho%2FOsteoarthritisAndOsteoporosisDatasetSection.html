@@ -63,7 +63,8 @@ fields='[
 [[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfOsteoarthritisAndOsteoporosis>"]]
 
 
-<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]" urlqueryparam-tab="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?label WHERE {?? obo:IAO_0000136 ?object. ?object <http://www.w3.org/2000/01/rdf-schema#label> ?label}" ]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
-Back to Paleopath Summary</strong>
+<br><hr><br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]" urlqueryparam-tab="[[singleValueFromSelect "SELECT ?param WHERE {?? <http://purl.obolibrary.org/obo/IAO_0000136> ?roi. ?roi <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/urlparam>  ?param }"]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong>
+</semantic-link>
 </semantic-link>
 </div>
