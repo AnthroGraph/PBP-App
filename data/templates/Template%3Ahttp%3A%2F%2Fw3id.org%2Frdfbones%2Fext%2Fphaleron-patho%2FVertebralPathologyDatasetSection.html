@@ -1,0 +1,43 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing Vertebral Pathologies Section: <strong>[[this.label]]</strong></h4>
+<br>
+[[>:PBP_Patho_Dataset_Section_Snippet_Header]]
+[[>:PBP_Patho_AddPathologySectionNoROISpec_Template section_type=" Vertebral Pathologies"]]
+
+
+<br> <hr>
+<h4>Add Additional Information</h4>
+<semantic-form
+subject='[[this]]'
+post-action='reload'
+persistence='sparql'
+id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+  [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfSchmorlsNodes" connected_class="phaleron-patho:PresenceOfSchmorlsNodes" id="PresenceOfSchmorlsNodes" label="Presence Of Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"  connected_class_delete="phaleron-patho:PresenceOfSchmorlsNodes,  phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes"]],
+    
+     [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfSpinaBifida" connected_class="phaleron-patho:PresenceOfSpinaBifida" id="PresenceOfSpinaBifida" label="Presence Of Spina Bifida" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"  connected_class_delete="phaleron-patho:PresenceOfSpinaBifida,  phaleron-patho:NumberOfSacralUnitsAffectedBySpinaBifida"]]
+  
+  
+]'
+
+>
+<semantic-form-recover-notification></semantic-form-recover-notification>
+<semantic-form-select-input for='PresenceOfSchmorlsNodes'></semantic-form-select-input>
+<semantic-form-select-input for='PresenceOfSpinaBifida'></semantic-form-select-input>
+
+      <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+
+
+
+
+[[>:PBP_Patho_Single_Switch_Template type="phaleron-patho:PresenceOfSchmorlsNodes" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" id="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" label="Surface Of Body Of Vertebra Affected By Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
+
+</div>
