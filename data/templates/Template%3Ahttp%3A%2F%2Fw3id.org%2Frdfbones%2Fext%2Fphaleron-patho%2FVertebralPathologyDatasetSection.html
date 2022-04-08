@@ -52,9 +52,9 @@ fields='[
 
 <br><hr>
 
-[[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:DegreeOfOsteophyteFormation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedByOsteophytes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" id="SurfaceOfBodyOfVertebraAffectedByOsteophytes" label="Surface Of Body Of Vertebra Affected By Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
+[[>:PBP_Patho_Single_Switch_Template maxOccurs="2" type="phaleron-patho:DegreeOfOsteophyteFormation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedByOsteophytes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" id="SurfaceOfBodyOfVertebraAffectedByOsteophytes" label="Surface Of Body Of Vertebra Affected By Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
 
-[[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:PresenceOfSchmorlsNodes" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" id="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" label="Surface Of Body Of Vertebra Affected By Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
+[[>:PBP_Patho_Single_Switch_Template maxOccurs="2" type="phaleron-patho:PresenceOfSchmorlsNodes" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" id="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" label="Surface Of Body Of Vertebra Affected By Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
 
   [[>:PBP_Patho_Single_Switch_Count_Template type="phaleron-patho:PresenceOfSpinaBifida" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="standards-si:CountValueSpecification" connected_iristring="NumberOfSacralUnitsAffectedBySpinaBifida" connected_class="phaleron-patho:NumberOfSacralUnitsAffectedBySpinaBifida" id="NumberOfSacralUnitsAffectedBySpinaBifida" label="Number Of Sacral Units Affected By Spina Bifida" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
 
@@ -75,7 +75,10 @@ fields='[
                     }" template="{{> t}}">
        <template id="t">
 	
-   {{#ifCond bindings.0.value.value ">=" "1"}}
+	 {{#ifCond bindings.0.value.value ">=" "1"}}
+	 <br><hr>
+	 <h4>Select other skeletal elements that are permanently connected by ankylosis to the skeletal element currently investigated</h4>
+	 <div style="color:red"><strong>NOTE:</strong> Only Select Elements from Adjacent Vertebrae</div>
 <semantic-form
 post-action='event'
 persistence='sparql'
@@ -84,7 +87,7 @@ browser-persistence='true'
   subject=[[this]]
   fields='[{
     "id": "roispec",
-    "label": "Select ROI Affected by Ankylosis",
+    "label": "Ankylosed Skeletal Elements",
     "xsdDatatype": "xsd:anyURI",
     "maxOccurs": 2,
     "minOccurs": 0,
