@@ -16,9 +16,9 @@ form-id="additonal-info"
 browser-persistence='true'
 fields='[
 
-	 [[>:PBP_Patho_SectionFormsSwitch_Ankylosis_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfOsteophyteFormation" connected_class="phaleron-patho:DegreeOfOsteophyteFormation" id="DegreeOfOsteophyteFormation" label="Degree Of Osteophyte Formation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" alternative_class_delete="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" ]],
+	 [[>:PBP_Patho_SectionFormsSwitch_Ankylosis_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfOsteophyteFormation" connected_class="phaleron-patho:DegreeOfOsteophyteFormation" id="DegreeOfOsteophyteFormation" label="Degree Of Osteophyte Formation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" alternative_class_delete="phaleron-patho:DegreeOfSyndesmophyteFormation" ]],
 
-	  [[>:PBP_Patho_SectionFormsSwitch_Ankylosis_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedByOsteophytes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" id="SurfaceOfBodyOfVertebraAffectedByOsteophytes" label="Surface Of Body Of Vertebra Affected By Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" alternative_class_delete="phaleron-patho:DegreeOfOsteophyteFormation"]],
+	  [[>:PBP_Patho_SectionFormsSwitch_Ankylosis_Template value_spec="phaleron-patho:DegreeOfBoneLippingValueSpecification" connected_iristring="DegreeOfSyndesmophyteFormation" connected_class="phaleron-patho:DegreeOfSyndesmophyteFormation" id="DegreeOfSyndesmophyteFormation" label="Degree Of Syndesmophyte Formation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/LippingDegreeLabelSorting>" alternative_class_delete="phaleron-patho:DegreeOfOsteophyteFormation"]],
 	  
   [[>:PBP_Patho_SectionFormsSwitch_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfSchmorlsNodes" connected_class="phaleron-patho:PresenceOfSchmorlsNodes" id="PresenceOfSchmorlsNodes" label="Presence Of Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>"  connected_class_delete="phaleron-patho:PresenceOfSchmorlsNodes,  phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes"]],
     
@@ -35,7 +35,7 @@ fields='[
 >
   <semantic-form-recover-notification></semantic-form-recover-notification>
   <semantic-form-select-input for='DegreeOfOsteophyteFormation'></semantic-form-select-input>
-  <semantic-form-select-input for='SurfaceOfBodyOfVertebraAffectedByOsteophytes'></semantic-form-select-input>
+  <semantic-form-select-input for='DegreeOfSyndesmophyteFormation'></semantic-form-select-input>
 
 <semantic-form-select-input for='PresenceOfSchmorlsNodes'></semantic-form-select-input>
 <semantic-form-select-input for='PresenceOfSpinaBifida'></semantic-form-select-input>
@@ -52,6 +52,7 @@ fields='[
 
 <br><hr>
 
+[[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:DegreeOfOsteophyteFormation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedByOsteophytes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" id="SurfaceOfBodyOfVertebraAffectedByOsteophytes" label="Surface Of Body Of Vertebra Affected By Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
 
 [[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:PresenceOfSchmorlsNodes" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" id="SurfaceOfBodyOfVertebraAffectedBySchmorlsNodes" label="Surface Of Body Of Vertebra Affected By Schmorls Nodes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
 
