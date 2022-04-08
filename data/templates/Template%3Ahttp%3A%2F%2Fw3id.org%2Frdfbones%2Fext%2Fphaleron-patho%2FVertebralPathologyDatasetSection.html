@@ -112,11 +112,14 @@ browser-persistence='true'
         ?? obo:BFO_0000051 ?ankylosisInstance.
 	?ankylosisInstance a phaleron-patho:Ankylosis .
 	?ankylosisInstance vivo:relates ?value.
+	?ankylosisInstance vivo:relates ?ROIinstance.
                
-       }} WHERE {GRAPH ?mygraph {
+       }} WHERE {GRAPH ?mygraph { ?? a ?o }
        BIND(URI(CONCAT(STR(?subject),\"-Ankylosis\")) AS ?ankylosisInstance ) 
-       ?? a ?o
-       }       } 
+       ?? obo:IAO_0000136 ?ROIinstance .
+       ?ROIinstance a ?ROIclass .
+       ?ROIclass rdfs:subClassOf*  <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest>  .
+       }        
        
 ",
 
