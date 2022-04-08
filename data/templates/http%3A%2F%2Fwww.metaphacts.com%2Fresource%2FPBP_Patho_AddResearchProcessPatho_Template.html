@@ -118,7 +118,7 @@ SELECT $value WHERE {
              OPTIONAL {?typeofEvent obo:BFO_0000054 ?RP .
              ?typeofEvent a ?typeclass .
              ?typeclass rdfs:label ?typelabel} .
-             ?RP obo:RO_0000057 ?homosapiens.
+             OPTIONAL {?RP obo:RO_0000057 ?homosapiens.}
              
 
       }"
@@ -136,3 +136,5 @@ SELECT $value WHERE {
     ]'
   ></semantic-table>
  {{/ifCond}}
+ </template>
+  </semantic-query>
