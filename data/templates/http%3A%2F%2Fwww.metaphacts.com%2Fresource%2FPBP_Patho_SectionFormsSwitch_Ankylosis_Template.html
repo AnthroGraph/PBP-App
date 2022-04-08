@@ -1,0 +1,95 @@
+{
+    "id": "[[id]]",
+    "label": "[[label]]",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    SELECT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?presence .
+                          ?presence a [[connected_class]] .
+                          ?presence obo:OBI_0001938 ?ValueSpec .
+                          ?ValueSpec obo:OBI_0000999 $value .
+                          
+                    }",
+
+                  "valueSetPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
+                    SELECT DISTINCT $value WHERE {
+                     [[value_spec]]  rdfs:subClassOf ?myRS1 .
+  					        ?myRS1 a owl:Restriction ;
+                           <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
+                           owl:someValuesFrom|owl:onClass ?selection .
+  						
+  					        ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
+                     OPTIONAL {
+                            ?index obo:IAO_0000136 ?value .	
+                            ?index a [[sortingclass]].
+                          }
+                   
+                    } ORDER BY ?index",
+                  "insertPattern": "
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
+                   
+                    INSERT {GRAPH ?mygraph {
+                          ?subject obo:BFO_0000051 ?presence .
+                          ?presence a [[connected_class]] .
+                          ?presence obo:OBI_0001938 ?ValueSpec .
+                          ?ValueSpec a [[value_spec]] .
+                          ?ValueSpec obo:OBI_0000999 $value .
+                      
+                      }}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          BIND(URI(CONCAT(STR(?subject),\"_\",\"[[connected_iristring]]\")) AS ?presence) .
+                          BIND(URI(CONCAT(STR(?subject),\"_\",\"[[connected_iristring]]\",\"ValueSpec\")) AS ?ValueSpec) .
+                          
+                          
+                          
+                    }",
+                    "deletePattern": "
+		    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>
+        PREFIX vivo: <http://vivoweb.org/ontology/core#>
+
+                    DELETE {
+		    ?ValueSpec obo:OBI_0000999 $value .            
+		    ?ankylosisInstance vivo:relates ?value2.
+		    }
+		    WHERE {
+                    ?subject obo:BFO_0000051 ?presence .
+                      ?presence a [[connected_class]]  .
+                      
+                      ?presence obo:OBI_0001938 ?ValueSpec .
+                      ?ValueSpec (obo:OBI_0000999|obo:OBI_0001937) $value .
+		   
+  			
+  		    OPTIONAL {
+    		        ?subject obo:BFO_0000051 ?presence1 .
+                        ?presence1 a ?del1  .
+                        FILTER (?del1 IN ([[alternative_class_delete]]) )
+                        ?presence1 obo:OBI_0001938 ?ValueSpec1 .
+    		        FILTER (NOT EXISTS {
+        		     ?ValueSpec1 (obo:OBI_0000999|obo:OBI_0001937) standards-patho:Ankylosis .
+                        })
+		        ?subject obo:BFO_0000051 ?ankylosisInstance .
+		   	?ankylosisInstance a phaleron-patho:Ankylosis .
+		        ?ankylosisInstance vivo:relates ?value2. 
+  		      }
+		    }
+                    
+                        "
+}
