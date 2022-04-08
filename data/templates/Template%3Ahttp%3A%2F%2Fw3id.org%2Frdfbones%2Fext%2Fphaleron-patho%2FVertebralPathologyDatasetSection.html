@@ -97,6 +97,7 @@ browser-persistence='true'
 	?? obo:BFO_0000051 ?ankylosisInstance.
 	?ankylosisInstance a phaleron-patho:Ankylosis .
 	?ankylosisInstance vivo:relates ?value .
+	FILTER (NOT EXISTS {?? obo:IAO_0000136 ?value } )
 }
 ",
 
