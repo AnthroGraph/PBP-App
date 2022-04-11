@@ -23,8 +23,8 @@
     {
     "id": "[[id]]",
     "label": "[[label]]",
-    "xsdDatatype": "xsd:anyURI",
-    "maxOccurs": [[maxOccurs]],
+    "xsdDatatype": "xsd:integer",
+    "maxOccurs": 1,
     "minOccurs": 1,
 
     "selectPattern": "
@@ -35,31 +35,11 @@
                           ?subject obo:BFO_0000051 ?presence .
                           ?presence a [[connected_class]] .
                           ?presence obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
+                          ?ValueSpec obo:OBI_0001937 $value .
                           
                     }",
 
-                  "valueSetPattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
-                    SELECT DISTINCT $value WHERE {
-                     [[value_spec]]  rdfs:subClassOf ?myRS1 .
-  					        ?myRS1 a owl:Restriction ;
-                           <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
-                           owl:someValuesFrom|owl:onClass ?selection .
-  						
-  			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
-			        OPTIONAL {
-                            ?index obo:IAO_0000136 ?value .	
-                            ?index a [[sortingclass]].
-                    }
-			       
-                   
-                    }  ORDER BY ?index",
+                 
                   "insertPattern": "
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -71,7 +51,7 @@
                           ?presence a [[connected_class]] .
                           ?presence obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec a [[value_spec]] .
-                          ?ValueSpec obo:OBI_0000999 $value .
+                          ?ValueSpec obo:OBI_0001937 $value .
                       
                       }}
                       WHERE {
@@ -88,12 +68,12 @@
                     PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
                     PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
 		     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    DELETE {?ValueSpec obo:OBI_0000999 $value .}
+                    DELETE {?ValueSpec obo:OBI_0001937 $value .}
                       WHERE {
                         ?subject obo:BFO_0000051 ?presence .
                           ?presence a [[connected_class]] .
                           ?presence obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
+                          ?ValueSpec obo:OBI_0001937 $value .
                         }"
 }  
 ]'
@@ -101,7 +81,7 @@
 >
 <semantic-form-recover-notification></semantic-form-recover-notification>
 
-<semantic-form-select-input for='[[id]]'></semantic-form-select-input>
+<semantic-form-text-input for='[[id]]'></semantic-form-text-input>
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
