@@ -101,10 +101,46 @@ SELECT $value WHERE{
         GRAPH ?mygraph {?? a ?o } .
         ?role obo:BFO_0000054 $subject .
         ?role obo:RO_0000081 $value.
-}"
+       }"
 
-}]'>
-<semantic-form-select-input for='editor'></semantic-form-select-input>
+ },
+ {
+         "id": "comment",
+         "label": "Optional: Please Comment on Event",
+         "xsdDatatype": "xsd:string",
+         "minOccurs": "0",
+         "maxOccurs": "1",
+	 
+         "selectPattern": "
+         PREFIX obo: <http://purl.obolibrary.org/obo/>
+         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+         SELECT ?value WHERE {
+         ?subject  rdfs:comment ?value .
+         }",
+	 
+         
+         "insertPattern": "
+         PREFIX obo: <http://purl.obolibrary.org/obo/>
+         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+         INSERT {GRAPH ?mygraph {
+	 ?subject rdfs:comment ?value .}}
+         WHERE {
+         GRAPH ?mygraph {?subject a ?o } 
+          
+  	 }"
+	 ,
+         "deletePattern": "
+         PREFIX obo: <http://purl.obolibrary.org/obo/>
+         DELETE {?subject rdfs:comment ?value}
+         WHERE {
+         ?subject rdfs:comment ?value .
+         
+         }"
+	 }
+]'>
+  <semantic-form-select-input for='editor'></semantic-form-select-input>
+  <semantic-form-text-input for='comment' multiline="true"></semantic-form-text-input>
+
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
