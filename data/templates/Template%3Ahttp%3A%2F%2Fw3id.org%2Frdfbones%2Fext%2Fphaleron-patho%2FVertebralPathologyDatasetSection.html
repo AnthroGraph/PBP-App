@@ -67,7 +67,7 @@ fields='[
                     SELECT(count(distinct ?presence) as ?value) WHERE {
                           ?? obo:BFO_0000051 ?presence .
                           ?presence a ?presenceclass .
-			  FILTER (?presenceclass IN (phaleron-patho:DegreeOfOsteophyteFormation, phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes))
+			  FILTER (?presenceclass IN (phaleron-patho:DegreeOfOsteophyteFormation, phaleron-patho:DegreeOfSyndesmophyteFormation))
                           ?presence obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec obo:OBI_0000999 <http://w3id.org/rdfbones/ext/standards-patho/Ankylosis> .
 			  
