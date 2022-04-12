@@ -1,6 +1,6 @@
 <div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h3>Viewing  [[singleValueFromSelect 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?typelabel WHERE {?typeofevent obo:BFO_0000054 ??. ?typeofevent a ?typeclass . ?typeclass rdfs:label ?typelabel}' ]] Event on [[singleValueFromSelect 'PREFIX dc: <http://purl.org/dc#> SELECT ?date WHERE {?? dc:date ?date}' ]]</h3>
 
-<h4>Select Observer/Editor for [[singleValueFromSelect 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?typelabel WHERE {?? obo:BFO_0000054 ?type. ?type rdfs:label ?typelabel}' ]] Event on [[singleValueFromSelect 'PREFIX dc: <http://purl.org/dc#> SELECT ?date WHERE {?? dc:date ?date}' ]]</h4>
 <hr>
 <semantic-update query='
 PREFIX : <http://www.metaphacts.com/resource/>
@@ -58,7 +58,7 @@ persistence='sparql'
 
 fields='[{
     "id": "editor",
-    "label": "Select Editor/Observer on [[singleValueFromSelect 'PREFIX dc: <http://purl.org/dc#> SELECT ?date WHERE {?? dc:date ?date}' ]]",
+    "label": "Select  [[singleValueFromSelect 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?typelabel WHERE {?typeofevent obo:BFO_0000054 ??. ?typeofevent a ?typeclass . ?typeclass rdfs:label ?typelabel}' ]](s)  on [[singleValueFromSelect 'PREFIX dc: <http://purl.org/dc#> SELECT ?date WHERE {?? dc:date ?date}' ]]",
     "xsdDatatype": "xsd:anyURI",
     "minOccurs": 1,
     "insertPattern": "
