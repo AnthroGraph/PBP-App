@@ -11,7 +11,7 @@
 <h4>Add Additional Information</h4>
 <semantic-form
 subject='[[this]]'
-post-action='reload'
+post-action='event'
 persistence='sparql'
 id="additonal-info"
 form-id="additonal-info"
@@ -45,11 +45,16 @@ fields='[
 
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
 <button name="reset" class="btn btn-secondary">Reset</button>
-    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
 </semantic-form>
  [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
 
-
+<mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="additonal-info" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
+</mp-event-proxy>
+<mp-event-target-template-render id="update-forms" template=" {{>ufbTemplate}} ">
+  <template id="ufbTemplate">
+                           
+                        
 [[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:DegreeOfBoneLipping" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneLipping" connected_class="phaleron-patho:ExtentOfBoneLipping" id="ExtentOfBoneLipping" label="Extent Of Bone Lipping" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
   [[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:DegreeOfBoneSurfacePorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfBoneSurfacePorosity" connected_class="phaleron-patho:ExtentOfBoneSurfacePorosity" id="ExtentOfBoneSurfacePorosity" label="Extent Of Bone Surface Porosity" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
@@ -58,6 +63,9 @@ fields='[
 
        [[>:PBP_Patho_Single_Switch_Template maxOccurs="1" type="phaleron-patho:PresenceAndPerceptibilityOfPeriarticularResorptiveFoci" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:ExtentOfInvolvementValueSpecification" connected_iristring="ExtentOfPeriarticularResorptiveFoci" connected_class="phaleron-patho:ExtentOfPeriarticularResorptiveFoci" id="ExtentOfPeriarticularResorptiveFoci" label="Extent Of Periarticular ResorptiveFoci" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/ExtentOfInvolvementLabelSorting>"]]
 
+ 
+  </template>
+</mp-event-target-template-render>
 <hr>
 <h4> Create New Observer/Editing Event</h4>
 [[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfOsteoarthritisAndOsteoporosis>"]]

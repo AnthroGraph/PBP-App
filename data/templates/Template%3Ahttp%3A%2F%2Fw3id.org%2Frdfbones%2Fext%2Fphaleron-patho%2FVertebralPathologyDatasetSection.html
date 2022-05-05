@@ -9,7 +9,7 @@
 <h4>Add Additional Information</h4>
 <semantic-form
 subject='[[this]]'
-post-action='reload'
+post-action='event'
 persistence='sparql'
 id="additonal-info"
 form-id="additonal-info"
@@ -36,22 +36,25 @@ fields='[
   <semantic-form-recover-notification></semantic-form-recover-notification>
   <semantic-form-select-input for='DegreeOfOsteophyteFormation'></semantic-form-select-input>
   <semantic-form-select-input for='DegreeOfSyndesmophyteFormation'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfSchmorlsNodes'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfSpinaBifida'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfSpondylolysis'></semantic-form-select-input>
+  <semantic-form-select-input for='ChangeInShapeOfBodyOfVertebra'></semantic-form-select-input>
+  <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
 
-<semantic-form-select-input for='PresenceOfSchmorlsNodes'></semantic-form-select-input>
-<semantic-form-select-input for='PresenceOfSpinaBifida'></semantic-form-select-input>
-<semantic-form-select-input for='PresenceOfSpondylolysis'></semantic-form-select-input>
-
-<semantic-form-select-input for='ChangeInShapeOfBodyOfVertebra'></semantic-form-select-input>
-
-
-      <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
-
-<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-<button name="reset" class="btn btn-secondary">Reset</button>
-    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+  <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+  <button name="reset" class="btn btn-secondary">Reset</button>
+  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
 </semantic-form>
- [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
 
+<mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="additonal-info" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
+</mp-event-proxy>
+
+
+<mp-event-target-template-render id="update-forms" template=" {{>ufbTemplate}} ">
+
+ <template id="ufbTemplate">
 <br><hr>
 
 [[>:PBP_Patho_Single_Switch_Template maxOccurs="2" type="phaleron-patho:DegreeOfOsteophyteFormation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:SuperiorInferiorValueSpecification" connected_iristring="SurfaceOfBodyOfVertebraAffectedByOsteophytes" connected_class="phaleron-patho:SurfaceOfBodyOfVertebraAffectedByOsteophytes" id="SurfaceOfBodyOfVertebraAffectedByOsteophytes" label="Surface Of Body Of Vertebra Affected By Osteophytes" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/SuperiorInferiorLabelSorting>"]]
@@ -198,7 +201,9 @@ browser-persistence='true'
 
     </template>
   </semantic-query>
-
+</template>
+  
+</mp-event-target-template-render>
 <hr>
 <h4> Create New Observer/Editing Event</h4>
 [[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfVertebralPathology>"]]
