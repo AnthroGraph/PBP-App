@@ -23,7 +23,7 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX vivo: <http://vivoweb.org/ontology/core#>
 PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
 PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
-
+PREFIX dc: <http://purl.org/dc#>
 INSERT {GRAPH ?mygraph {  
       
       $subject rdfs:label ?mylabel .
@@ -31,6 +31,7 @@ INSERT {GRAPH ?mygraph {
       ?myPPprocess obo:OBI_0000299 $subject .
       ?myPPprocess a <http://w3id.org/rdfbones/ext/phaleron-patho/PaleopathologyInvestigation> .
       ?myPPprocess obo:OBI_0000293 $value .
+      $subject dc:date \"[[currentDateTime format="yyyy-MM-dd"]]\"^^xsd:date . 
       }
 } WHERE {
     
