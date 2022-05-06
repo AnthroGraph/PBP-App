@@ -35,10 +35,20 @@
   </semantic-update>
   <hr><br>
   <hr>
+
+  
   <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false 
 	   id="maintabs"
-	   default-active-key="[[#if (urlParam 'tab')]][[urlParam 'tab']][[else]]skull[[/if]]">
+	   default-active-key="[[#if (urlParam 'tab')]][[urlParam 'tab']][[else]]general[[/if]]">
 
+    <bs-tab event-key="general" title="General">
+      [[>:RDFBONES_SkeletalInventoryGeneralInfo typename="Paleopathology Investigation"]]
+
+      <h4> Create New Observer/Editing Event</h4>
+
+      [[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/PaleopathologyInvestigation>"]]
+
+    </bs-tab>
     <!-- SKULL -->
     <bs-tab event-key="skull" title="Skull">  
       <h4>Create New <strong style="color:red">Bone Addition</strong> Instance for [[this.label]] in the Skull section</h4>
