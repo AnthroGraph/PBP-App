@@ -1,10 +1,10 @@
                   "selectPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
-                    SELECT ?value WHERE {
+                    SELECT DISTINCT ?value WHERE {
                           ?subject obo:BFO_0000051 ?mysection.
                           ?mysection obo:BFO_0000051 ?MD .
-  					              ?MD a [[MDClass]] .
+  			  ?MD a [[MDClass]] .
                           ?ROI a [[ROIVar]] .
                           ?MD obo:IAO_0000136 ?ROI ;
                           obo:OBI_0001938 ?VS .
@@ -22,10 +22,19 @@
                             owl:onProperty <http://purl.obolibrary.org/obo/OBI_0001938> ;
                             owl:allValuesFrom  ?r4svs.
                       ?r4svs rdfs:subClassOf ?myRS4 .
-                      ?myRS4 a owl:Restriction ;
+                    OPTIONAL {
+	                    ?myRS4 a owl:Restriction ;
                             owl:onProperty [[ConnectValue]] ;
                             owl:allValuesFrom  ?l4.
-                      ?value a ?l4.
+                            ?value a ?l4.
+	                    }
+	            OPTIONAL {
+	                   ?myRS4 a owl:Restriction ;
+                           owl:onProperty ?connect;
+                           owl:onClass|owl:someValuesFrom   ?l4.
+               	           ?l4 	 owl:oneOf/rdf:rest*/rdf:first ?value .
+	
+	                  }
                     }",
                   "insertPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
