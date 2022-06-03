@@ -1,0 +1,13 @@
+<!-- This is a dummy page that was created in preparation for a meeting with the Phaleron Bioarchaeological Project on 28 May 2021.
+It demonstrates layout options but the fields do not take data, nor are they bound to existing classes. -->
+[[>:RDFBONES_SkeletalInventoryRelabelSnippet]]
+
+<hr>
+[[#if (ask 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ASK {SELECT  ?mySI  WHERE {        ?? a ?mySI . }}') ]]
+    <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false>
+      <bs-tab event-key="3" title="Perm. Max.">
+	[[>:PSI_DI_Permanent_Maxilla]]
+      </bs-tab>
+
+      </bs-tabs>
+[[/if]]
