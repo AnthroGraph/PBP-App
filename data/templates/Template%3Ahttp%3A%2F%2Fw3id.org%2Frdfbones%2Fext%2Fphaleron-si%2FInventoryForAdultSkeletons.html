@@ -1,1 +1,32 @@
-[[>:PSI_SI_TEMPLATE]]
+<!-- This is a dummy page that was created in preparation for a meeting with the Phaleron Bioarchaeological Project on 28 May 2021.
+It demonstrates layout options but the fields do not take data, nor are they bound to existing classes. -->
+[[>:RDFBONES_SkeletalInventoryRelabelSnippet]]
+
+<hr>
+[[#if (ask 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ASK {SELECT  ?mySI  WHERE {        ?? a ?mySI . }}') ]]
+<bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false>
+
+          [[>:PSI_SI_General]]
+
+          [[>:PSI_SI_CraniumTemplate]]
+
+          [[>:PSI_SI_VertebralColumnTemplate]]
+
+          [[>:PSI_SI_ThoraxTemplate]]
+
+          [[>:PSI_SI_OsCoxaeTemplate]]
+
+          [[>:PSI_SI_ShoulderGirdleTemplate]]
+
+          [[>:PSI_SI_ArmTemplate]]
+
+          [[>:PSI_SI_LegTemplate]] 
+
+          [[>:PSI_SI_HandTemplate]]   
+
+          [[>:PSI_SI_FootTemplate]]  
+
+          [[>:PSI_SI_MiscTemplate]]    
+
+</bs-tabs>
+[[/if]]
