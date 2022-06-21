@@ -1,0 +1,113 @@
+<h2><strong>Dentition</strong></h2>
+<hr>
+           <!-- Right Maxillary Arcade Form -->
+            <semantic-form
+              id = 'NumericTeeth'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='RightMaxillaryArcade'
+              persistence='sparql'
+              fields='[
+	      {
+	      [[>:PSI_SI_FormHeaderSnippet id="NumberOfSupernumeraryTeeth" label="Number Of Supernumerary Teeth" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+	      
+	      "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT DISTINCT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  			  ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfSupernumeraryTeeth> ;
+                              obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0001937 ?value .
+                    }",
+
+	       "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {
+		     ?VS obo:OBI_0001937 ?value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  		          ?MD a  <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfSupernumeraryTeeth>;
+                              obo:OBI_0001938 ?VS .
+                          }",
+	      "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    DELETE {?VS obo:OBI_0001937 ?value .}
+                      WHERE {
+                          
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  			  ?MD a  <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfSupernumeraryTeeth>.
+                          ?MD obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0001938 ?value .
+                          }"
+
+		    
+              },
+
+	        {
+		 [[>:PSI_SI_FormHeaderSnippet id="NumberOfUnidentifiedToothFragments" label="Number Of Unidentified Tooth Fragments" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+	      
+	      "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT DISTINCT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  			  ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfUnidentifiedToothFragments> ;
+                              obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0001937 ?value .
+                    }",
+
+	       "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {
+		     ?VS obo:OBI_0001937 ?value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  		          ?MD a  <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfUnidentifiedToothFragments>;
+                              obo:OBI_0001938 ?VS .
+                          }",
+	      "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    DELETE {?VS obo:OBI_0001937 ?value .}
+                      WHERE {
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  			  ?MD a  <http://w3id.org/rdfbones/ext/phaleron-di/NumberOfUnidentifiedToothFragments>.
+                          ?MD obo:OBI_0001938 ?VS .
+                          ?VS obo:OBI_0001937 ?value .
+                          }"
+		
+}
+
+              ]'
+            >
+              <semantic-form-recover-notification></semantic-form-recover-notification>
+              
+
+              <div data-flex-layout="row md-column top-spread">
+		<div class="grid-demo">
+                  <semantic-form-text-input for='NumberOfSupernumeraryTeeth'></semantic-form-text-input>
+		 <semantic-form-text-input for='NumberOfUnidentifiedToothFragments'></semantic-form-text-input>
+		</div>
+	      </div>
+	      <br>
+	      <button name="submit" class="btn btn-primary"><strong>Save Data</strong></button>
+                  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-right-MaxillaryArcade-update" ufbTemplate="rightMax-Template" ufbname="Data"]]
+            </semantic-form>
+            <!-- user feedback on form update -->
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="NumericTeeth" event-target="show-after-right-MaxillaryArcade-update"]]
+
+<hr>
+          
