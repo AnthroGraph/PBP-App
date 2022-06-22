@@ -54,7 +54,7 @@
           "id": "LeftPhIRR",
           "label": "Left Ischiopubic Ramus Ridge",
           "xsdDatatype": "xsd:integer",
-          "minOccurs": "0",
+          "minOccurs": "1",
           "maxOccurs": "1",
           "selectPattern":"
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -74,7 +74,7 @@
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
                     SELECT ?value WHERE {
-                        VALUES $value { 1 2 3 }
+                        VALUES $value { 1 2 3 9 }
                       }",
                       "insertPattern": "
                       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -103,31 +103,30 @@
                       "deletePattern": "
                       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                       PREFIX obo: <http://purl.obolibrary.org/obo/>
-                      DELETE {$subject obo:BFO_0000051 ?NumValPhIRRLeft .
-                        ?NumValPhIRRLeft a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
-                        ?NumValPhIRRLeft obo:IAO_0000136 ?LeftPubis .
-                        ?NumValPhIRRLeft obo:OBI_0001938 ?NumValPhIRRLeftValSpec .
-                        ?NumValPhIRRLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
-                        ?NumValPhIRRLeftValSpec obo:OBI_0001937 $value . }
+                        DELETE {
+                            $subject obo:BFO_0000051 ?NumValPhIRRLeft .
+                            ?NumValPhIRRLeft obo:IAO_0000136 ?LeftPubis .
+                            ?NumValPhIRRLeft a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
+                            ?NumValPhIRRLeft obo:OBI_0001938 ?NumValPhIRRLeftValSpec .
+                            ?NumValPhIRRLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                            ?NumValPhIRRLeftValSpec obo:OBI_0001937 $value .
+}
+
                         WHERE {
-                        ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                        ?SexInvestigation obo:OBI_0000299 $subject .
-                        ?SexInvestigation obo:OBI_0000293 ?specimen .
-                        ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                        ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                        ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                        ?OsCoxaeSection obo:BFO_0000051 ?LeftPubisObs .
-                        ?LeftPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                        ?LeftPubisObs obo:IAO_0000136 ?LeftPubis .
-                        ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-                  }"
+                            $subject obo:BFO_0000051 ?NumValPhIRRLeft .
+                            ?NumValPhIRRLeft obo:IAO_0000136 ?LeftPubis .
+                            ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+                            ?NumValPhIRRLeft a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
+                            ?NumValPhIRRLeft obo:OBI_0001938 ?NumValPhIRRLeftValSpec .
+                            ?NumValPhIRRLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                            }"
           }
       ,
       {
               "id": "RightPhIRR",
               "label": "Right Ischiopubic Ramus Ridge",
               "xsdDatatype": "xsd:integer",
-              "minOccurs": "0",
+              "minOccurs": "1",
               "maxOccurs": "1",
               "selectPattern":"
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -147,7 +146,7 @@
                         PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                         PREFIX owl: <http://www.w3.org/2002/07/owl#>
                         SELECT ?value WHERE {
-                            VALUES $value { 1 2 3 }
+                            VALUES $value { 1 2 3 9 }
                           }",
                           "insertPattern": "
                           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -175,26 +174,26 @@
                             BIND(URI(CONCAT(STR($subject),\"-NumValPhIRRRightValSpec\")) AS ?NumValPhIRRRightValSpec ) .
                           }",
                           "deletePattern": "
-                          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                          PREFIX obo: <http://purl.obolibrary.org/obo/>
-                          DELETE {$subject obo:BFO_0000051 ?NumValPhIRRRight .
-                            ?NumValPhIRRRight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                            ?NumValPhIRRRight a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
-                            ?NumValPhIRRRight obo:OBI_0001938 ?NumValPhIRRRightValSpec .
-                            ?NumValPhIRRRightValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
-                            ?NumValPhIRRRightValSpec obo:OBI_0001937 $value . }
-                            WHERE {
-                            ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                            ?SexInvestigation obo:OBI_0000299 $subject .
-                            ?SexInvestigation obo:OBI_0000293 ?specimen .
-                            ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                            ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                            ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                            ?OsCoxaeSection obo:BFO_0000051 ?RightPubisObs .
-                            ?RightPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                            ?RightPubisObs obo:IAO_0000136 ?RightPubis .
-                            ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                      }"
+                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                        PREFIX obo: <http://purl.obolibrary.org/obo/>
+                      DELETE {
+                          $subject obo:BFO_0000051 ?NumValPhIRRRight .
+                          ?NumValPhIRRRight obo:IAO_0000136 ?RightPubis .
+                          ?NumValPhIRRRight a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
+                          ?NumValPhIRRRight obo:OBI_0001938 ?NumValPhIRRRightValSpec .
+                          ?NumValPhIRRRightValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                          ?NumValPhIRRRightValSpec obo:OBI_0001937 $value .
+}
+
+                WHERE {
+                          $subject obo:BFO_0000051 ?NumValPhIRRRight .
+                          ?NumValPhIRRRight obo:IAO_0000136 ?RightPubis .
+                          ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                          ?NumValPhIRRRight a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScore> .
+                          ?NumValPhIRRRight obo:OBI_0001938 ?NumValPhIRRRightValSpec .
+                          ?NumValPhIRRRightValSpec a <http://w3id.org/rdfbones/ext/phenice/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+    }"
+
               }
 
 
@@ -235,7 +234,7 @@ fields='[
         "id": "LeftPhVA",
         "label": "Left Ventral Arc",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -255,7 +254,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 }
+                      VALUES $value { 1 2 3 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -284,23 +283,22 @@ fields='[
                     "deletePattern": "
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    DELETE {$subject obo:BFO_0000051 ?NumValPhVALeft .
-                      ?NumValPhVALeft a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
-                      ?NumValPhVALeft obo:IAO_0000136 ?LeftPubis .
-                      ?NumValPhVALeft obo:OBI_0001938 ?NumValPhVALeftValSpec .
-                      ?NumValPhVALeftValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
-                      ?NumValPhVALeftValSpec obo:OBI_0001937 $value . }
-                      WHERE {
-                      ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                      ?SexInvestigation obo:OBI_0000299 $subject .
-                      ?SexInvestigation obo:OBI_0000293 ?specimen .
-                      ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                      ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                      ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                      ?OsCoxaeSection obo:BFO_0000051 ?LeftPubisObs .
-                      ?LeftPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                      ?LeftPubisObs obo:IAO_0000136 ?LeftPubis .
-                      ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+DELETE {
+    $subject obo:BFO_0000051 ?NumValPhVALeft .
+    ?NumValPhVALeft obo:IAO_0000136 ?LeftPubis .
+    ?NumValPhVALeft a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhVALeft obo:OBI_0001938 ?NumValPhVALeftValSpec .
+    ?NumValPhVALeftValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
+    ?NumValPhVALeftValSpec obo:OBI_0001937 $value .
+}
+
+WHERE {
+    $subject obo:BFO_0000051 ?NumValPhVALeft .
+    ?NumValPhVALeft obo:IAO_0000136 ?LeftPubis .
+    ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+    ?NumValPhVALeft a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhVALeft obo:OBI_0001938 ?NumValPhVALeftValSpec .
+    ?NumValPhVALeftValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
                 }"
         }
     ,
@@ -308,7 +306,7 @@ fields='[
             "id": "RightPhVA",
             "label": "Right Ventral Arc",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -328,7 +326,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 }
+                          VALUES $value { 1 2 3 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -358,24 +356,23 @@ fields='[
                         "deletePattern": "
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX obo: <http://purl.obolibrary.org/obo/>
-                        DELETE {$subject obo:BFO_0000051 ?NumValPhVARight .
-                          ?NumValPhVARight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                          ?NumValPhVARight a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
-                          ?NumValPhVARight obo:OBI_0001938 ?NumValPhVARightValSpec .
-                          ?NumValPhVARightValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
-                          ?NumValPhVARightValSpec obo:OBI_0001937 $value . }
-                          WHERE {
-                          ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                          ?SexInvestigation obo:OBI_0000299 $subject .
-                          ?SexInvestigation obo:OBI_0000293 ?specimen .
-                          ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                          ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                          ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                          ?OsCoxaeSection obo:BFO_0000051 ?RightPubisObs .
-                          ?RightPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                          ?RightPubisObs obo:IAO_0000136 ?RightPubis .
-                          ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                    }"
+DELETE {
+    $subject obo:BFO_0000051 ?NumValPhVARight .
+    ?NumValPhVARight obo:IAO_0000136 ?RightPubis .
+    ?NumValPhVARight a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhVARight obo:OBI_0001938 ?NumValPhVARightValSpec .
+    ?NumValPhVARightValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
+    ?NumValPhVARightValSpec obo:OBI_0001937 $value .
+}
+
+WHERE {
+    $subject obo:BFO_0000051 ?NumValPhVARight .
+    ?NumValPhVARight obo:IAO_0000136 ?RightPubis .
+    ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+    ?NumValPhVARight a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhVARight obo:OBI_0001938 ?NumValPhVARightValSpec .
+    ?NumValPhVARightValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
+}"
             }
 
 
@@ -416,7 +413,7 @@ fields='[
         "id": "LeftPhSC",
         "label": "Left Subpubic Concavity",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -436,7 +433,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 }
+                      VALUES $value { 1 2 3 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -465,31 +462,30 @@ fields='[
                     "deletePattern": "
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    DELETE {$subject obo:BFO_0000051 ?NumValPhSCLeft .
-                      ?NumValPhSCLeft a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScore> .
-                      ?NumValPhSCLeft obo:IAO_0000136 ?LeftPubis .
-                      ?NumValPhSCLeft obo:OBI_0001938 ?NumValPhSCLeftValSpec .
-                      ?NumValPhSCLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
-                      ?NumValPhSCLeftValSpec obo:OBI_0001937 $value . }
-                      WHERE {
-                      ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                      ?SexInvestigation obo:OBI_0000299 $subject .
-                      ?SexInvestigation obo:OBI_0000293 ?specimen .
-                      ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                      ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                      ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                      ?OsCoxaeSection obo:BFO_0000051 ?LeftPubisObs .
-                      ?LeftPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                      ?LeftPubisObs obo:IAO_0000136 ?LeftPubis .
-                      ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-                }"
+DELETE {
+    $subject obo:BFO_0000051 ?NumValPhSCLeft .
+    ?NumValPhSCLeft obo:IAO_0000136 ?LeftPubis .
+    ?NumValPhSCLeft a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhSCLeft obo:OBI_0001938 ?NumValPhSCLeftValSpec .
+    ?NumValPhSCLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
+    ?NumValPhSCLeftValSpec obo:OBI_0001937 $value .
+}
+
+WHERE {
+    $subject obo:BFO_0000051 ?NumValPhSCLeft .
+    ?NumValPhSCLeft obo:IAO_0000136 ?LeftPubis .
+    ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+    ?NumValPhSCLeft a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScore> .
+    ?NumValPhSCLeft obo:OBI_0001938 ?NumValPhSCLeftValSpec .
+    ?NumValPhSCLeftValSpec a <http://w3id.org/rdfbones/ext/phenice/VentralArcMorphologyNumericScoreValueSpecification> .
+}"
         }
     ,
     {
             "id": "RightPhSC",
             "label": "Right Subpubic Concavity",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -509,7 +505,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 }
+                          VALUES $value { 1 2 3 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -539,23 +535,22 @@ fields='[
                         "deletePattern": "
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX obo: <http://purl.obolibrary.org/obo/>
-                        DELETE {$subject obo:BFO_0000051 ?NumValPhSCRight .
-                          ?NumValPhSCRight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                          ?NumValPhSCRight a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScore> .
-                          ?NumValPhSCRight obo:OBI_0001938 ?NumValPhSCRightValSpec .
-                          ?NumValPhSCRightValSpec a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
-                          ?NumValPhSCRightValSpec obo:OBI_0001937 $value . }
-                          WHERE {
-                          ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                          ?SexInvestigation obo:OBI_0000299 $subject .
-                          ?SexInvestigation obo:OBI_0000293 ?specimen .
-                          ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                          ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                          ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                          ?OsCoxaeSection obo:BFO_0000051 ?RightPubisObs .
-                          ?RightPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                          ?RightPubisObs obo:IAO_0000136 ?RightPubis .
-                          ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValPhSCRight .
+                        ?NumValPhSCRight obo:IAO_0000136 ?RightPubis .
+                        ?NumValPhSCRight a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValPhSCRight obo:OBI_0001938 ?NumValPhSCRightValSpec .
+                        ?NumValPhSCRightValSpec a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
+                        ?NumValPhSCRightValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValPhSCRight .
+                        ?NumValPhSCRight obo:IAO_0000136 ?RightPubis .
+                        ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                        ?NumValPhSCRight a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValPhSCRight obo:OBI_0001938 ?NumValPhSCRightValSpec .
+                        ?NumValPhSCRightValSpec a <http://w3id.org/rdfbones/ext/phenice/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
                     }"
             }
 
@@ -601,7 +596,7 @@ fields='[
         "id": "LeftKlIRR",
         "label": "Left Ischiopubic Ramus Ridge",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -621,7 +616,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 4 5 }
+                      VALUES $value { 1 2 3 4 5 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -650,31 +645,30 @@ fields='[
                     "deletePattern": "
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    DELETE {$subject obo:BFO_0000051 ?NumValKlIRRLeft .
-                      ?NumValKlIRRLeft a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
-                      ?NumValKlIRRLeft obo:IAO_0000136 ?LeftPubis .
-                      ?NumValKlIRRLeft obo:OBI_0001938 ?NumValKlIRRLeftValSpec .
-                      ?NumValKlIRRLeftValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
-                      ?NumValKlIRRLeftValSpec obo:OBI_0001937 $value . }
-                      WHERE {
-                      ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                      ?SexInvestigation obo:OBI_0000299 $subject .
-                      ?SexInvestigation obo:OBI_0000293 ?specimen .
-                      ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                      ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                      ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                      ?OsCoxaeSection obo:BFO_0000051 ?LeftPubisObs .
-                      ?LeftPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                      ?LeftPubisObs obo:IAO_0000136 ?LeftPubis .
-                      ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-                }"
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlIRRLeft .
+                        ?NumValKlIRRLeft obo:IAO_0000136 ?LeftPubis .
+                        ?NumValKlIRRLeft a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
+                        ?NumValKlIRRLeft obo:OBI_0001938 ?NumValKlIRRLeftValSpec .
+                        ?NumValKlIRRLeftValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlIRRLeftValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlIRRLeft .
+                        ?NumValKlIRRLeft obo:IAO_0000136 ?LeftPubis .
+                        ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+                        ?NumValKlIRRLeft a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
+                        ?NumValKlIRRLeft obo:OBI_0001938 ?NumValKlIRRLeftValSpec .
+                        ?NumValKlIRRLeftValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                    }"
         }
     ,
     {
             "id": "RightKlIRR",
             "label": "Right Ischiopubic Ramus Ridge",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -694,7 +688,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -724,23 +718,22 @@ fields='[
                         "deletePattern": "
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX obo: <http://purl.obolibrary.org/obo/>
-                        DELETE {$subject obo:BFO_0000051 ?NumValKlIRRRight .
-                          ?NumValKlIRRRight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                          ?NumValKlIRRRight a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
-                          ?NumValKlIRRRight obo:OBI_0001938 ?NumValKlIRRRightValSpec .
-                          ?NumValKlIRRRightValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
-                          ?NumValKlIRRRightValSpec obo:OBI_0001937 $value . }
-                          WHERE {
-                          ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                          ?SexInvestigation obo:OBI_0000299 $subject .
-                          ?SexInvestigation obo:OBI_0000293 ?specimen .
-                          ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                          ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                          ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                          ?OsCoxaeSection obo:BFO_0000051 ?RightPubisObs .
-                          ?RightPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                          ?RightPubisObs obo:IAO_0000136 ?RightPubis .
-                          ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlIRRRight .
+                        ?NumValKlIRRRight obo:IAO_0000136 ?RightPubis .
+                        ?NumValKlIRRRight a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
+                        ?NumValKlIRRRight obo:OBI_0001938 ?NumValKlIRRRightValSpec .
+                        ?NumValKlIRRRightValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlIRRRightValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlIRRRight .
+                        ?NumValKlIRRRight obo:IAO_0000136 ?RightPubis .
+                        ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                        ?NumValKlIRRRight a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScore> .
+                        ?NumValKlIRRRight obo:OBI_0001938 ?NumValKlIRRRightValSpec .
+                        ?NumValKlIRRRightValSpec a <http://w3id.org/rdfbones/ext/klales/IschiopubicRamusRidgeMorphologyNumericScoreValueSpecification> .
                     }"
             }
 
@@ -782,7 +775,7 @@ fields='[
         "id": "LeftKlVA",
         "label": "Left Ventral Arc",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -802,7 +795,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 4 5 }
+                      VALUES $value { 1 2 3 4 5 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -831,31 +824,30 @@ fields='[
                     "deletePattern": "
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    DELETE {$subject obo:BFO_0000051 ?NumValKlVALeft .
-                      ?NumValKlVALeft a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
-                      ?NumValKlVALeft obo:IAO_0000136 ?LeftPubis .
-                      ?NumValKlVALeft obo:OBI_0001938 ?NumValKlVALeftValSpec .
-                      ?NumValKlVALeftValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
-                      ?NumValKlVALeftValSpec obo:OBI_0001937 $value . }
-                      WHERE {
-                      ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                      ?SexInvestigation obo:OBI_0000299 $subject .
-                      ?SexInvestigation obo:OBI_0000293 ?specimen .
-                      ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                      ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                      ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                      ?OsCoxaeSection obo:BFO_0000051 ?LeftPubisObs .
-                      ?LeftPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                      ?LeftPubisObs obo:IAO_0000136 ?LeftPubis .
-                      ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-                }"
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlVALeft .
+                        ?NumValKlVALeft obo:IAO_0000136 ?LeftPubis .
+                        ?NumValKlVALeft a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
+                        ?NumValKlVALeft obo:OBI_0001938 ?NumValKlVALeftValSpec .
+                        ?NumValKlVALeftValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlVALeftValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlVALeft .
+                        ?NumValKlVALeft obo:IAO_0000136 ?LeftPubis .
+                        ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+                        ?NumValKlVALeft a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
+                        ?NumValKlVALeft obo:OBI_0001938 ?NumValKlVALeftValSpec .
+                        ?NumValKlVALeftValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
+                    }"
         }
     ,
     {
             "id": "RightKlVA",
             "label": "Right Ventral Arc",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -867,15 +859,14 @@ fields='[
               ?NumValKlVARightValSpec obo:OBI_0001937 $value .
               ?NumValKlVARight obo:IAO_0000136 ?RightPubis .
               ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-
-            }",
+              }",
                     "valueSetPattern": "
                       PREFIX obo: <http://purl.obolibrary.org/obo/>
                       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -905,23 +896,22 @@ fields='[
                         "deletePattern": "
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX obo: <http://purl.obolibrary.org/obo/>
-                        DELETE {$subject obo:BFO_0000051 ?NumValKlVARight .
-                          ?NumValKlVARight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                          ?NumValKlVARight a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
-                          ?NumValKlVARight obo:OBI_0001938 ?NumValKlVARightValSpec .
-                          ?NumValKlVARightValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
-                          ?NumValKlVARightValSpec obo:OBI_0001937 $value . }
-                          WHERE {
-                          ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                          ?SexInvestigation obo:OBI_0000299 $subject .
-                          ?SexInvestigation obo:OBI_0000293 ?specimen .
-                          ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                          ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                          ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                          ?OsCoxaeSection obo:BFO_0000051 ?RightPubisObs .
-                          ?RightPubisObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                          ?RightPubisObs obo:IAO_0000136 ?RightPubis .
-                          ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlVARight .
+                        ?NumValKlVARight obo:IAO_0000136 ?RightPubis .
+                        ?NumValKlVARight a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
+                        ?NumValKlVARight obo:OBI_0001938 ?NumValKlVARightValSpec .
+                        ?NumValKlVARightValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlVARightValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlVARight .
+                        ?NumValKlVARight obo:IAO_0000136 ?RightPubis .
+                        ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                        ?NumValKlVARight a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScore> .
+                        ?NumValKlVARight obo:OBI_0001938 ?NumValKlVARightValSpec .
+                        ?NumValKlVARightValSpec a <http://w3id.org/rdfbones/ext/klales/VentralArcMorphologyNumericScoreValueSpecification> .
                     }"
             }
 
@@ -963,7 +953,7 @@ fields='[
           "id": "LeftKlalesSC",
           "label": "Left Subpubic Concavity",
           "xsdDatatype": "xsd:integer",
-          "minOccurs": "0",
+          "minOccurs": "1",
           "maxOccurs": "1",
           "selectPattern":"
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -974,7 +964,6 @@ fields='[
             ?NumValKlalesSCLeft obo:OBI_0001938 ?NumValKlalesSCLeftValSpec .
             ?NumValKlalesSCLeftValSpec obo:OBI_0001937 $value .
             ?NumValKlalesSCLeft obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-
           }",
                   "valueSetPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
@@ -982,7 +971,7 @@ fields='[
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
                     SELECT ?value WHERE {
-                        VALUES $value { 1 2 3 4 5 }
+                        VALUES $value { 1 2 3 4 5 9 }
                       }",
                       "insertPattern": "
                       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1001,20 +990,30 @@ fields='[
                       "deletePattern": "
                       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                       PREFIX obo: <http://purl.obolibrary.org/obo/>
-                      DELETE {$subject obo:BFO_0000051 ?NumValKlalesSCLeft .
-                        ?NumValKlalesSCLeft a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
-                        ?NumValKlalesSCLeft obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
-                        ?NumValKlalesSCLeft obo:OBI_0001938 ?NumValKlalesSCLeftValSpec .
-                        ?NumValKlalesSCLeftValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
-                        ?NumValKlalesSCLeftValSpec obo:OBI_0001937 $value . } WHERE {
-                  }"
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlSCLeft .
+                        ?NumValKlSCLeft obo:IAO_0000136 ?LeftPubis .
+                        ?NumValKlSCLeft a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValKlSCLeft obo:OBI_0001938 ?NumValKlSCLeftValSpec .
+                        ?NumValKlSCLeftValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlSCLeftValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlSCLeft .
+                        ?NumValKlSCLeft obo:IAO_0000136 ?LeftPubis .
+                        ?LeftPubis a <http://w3id.org/rdfbones/ext/standards-si/LeftPubis> .
+                        ?NumValKlSCLeft a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValKlSCLeft obo:OBI_0001938 ?NumValKlSCLeftValSpec .
+                        ?NumValKlSCLeftValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
+                    }"
           }
       ,
       {
               "id": "RightKlalesSC",
               "label": "Right Subpubic Concavity",
               "xsdDatatype": "xsd:integer",
-              "minOccurs": "0",
+              "minOccurs": "1",
               "maxOccurs": "1",
               "selectPattern":"
               PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1033,7 +1032,7 @@ fields='[
                         PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                         PREFIX owl: <http://www.w3.org/2002/07/owl#>
                         SELECT ?value WHERE {
-                            VALUES $value { 1 2 3 4 5 }
+                            VALUES $value { 1 2 3 4 5 9 }
                           }",
                           "insertPattern": "
                           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1052,13 +1051,23 @@ fields='[
                           "deletePattern": "
                           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                           PREFIX obo: <http://purl.obolibrary.org/obo/>
-                          DELETE {$subject obo:BFO_0000051 ?NumValKlalesSCRight .
-                            ?NumValKlalesSCRight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
-                            ?NumValKlalesSCRight a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
-                            ?NumValKlalesSCRight obo:OBI_0001938 ?NumValKlalesSCRightValSpec .
-                            ?NumValKlalesSCRightValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
-                            ?NumValKlalesSCRightValSpec obo:OBI_0001937 $value . } WHERE {
-                      }"
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValKlSCRight .
+                        ?NumValKlSCRight obo:IAO_0000136 ?RightPubis .
+                        ?NumValKlSCRight a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValKlSCRight obo:OBI_0001938 ?NumValKlSCRightValSpec .
+                        ?NumValKlSCRightValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
+                        ?NumValKlSCRightValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValKlSCRight .
+                        ?NumValKlSCRight obo:IAO_0000136 ?RightPubis .
+                        ?RightPubis a <http://w3id.org/rdfbones/ext/standards-si/RightPubis> .
+                        ?NumValKlSCRight a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScore> .
+                        ?NumValKlSCRight obo:OBI_0001938 ?NumValKlSCRightValSpec .
+                        ?NumValKlSCRightValSpec a <http://w3id.org/rdfbones/ext/klales/SubpubicConcavityMorphologyNumericScoreValueSpecification> .
+                    }"
               }
 
 
@@ -1097,7 +1106,7 @@ fields='[
           "id": "KlalesFinal",
           "label": "Completeness",
           "xsdDatatype": "xsd:anyURI",
-          "minOccurs": "0",
+          "minOccurs": "1",
           "maxOccurs": "1",
           "selectPattern":"
 
@@ -1155,7 +1164,7 @@ fields='[
         "id": "LeftSciaticNotch",
         "label": "Left Greater Sciatic Notch",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1175,7 +1184,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 4 5 }
+                      VALUES $value { 1 2 3 4 5 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1204,31 +1213,30 @@ fields='[
                     "deletePattern": "
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    DELETE {$subject obo:BFO_0000051 ?NumValSciaticNotchLeft .
-                      ?NumValSciaticNotchLeft a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
-                      ?NumValSciaticNotchLeft obo:IAO_0000136 ?LeftIlium .
-                      ?NumValSciaticNotchLeft obo:OBI_0001938 ?NumValSciaticNotchLeftValSpec .
-                      ?NumValSciaticNotchLeftValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
-                      ?NumValSciaticNotchLeftValSpec obo:OBI_0001937 $value . }
-                      WHERE {
-                      ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                      ?SexInvestigation obo:OBI_0000299 $subject .
-                      ?SexInvestigation obo:OBI_0000293 ?specimen .
-                      ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                      ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                      ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                      ?OsCoxaeSection obo:BFO_0000051 ?LeftIliumObs .
-                      ?LeftIliumObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                      ?LeftIliumObs obo:IAO_0000136 ?LeftIlium .
-                      ?LeftIlium a <http://w3id.org/rdfbones/ext/standards-si/LeftIlium> .
-                }"
-        }
-    ,
-    {
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValSciaticNotchLeft .
+                        ?NumValSciaticNotchLeft obo:IAO_0000136 ?LeftIlium .
+                        ?NumValSciaticNotchLeft a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
+                        ?NumValSciaticNotchLeft obo:OBI_0001938 ?NumValSciaticNotchLeftValSpec .
+                        ?NumValSciaticNotchLeftValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
+                        ?NumValSciaticNotchLeftValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValSciaticNotchLeft .
+                        ?NumValSciaticNotchLeft obo:IAO_0000136 ?LeftIlium .
+                        ?LeftIlium a <http://w3id.org/rdfbones/ext/standards-si/LeftIlium> .
+                        ?NumValSciaticNotchLeft a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
+                        ?NumValSciaticNotchLeft obo:OBI_0001938 ?NumValSciaticNotchLeftValSpec .
+                        ?NumValSciaticNotchLeftValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
+                    }"
+                 }
+                 ,
+                 {
             "id": "RightSciaticNotch",
             "label": "Right Greater Sciatic Notch",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1248,7 +1256,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1278,28 +1286,25 @@ fields='[
                         "deletePattern": "
                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                         PREFIX obo: <http://purl.obolibrary.org/obo/>
-                        DELETE {$subject obo:BFO_0000051 ?NumValSciaticNotchRight .
-                          ?NumValSciaticNotchRight obo:IAO_0000136 <http://w3id.org/rdfbones/ext/standards-si/RightIlium> .
-                          ?NumValSciaticNotchRight a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
-                          ?NumValSciaticNotchRight obo:OBI_0001938 ?NumValSciaticNotchRightValSpec .
-                          ?NumValSciaticNotchRightValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
-                          ?NumValSciaticNotchRightValSpec obo:OBI_0001937 $value . }
-                          WHERE {
-                          ?SexInvestigation a <http://w3id.org/rdfbones/ext/phaleron-se/PhaleronSexEstimationInvestigation> .
-                          ?SexInvestigation obo:OBI_0000299 $subject .
-                          ?SexInvestigation obo:OBI_0000293 ?specimen .
-                          ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
-                          ?SkelInventory obo:BFO_0000051 ?OsCoxaeSection .
-                          ?OsCoxaeSection a <http://w3id.org/rdfbones/ext/phaleron-si/AdultOsCoxae> .
-                          ?OsCoxaeSection obo:BFO_0000051 ?RightIliumObs .
-                          ?RightIliumObs a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
-                          ?RightIliumObs obo:IAO_0000136 ?RightIlium .
-                          ?RightIlium a <http://w3id.org/rdfbones/ext/standards-si/RightIlium> .
+                    DELETE {
+                        $subject obo:BFO_0000051 ?NumValSciaticNotchRight .
+                        ?NumValSciaticNotchRight obo:IAO_0000136 ?RightIlium .
+                        ?NumValSciaticNotchRight a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
+                        ?NumValSciaticNotchRight obo:OBI_0001938 ?NumValSciaticNotchRightValSpec .
+                        ?NumValSciaticNotchRightValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
+                        ?NumValSciaticNotchRightValSpec obo:OBI_0001937 $value .
+                    }
+
+                    WHERE {
+                        $subject obo:BFO_0000051 ?NumValSciaticNotchRight .
+                        ?NumValSciaticNotchRight obo:IAO_0000136 ?RightIlium .
+                        ?RightIlium a <http://w3id.org/rdfbones/ext/standards-si/RightIlium> .
+                        ?NumValSciaticNotchRight a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScore> .
+                        ?NumValSciaticNotchRight obo:OBI_0001938 ?NumValSciaticNotchRightValSpec .
+                        ?NumValSciaticNotchRightValSpec a <http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphologyNumericScoreValueSpecification> .
                     }"
-            }
-
-
-]'
+                   }
+                  ]'
 >
 <h2><strong>Greater Sciatic Notch</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
@@ -1340,7 +1345,7 @@ fields='[
             "id": "NuchalCrest",
             "label": "Nuchal Crest",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1360,7 +1365,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1444,7 +1449,7 @@ fields='[
         "id": "LeftMastoidProcess",
         "label": "Left Mastoid Process",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1464,7 +1469,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 4 5 }
+                      VALUES $value { 1 2 3 4 5 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1517,7 +1522,7 @@ fields='[
             "id": "RightMastoidProcess",
             "label": "Right Mastoid Process",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1537,7 +1542,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1628,7 +1633,7 @@ fields='[
         "id": "LeftSupraorbitalMargin",
         "label": "Left Supraorbital Margin",
         "xsdDatatype": "xsd:integer",
-        "minOccurs": "0",
+        "minOccurs": "1",
         "maxOccurs": "1",
         "selectPattern":"
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1648,7 +1653,7 @@ fields='[
                   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                   PREFIX owl: <http://www.w3.org/2002/07/owl#>
                   SELECT ?value WHERE {
-                      VALUES $value { 1 2 3 4 5 }
+                      VALUES $value { 1 2 3 4 5 9 }
                     }",
                     "insertPattern": "
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1701,7 +1706,7 @@ fields='[
             "id": "RightSupraorbitalMargin",
             "label": "Right Supraorbital Margin",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1721,7 +1726,7 @@ fields='[
                       PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                       PREFIX owl: <http://www.w3.org/2002/07/owl#>
                       SELECT ?value WHERE {
-                          VALUES $value { 1 2 3 4 5 }
+                          VALUES $value { 1 2 3 4 5 9 }
                         }",
                         "insertPattern": "
                         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -1811,7 +1816,7 @@ fields='[
             "id": "Glabella",
             "label": "Glabella",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -1914,7 +1919,7 @@ fields='[
             "id": "Mentum",
             "label": "Mentum",
             "xsdDatatype": "xsd:integer",
-            "minOccurs": "0",
+            "minOccurs": "1",
             "maxOccurs": "1",
             "selectPattern":"
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -2018,7 +2023,7 @@ fields='[
 "id": "PhaleronFinal",
 "label": "Overall Morphological Sex Estimation",
 "xsdDatatype": "xsd:anyURI",
-"minOccurs": "0",
+"minOccurs": "1",
 "maxOccurs": "1",
 "selectPattern":"
 
@@ -2032,9 +2037,11 @@ fields='[
          PREFIX obo: <http://purl.obolibrary.org/obo/>
          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
          SELECT DISTINCT $value WHERE {
-           $value a <http://w3id.org/rdfbones/ext/phaleron-se/OverallSexEstimationResult>
-
-         }",
+           $value a <http://w3id.org/rdfbones/ext/phaleron-se/OverallSexEstimationResult> .
+           ?PhaleronSortingLabel obo:IAO_0000136 $value .
+           }
+              ORDER BY ASC(?PhaleronSortingLabel)
+         ",
        "insertPattern": "
          PREFIX obo: <http://purl.obolibrary.org/obo/>
          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
