@@ -1,7 +1,59 @@
 <div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
-<h3>Edit Unidentified Tooth Crown </h4>
+[[#if (ask ' ASK {SELECT  ?mySI  WHERE {?? a ?mySI . }}') ]]
+  <h3>Edit Unidentified Tooth Crown </h3>
 
-  <semantic-form
+ 
+<semantic-update query='
+PREFIX : <http://www.metaphacts.com/resource/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+PREFIX dc: <http://purl.org/dc#>
+        DELETE {GRAPH ?mygraph {
+                        ?subject obo:BFO_0000051 ?? .
+			?? a ?type.
+			?? rdfs:label ?label .
+			?? <http://purl.obolibrary.org/obo/IAO_0000136> ?ROI.
+			?ROI a ?ROIClass .
+			??  obo:BFO_0000051 ?MD .
+                        ?MD obo:OBI_0001938 ?ValueSpec .
+                        ?ValueSpec obo:OBI_0000999 $value .
+                        } 
+		
+	      
+            } WHERE {GRAPH ?mygraph{?? a ?o}
+	                ?subject obo:BFO_0000051 ?? .
+			?? a ?type.
+			?? rdfs:label ?label .
+			?? <http://purl.obolibrary.org/obo/IAO_0000136> ?ROI.
+			?ROI a ?ROIClass .
+			optional{
+			??  obo:BFO_0000051 ?MD .
+                        ?MD obo:OBI_0001938 ?ValueSpec .
+				
+                        ?ValueSpec obo:OBI_0000999 $value .
+			}
+			}   
+'
+id="DeleteResearchContributionProcess"
+variable-params='["ValueSpec","MD","subject","o" , "mygraph" , "value" ,"label" ,"type" ,"ROI" ,"ROIClass"]'
+post-action="reload"
+show-confirmation="true"
+confirmation-options='{
+     "message": "Do you really want to delete this Tooth Crown and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+>
+
+<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE this Tooth Crown</strong></button>
+</semantic-update>
+<hr>
+
+ <semantic-form
 	subject='[[this]]'
 	post-action='reload'
 	persistence='sparql'
@@ -59,50 +111,7 @@
 
  </semantic-form>
   
-[[#if (ask ' ASK {SELECT  ?mySI  WHERE {?? a ?mySI . }}') ]]
-<hr>
-<semantic-update query='
-PREFIX : <http://www.metaphacts.com/resource/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX fma: <http://purl.org/sig/ont/fma/>
-PREFIX dc: <http://purl.org/dc#>
-        DELETE {GRAPH ?mygraph {
-                        ?subject obo:BFO_0000051 ?? .
-			?? a ?type.
-			?? rdfs:label ?label .
-			?? <http://purl.obolibrary.org/obo/IAO_0000136> ?ROI.
-			??  obo:BFO_0000051 ?MD .
-                        ?MD obo:OBI_0001938 ?ValueSpec .
-                        ?ValueSpec obo:OBI_0000999 $value .
-                        } 
-		
-	      
-            } WHERE {GRAPH ?mygraph{?? a ?o}
-	                ?subject obo:BFO_0000051 ?? .
-			?? a ?type.
-			?? rdfs:label ?label .
-			?? <http://purl.obolibrary.org/obo/IAO_0000136> ?ROI.
-			??  obo:BFO_0000051 ?MD .
-                        ?MD obo:OBI_0001938 ?ValueSpec .
-                        ?ValueSpec obo:OBI_0000999 $value .}   
-'
-id="DeleteResearchContributionProcess"
-variable-params='["ValueSpec","MD","subject","o" , "mygraph" , "value" ,"label" ,"type" ,"ROI"]'
-post-action="reload"
-show-confirmation="true"
-confirmation-options='{
-     "message": "Do you really want to delete this Tooth Crown and all associated data?",
-     "confirmLabel": "Delete"
-   }'
->
 
-<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE this Tooth Crown</strong></button>
-</semantic-update>
 <!-- SWITCH EVENT -->
   <semantic-query query="PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
@@ -110,7 +119,8 @@ confirmation-options='{
 		     PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
 
                     SELECT ?var WHERE {
-                          ?? obo:IAO_0000136 ?value.
+                          ?? obo:IAO_0000136 ?ROI.
+			  ?ROI a ?value.
 			   OPTIONAL { 
                            FILTER(?value IN(
 			   rdfbones:EntirePrimaryCanineTooth, 

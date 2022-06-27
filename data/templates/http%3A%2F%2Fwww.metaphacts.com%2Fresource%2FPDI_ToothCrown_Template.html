@@ -2,7 +2,8 @@
 for-class="http://w3id.org/rdfbones/ext/phaleron-patho/Pathology_Datasetsection" 
 new-subject-template="http://SkeletalDentalInventory.org/records/UnidentifiedToothCrown-{{UUID}}"
 post-action='event'
-persistence='sparql'
+  persistence='sparql'
+  browser-persistence='true'
 id="ToothCrown"
 fields='[
 	{
@@ -61,9 +62,12 @@ fields='[
       
       INSERT {GRAPH ?mygraph {
       ?section obo:BFO_0000051 ?subject.
-      ?subject obo:IAO_0000136 ?value.
+      ?subject obo:IAO_0000136 ?ROI .
+      ?ROI a ?value.
       ?subject a <http://w3id.org/rdfbones/ext/phaleron-di/UnidentifiedIncompleteToothCrown> .
        }} WHERE {GRAPH ?mygraph {?? a ?o }
+        BIND(URI(CONCAT(STR(?subject),\"_\",\"ToothType\",STRUUID())) AS ?ROI) .
+
         ?? obo:BFO_0000051 ?section.
 	?section a  <http://w3id.org/rdfbones/ext/phaleron-di/DeciduousDentition>
         
@@ -105,16 +109,21 @@ fields='[
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
     <button name="reset" class="btn btn-secondary">Reset</button>
 </semantic-form>
-<mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["RP-update"]'>
+<mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["RP-update"]'></mp-event-proxy>
+
+  
+  <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["RP-update"]'>
 </mp-event-proxy>
 [[>:RDFBONES_FormSuccessFeedbackTemplateSnippetCustom ufb-id="RP-update" ufbTemplate="RP-Template" ufbname="New Undentified Crown Created. Please Select from Table below for Editing"]]                  
 
 
 <br>
-<mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="ResearchProcess" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
+<mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'></mp-event-proxy>
+
+  <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
+  
 </mp-event-proxy>
-<mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ResearchProcess" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
-</mp-event-proxy>
+
 <mp-event-target-template-render id="update-forms" template=" {{>ufbTemplate}} ">
   
   <template id="ufbTemplate">
@@ -132,6 +141,7 @@ fields='[
 
 	     " template="{{> t}}">
   <template id="t">
+   
     {{#ifCond bindings.0.value.value ">" "0"}}
 <strong>Show all available Incomplete Tooth Crowns:</strong><br>
 <mp-event-trigger type="Component.Refresh" targets='["mytable"]'>
