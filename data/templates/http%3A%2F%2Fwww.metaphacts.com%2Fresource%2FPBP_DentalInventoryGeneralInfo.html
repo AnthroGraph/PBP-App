@@ -1,0 +1,98 @@
+   <semantic-form
+              id = 'Specimen'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence=true
+              form-id='Specimen'
+              persistence='sparql'
+     fields='[
+	     {
+	      [[>:PSI_SI_FormHeaderSnippet id="SpecimenSelect" label="Associate Skeletal Inventory" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
+	        "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    SELECT DISTINCT ?value ?label WHERE {
+                          ?subject <http://semanticscience.org/resource/SIO_000563> ?specimen .
+			  ?specimen owl:sameAs ?value.
+			  ?mySI <http://semanticscience.org/resource/SIO_000563> ?value.
+			  ?mySI rdfs:label ?label.
+                    }",
+
+	       "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {
+		      ?specimen owl:sameAs ?value}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject <http://semanticscience.org/resource/SIO_000563> ?specimen .
+                          }",
+
+	           "valueSetPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                       
+                    SELECT DISTINCT $value $label WHERE {
+                           ?mySI a <http://w3id.org/rdfbones/ext/phaleron-si/InventoryForAdultSkeletons> .
+			   ?mySI rdfs:label ?label .
+			   ?mySI  <http://semanticscience.org/resource/SIO_000563> ?value .
+  					       
+                    }",
+	      "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    DELETE {GRAPH ?mygraph {?specimen owl:sameAs ?value}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject <http://semanticscience.org/resource/SIO_000563> ?specimen .
+                          }",
+
+
+               "autosuggestionPattern": "
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX obo: <http://purl.obolibrary.org/obo/>
+                SELECT $value $label WHERE {
+                      ?si a <http://w3id.org/rdfbones/ext/phaleron-si/InventoryForAdultSkeletons>.
+                      ?si rdfs:label $label .
+                      ?si <http://semanticscience.org/resource/SIO_000563> $value
+                  FILTER REGEX($label, $__token__, \"i\")
+                }
+              ",
+
+			  
+
+             "constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+			 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                         ASK WHERE { FILTER NOT EXISTS {  									         	            ?mySI a <http://w3id.org/rdfbones/ext/phaleron-si/InventoryForAdultSkeletons> .
+			     ?mySI <http://semanticscience.org/resource/SIO_000563> ?value .
+			     
+			    			     
+  			     ?DI a <http://w3id.org/rdfbones/ext/phaleron-di/InventoryOfDentition> .
+                             ?DI  <http://semanticscience.org/resource/SIO_000563> ?DIspecimen .
+			     ?DIspecimen owl:sameAs ?value .
+  											    }}",
+                  "message": "This Skeleton already is associated with a Phaleron Paleopath Instance"
+                  }]
+
+		    
+              
+}
+]'>
+      <semantic-form-recover-notification></semantic-form-recover-notification>
+      <semantic-form-autocomplete-input for='SpecimenSelect'></semantic-form-autocomplete-input>
+      <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+    <button name="reset" class="btn btn-secondary">Reset</button>
+[[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-label-update" ufbTemplate="label-Template" ufbname="Associated Skeletal Inventory"]]
+   </semantic-form>
+    [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Specimen" event-target="show-after-label-update"]]
+
+<br><hr>
+<h4> Create New Observer/Editing Event</h4>
+
+[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/core#SkeletalInventoryProcess>"]]

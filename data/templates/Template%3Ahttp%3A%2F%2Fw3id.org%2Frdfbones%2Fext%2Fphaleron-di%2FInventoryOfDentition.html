@@ -5,6 +5,12 @@ It demonstrates layout options but the fields do not take data, nor are they bou
 <hr>
 [[#if (ask 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ASK {SELECT  ?mySI  WHERE {        ?? a ?mySI . }}') ]]
     <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false>
+      <bs-tab event-key="1" title="General Info">
+	[[>:PBP_DentalInventoryGeneralInfo]]
+      </bs-tab>
+      <bs-tab event-key="2" title="Dentition">
+	[[>:PSI_DI_Dentition]]
+      </bs-tab>
       <bs-tab event-key="3" title="Perm. Maxilla">
 	[[>:PSI_DI_Permanent_Maxilla]]
      </bs-tab>
@@ -17,5 +23,10 @@ It demonstrates layout options but the fields do not take data, nor are they bou
       <bs-tab event-key="6" title="Decid. Mandibula">
 	[[>:PSI_DI_Deciduous_Mandibula]]
       </bs-tab>
+
+       <bs-tab event-key="7" title="Decid. Dentition">
+	[[>:PDI_ToothCrown_Template]]
+      </bs-tab>
+       
       </bs-tabs>
 [[/if]]
