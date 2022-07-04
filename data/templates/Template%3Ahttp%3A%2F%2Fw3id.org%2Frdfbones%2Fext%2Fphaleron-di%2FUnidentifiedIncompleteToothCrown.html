@@ -1,6 +1,6 @@
 <div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
 [[#if (ask ' ASK {SELECT  ?mySI  WHERE {?? a ?mySI . }}') ]]
-  <h3>Edit Unidentified Tooth Crown </h3>
+  <h3>Edit Unidentified Tooth Crown ([[singleValueFromSelect "SELECT ?roilabel WHERE {?? <http://purl.obolibrary.org/obo/IAO_0000136> ?roiinst. ?roiinst a ?roi. ?roi rdfs:label ?roilabel}"]])</h3>
 
  
 <semantic-update query='
@@ -480,3 +480,5 @@ confirmation-options='{
 <h4>Unidentified Crown successfully deleted. Please close this Window</h4>
 [[/if]]
 </div>
+
+
