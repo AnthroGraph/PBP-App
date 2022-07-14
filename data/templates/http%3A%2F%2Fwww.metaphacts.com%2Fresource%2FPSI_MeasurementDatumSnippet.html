@@ -27,15 +27,18 @@
                             owl:onProperty [[ConnectValue]] ;
                             owl:allValuesFrom  ?l4.
                             ?value a ?l4.
+	                    optional {?index obo:IAO_0000136 ?value .}
 	                    }
 	            OPTIONAL {
 	                   ?myRS4 a owl:Restriction ;
                            owl:onProperty ?connect;
                            owl:onClass|owl:someValuesFrom   ?l4.
                	           ?l4 	 owl:oneOf/rdf:rest*/rdf:first ?value .
-	
-	                  }
-                    }",
+	                   optional {?index obo:IAO_0000136 ?value .}
+	}
+	                  	
+                            
+                    } ORDER BY ?index",
                   "insertPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
