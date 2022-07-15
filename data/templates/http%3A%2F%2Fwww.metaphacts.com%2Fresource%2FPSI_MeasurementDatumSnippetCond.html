@@ -1,0 +1,94 @@
+                  "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT DISTINCT ?value WHERE {
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  			  ?MD a [[MDClass]] .
+                          ?ROI a [[ROIVar]] .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                          obo:OBI_0001938 ?VS .
+                          ?VS [[ConnectValue]] ?value .
+                    }",
+
+                    "valueSetPattern": "
+		    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    PREFIX phaleron-di: <http://w3id.org/rdfbones/ext/phaleron-di/>
+		    PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+	            PREFIX phaleron-patho: <http://w3id.org/rdfbones/ext/phaleron-patho/>
+		    PREFIX standards-dental1: <http://w3id.org/rdfbones/ext/standards-dental1/>
+		    PREFIX standards-patho: <http://w3id.org/rdfbones/ext/standards-patho/>
+                    SELECT DISTINCT ?value WHERE {
+                    ?invest <http://purl.obolibrary.org/obo/OBI_0000299> ?? .
+                    ?invest <http://purl.obolibrary.org/obo/OBI_0000293> ?myDentSISpec.
+                    ?DI <http://semanticscience.org/resource/SIO_000563> ?myDentSISpec .
+                    ?DI obo:BFO_0000051+ ?MD.
+                    ?MD a [[MDcheckClass]] .
+	            ?MD obo:IAO_0000136 ?ROI.
+	            ?ROI a ?ROIclass.     
+	      
+	            FILTER(EXISTS {?ROIclass obo:BFO_0000051+  [[ROIVar]]} || EXISTS {?ROI a [[ROIVar]]})
+	            ?MD obo:OBI_0001938 ?VS.
+	            ?VS obo:OBI_0000999 ?valueSI.
+                    OPTIONAL {
+                     FILTER( NOT exists {?VS obo:OBI_0000999 phaleron-patho:ImpossibilityOfObservation } && NOT exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } && NOT exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  && NOT exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
+                     [[MDClass]] rdfs:subClassOf ?myRS3. 
+                     ?myRS3 a owl:Restriction ; 
+                            owl:onProperty <http://purl.obolibrary.org/obo/OBI_0001938> ;
+                            owl:allValuesFrom  ?r4svs.
+                     ?r4svs rdfs:subClassOf ?myRS4 .
+                    OPTIONAL {
+	                    ?myRS4 a owl:Restriction ;
+                            owl:onProperty [[ConnectValue]] ;
+                            owl:allValuesFrom  ?l4.
+                            ?value a ?l4.
+		            optional {?index obo:IAO_0000136 ?value .}
+	                    }
+	            OPTIONAL {
+	                   ?myRS4 a owl:Restriction ;
+                           owl:onProperty ?connect;
+                           owl:onClass|owl:someValuesFrom   ?l4.
+               	           ?l4 	 owl:oneOf/rdf:rest*/rdf:first ?value .
+	                   optional {?index obo:IAO_0000136 ?value .}
+		  }}
+		  OPTIONAL {
+		    FILTER( exists {?VS obo:OBI_0000999 phaleron-patho:ImpossibilityOfObservation } || exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } || exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  || exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
+		   BIND([[insertValue]] AS ?value)
+		}
+		} ORDER BY ?index		    
+                ",
+		
+                  "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {?VS [[ConnectValue]] ?value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  					              ?MD a [[MDClass]] .
+                          ?ROI a [[ROIVar]] .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                              obo:OBI_0001938 ?VS .
+
+                          }",
+                    "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    DELETE {?VS [[ConnectValue]] ?value .}
+                      WHERE {
+                          
+                          ?subject obo:BFO_0000051 ?mysection.
+                          ?mysection obo:BFO_0000051 ?MD .
+  					              ?MD a [[MDClass]] .
+                          ?ROI a [[ROIVar]] .
+                          ?MD obo:IAO_0000136 ?ROI ;
+                          obo:OBI_0001938 ?VS .
+                          ?VS [[ConnectValue]] ?value .
+                          }"
+
+
+               
