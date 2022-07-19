@@ -123,20 +123,20 @@ confirmation-options='{
 			  ?ROI a ?value.
 			   OPTIONAL { 
                            FILTER(?value IN(
-			   rdfbones:EntirePrimaryCanineTooth, 
-			   rdfbones:EntirePrimaryUpperCanineTooth,
-			   rdfbones:EntirePrimaryLowerCanineTooth,
-			   rdfbones:EntirePrimaryIncisorTooth,
-			   rdfbones:EntirePrimaryUpperIncisorTooth,
-			   rdfbones:EntirePrimaryLowerIncisorTooth)).
+			   rdfbones:EntireTooth_fma84202, 
+			   rdfbones:EntireTooth_fma84228,
+			   rdfbones:EntireTooth_fma84229,
+			   rdfbones:EntireTooth_fma84200,
+			   rdfbones:EntireTooth_fma84214,
+			   rdfbones:EntireTooth_fma84215)).
 			    BIND('1' AS ?var) .
        
 			    }
 			    OPTIONAL { 
                             FILTER(?value IN(
-			    rdfbones:EntirePrimaryMolarTooth,
-			    rdfbones:EntirePrimaryMaxillaryMolarTooth,
-			    rdfbones:EntirePrimaryMandibularMolarTooth)).
+			    rdfbones:EntireTooth_fma84206,
+			    rdfbones:EntireTooth_fma84210,
+			    rdfbones:EntireTooth_fma84213)).
 			    BIND('2' AS ?var) .
        
 			    }
@@ -144,8 +144,9 @@ confirmation-options='{
                           
                     }" template="{{> t}}">
     <template id="t">
+      
+      {{#ifCond bindings.0.var.value "==" "1" }}
      
-   {{#ifCond bindings.0.var.value "==" "1" }}
       <semantic-form
 	subject='[[this]]'
 	post-action='reload'
@@ -312,8 +313,8 @@ confirmation-options='{
 	subject='[[this]]'
 	post-action='reload'
 	persistence='sparql'
-	id="1"
-	form-id="1"
+	id="molars"
+	form-id="molars"
 	browser-persistence='true'
 	fields='[
     {
