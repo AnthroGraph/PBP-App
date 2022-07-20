@@ -1,6 +1,8 @@
 <h2><strong>Permanent Mandibular Dentition</strong></h2>
 <hr>
-           <!-- Right Mandibular Arcade Form -->
+<!-- Right Mandibular Arcade Form -->
+<mp-event-target-refresh id="RightMandibularArcade">
+
             <semantic-form
               id = 'RightMandibularArcade'
               subject='[[this]]'
@@ -213,11 +215,16 @@
 	      <button name="submit" class="btn btn-primary"><strong>Save Right Mandibular Arcade</strong></button>
                   [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-right-MandibularArcade-update" ufbTemplate="rightMax-Template" ufbname="Right Mandibular Arcade"]]
             </semantic-form>
+	    </mp-event-target-refresh>
+           <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="RightMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["RightMandibularArcade"]'></mp-event-proxy>
+	   <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="RightMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["RightMandibularArcade"]'></mp-event-proxy>
             <!-- user feedback on form update -->
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="RightMandibularArcade" event-target="show-after-right-MandibularArcade-update"]]
 
 <hr>
-           <!-- Left Mandibular Arcade Form -->
+<!-- Left Mandibular Arcade Form -->
+<mp-event-target-refresh id="LeftMandibularArcade">
+
             <semantic-form
               id = 'LeftMandibularArcade'
               subject='[[this]]'
@@ -430,6 +437,9 @@
 	      <button name="submit" class="btn btn-primary"><strong>Save Left Mandibular Arcade</strong></button>
                   [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Left-MandibularArcade-update" ufbTemplate="LeftMax-Template" ufbname="Left Mandibular Arcade"]]
             </semantic-form>
+	      </mp-event-target-refresh>
+           <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="LeftMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["LeftMandibularArcade"]'></mp-event-proxy>
+	   <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="LeftMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["LeftMandibularArcade"]'></mp-event-proxy>
             <!-- user feedback on form update -->
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="LeftMandibularArcade" event-target="show-after-Left-MandibularArcade-update"]]
             <hr>
