@@ -1,3 +1,5 @@
+<h4> Create New Unidentified Tooth Crown</h4>
+<mp-event-target-refresh id="ToothCrown">
 <semantic-form
 for-class="http://w3id.org/rdfbones/ext/phaleron-patho/Pathology_Datasetsection" 
 new-subject-template="http://SkeletalDentalInventory.org/records/UnidentifiedToothCrown-{{UUID}}"
@@ -103,14 +105,19 @@ fields='[
 
 
 ]'>
-
-  <semantic-form-text-input for='label'></semantic-form-text-input>
-  <semantic-form-select-input for='type'></semantic-form-select-input>
-
+<semantic-form-recover-notification></semantic-form-recover-notification>
+ <semantic-form-text-input for='label'></semantic-form-text-input>
+ <semantic-form-select-input for='type'></semantic-form-select-input>
+ <div class="semantic-form-footer-buttons">
 <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
-    <button name="reset" class="btn btn-secondary">Reset</button>
-</semantic-form>
+<mp-event-trigger type="Component.Refresh" targets='["mytable","ToothCrown"]'>
+  <button class="btn btn-secondary">Reset Form</button>
+</mp-event-trigger>
+</div>
+</semantic-form></mp-event-target-refresh>
+
 <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["RP-update"]'></mp-event-proxy>
+<mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="ToothCrown" proxy-event-type="Component.Refresh" proxy-targets='["ToothCrown","mytable"]'></mp-event-proxy>
 
   
   <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="ToothCrown" proxy-event-type="Component.TemplateUpdate" proxy-targets='["RP-update"]'>
@@ -145,7 +152,7 @@ fields='[
    
     {{#ifCond bindings.0.value.value ">" "0"}}
 <strong>Show all available Incomplete Tooth Crowns:</strong><br>
-<mp-event-trigger type="Component.Refresh" targets='["mytable"]'>
+<mp-event-trigger type="Component.Refresh" targets='["mytable","ToothCrown"]'>
   <button class="btn btn-secondary">Refresh Table</button>
 </mp-event-trigger>
 <mp-event-target-refresh id="mytable">
