@@ -289,7 +289,7 @@ confirmation-options='{
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                     INSERT {GRAPH ?mygraph {
                           ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolar> .
+                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar> .
                           ?MD obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolarsValueSpecification> .
                           ?ValueSpec obo:OBI_0000999 $value .
@@ -312,7 +312,7 @@ confirmation-options='{
                     DELETE {?ValueSpec obo:OBI_0000999 $value .}
                       WHERE {
                         ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolar> .
+                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar> .
                           ?MD obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec obo:OBI_0000999 $value .
                         }"
