@@ -225,79 +225,8 @@ confirmation-options='{
                           ?MD obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec obo:OBI_0000999 $value .
                         }"
-}  ,
-
-					    {
-    "id": "molar",
-    "label": "Wear Of Molars",
-    "xsdDatatype": "xsd:anyURI",
-    "maxOccurs": 1,
-    "minOccurs": 1,
-
-    "selectPattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    SELECT ?value WHERE {
-                          ?subject obo:BFO_0000051 ?MD .
-                          ?MD obo:OBI_0001938 ?VS.
-                          ?VS obo:OBI_0000999 ?value .
-                          
-                    }",
-
-                  "valueSetPattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                    SELECT DISTINCT $value WHERE {
-                             <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification>  rdfs:subClassOf ?myRS1 .
-  			       ?myRS1 a owl:Restriction ;
-                           <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
-                           owl:someValuesFrom|owl:onClass ?selection .
-  			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
-			        OPTIONAL {
-                               ?index obo:IAO_0000136 ?value .	
-                               ?index a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesLabelSorting>.
-				 }
-			       
-                   
-                    }  ORDER BY ?index",
-                  "insertPattern": "
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
-                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    INSERT {GRAPH ?mygraph {
-                          ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
-                          ?MD obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification> .
-                          ?ValueSpec obo:OBI_0000999 $value .
-                      
-                      }}
-                      WHERE {
-                          GRAPH ?mygraph {?subject a ?o } 
-                          BIND(URI(CONCAT(STR(?subject),\"_\",\"IncisorCanineWear\")) AS ?MD) .
-                          BIND(URI(CONCAT(STR(?subject),\"_\",\"IncisorCanineWear\",\"ValueSpec\")) AS ?ValueSpec) .
-                          
-                          
-                          
-                    }",
-                    "deletePattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
-		    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    DELETE {?ValueSpec obo:OBI_0000999 $value .}
-                      WHERE {
-                        ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
-                          ?MD obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
-                        }"
-}  
+					   
+					   }  
 ]'
 
 >
@@ -340,14 +269,14 @@ confirmation-options='{
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
                     SELECT DISTINCT $value WHERE {
-                             <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification>  rdfs:subClassOf ?myRS1 .
+                             <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolarsValueSpecification>  rdfs:subClassOf ?myRS1 .
   			       ?myRS1 a owl:Restriction ;
                            <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
                            owl:someValuesFrom|owl:onClass ?selection .
   			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
 			        OPTIONAL {
                                ?index obo:IAO_0000136 ?value .	
-                               ?index a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesLabelSorting>.
+                               ?index a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolarsLabelSorting>.
 				 }
 			       
                    
@@ -360,9 +289,9 @@ confirmation-options='{
                     PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
                     INSERT {GRAPH ?mygraph {
                           ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
+                          ?MD a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolar> .
                           ?MD obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification> .
+                          ?ValueSpec a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolarsValueSpecification> .
                           ?ValueSpec obo:OBI_0000999 $value .
                       
                       }}
@@ -383,82 +312,11 @@ confirmation-options='{
                     DELETE {?ValueSpec obo:OBI_0000999 $value .}
                       WHERE {
                         ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
+                          ?MD a <http://w3id.org/rdfbones/ext/dentalwear/WearOfMolar> .
                           ?MD obo:OBI_0001938 ?ValueSpec .
                           ?ValueSpec obo:OBI_0000999 $value .
                         }"
-}  ,
 
-					    {
-    "id": "molar",
-    "label": "Wear Of Molars",
-    "xsdDatatype": "xsd:anyURI",
-    "maxOccurs": 1,
-    "minOccurs": 1,
-
-    "selectPattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    SELECT ?value WHERE {
-                          ?subject obo:BFO_0000051 ?MD .
-                          ?MD obo:OBI_0001938 ?VS.
-                          ?VS obo:OBI_0000999 ?value .
-                          
-                    }",
-
-                  "valueSetPattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                    SELECT DISTINCT $value WHERE {
-                             <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification>  rdfs:subClassOf ?myRS1 .
-  			       ?myRS1 a owl:Restriction ;
-                           <http://www.w3.org/2002/07/owl#onProperty> <http://purl.obolibrary.org/obo/OBI_0000999> ;
-                           owl:someValuesFrom|owl:onClass ?selection .
-  			       ?selection owl:oneOf/rdf:rest*/rdf:first ?value .
-			        OPTIONAL {
-                               ?index obo:IAO_0000136 ?value .	
-                               ?index a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesLabelSorting>.
-				 }
-			       
-                   
-                    }  ORDER BY ?index",
-                  "insertPattern": "
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
-                    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    INSERT {GRAPH ?mygraph {
-                          ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
-                          ?MD obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorsAndCaninesValueSpecification> .
-                          ?ValueSpec obo:OBI_0000999 $value .
-                      
-                      }}
-                      WHERE {
-                          GRAPH ?mygraph {?subject a ?o } 
-                          BIND(URI(CONCAT(STR(?subject),\"_\",\"MolarWear\")) AS ?MD) .
-                          BIND(URI(CONCAT(STR(?subject),\"_\",\"MolarWear\",\"ValueSpec\")) AS ?ValueSpec) .
-                          
-                          
-                          
-                    }",
-                    "deletePattern": "
-                    PREFIX obo: <http://purl.obolibrary.org/obo/>
-                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
-                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>     
-		    PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
-                    DELETE {?ValueSpec obo:OBI_0000999 $value .}
-                      WHERE {
-                        ?subject obo:BFO_0000051 ?MD .
-                          ?MD a <http://w3id.org/rdfbones/ext/phaleron-di/WearOfIncisorAndCanine> .
-                          ?MD obo:OBI_0001938 ?ValueSpec .
-                          ?ValueSpec obo:OBI_0000999 $value .
-                        }"
 }  
 ]'
 
