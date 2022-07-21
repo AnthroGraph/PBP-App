@@ -34,7 +34,7 @@
 	            ?MD obo:OBI_0001938 ?VS.
 	            ?VS obo:OBI_0000999 ?valueSI.
                     OPTIONAL {
-                     FILTER( NOT exists {?VS obo:OBI_0000999 phaleron-patho:ImpossibilityOfObservation } && NOT exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } && NOT exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  && NOT exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
+                     FILTER( NOT exists {?VS obo:OBI_0000999 phaleron-patho:ObservationImpossible } && NOT exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } && NOT exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  && NOT exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
                      [[MDClass]] rdfs:subClassOf ?myRS3. 
                      ?myRS3 a owl:Restriction ; 
                             owl:onProperty <http://purl.obolibrary.org/obo/OBI_0001938> ;
@@ -55,7 +55,7 @@
 	                   optional {?index obo:IAO_0000136 ?value .}
 		  }}
 		  OPTIONAL {
-		    FILTER( exists {?VS obo:OBI_0000999 phaleron-patho:ImpossibilityOfObservation } || exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } || exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  || exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
+		    FILTER( exists {?VS obo:OBI_0000999 phaleron-patho:ObservationImpossible } || exists {?VS obo:OBI_0000999 standards-patho:AbsenceOfFeature } || exists {?VS obo:OBI_0000999 standards-dental1:CongenitalAbsenceOfTooth}  || exists {?VS obo:OBI_0000999 standards-dental1:PremortemToothLoss})
 		   BIND([[insertValue]] AS ?value)
 		}
 		} ORDER BY ?index		    
