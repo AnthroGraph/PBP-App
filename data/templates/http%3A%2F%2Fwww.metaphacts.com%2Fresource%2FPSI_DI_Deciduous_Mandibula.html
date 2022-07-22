@@ -1,12 +1,14 @@
 <h2><strong>Deciduous Mandibular Dentition</strong></h2>
 <hr>
-           <!-- Right Mandibular Arcade Form -->
+<!-- Right Mandibular Arcade Form -->
+<mp-event-target-refresh id="RightDecMandibularArcade">
+
             <semantic-form
-              id = 'RightMandibularArcade'
+              id = 'RightDecMandibularArcade'
               subject='[[this]]'
               post-action='event'
               browser-persistence=true
-              form-id='RightMandibularArcade'
+              form-id='RightDecMandibularArcade'
               persistence='sparql'
               fields='[
         {
@@ -143,17 +145,22 @@
 	      <button name="submit" class="btn btn-primary"><strong>Save Right Mandibular Arcade</strong></button>
                   [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-right-MandibularArcade-update" ufbTemplate="rightMax-Template" ufbname="Right Mandibular Arcade"]]
             </semantic-form>
+           </mp-event-target-refresh>
+           <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="RightDecMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["RightDecMandibularArcade"]'></mp-event-proxy>
+	   <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="RightDecMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["RightDecMandibularArcade"]'></mp-event-proxy>
             <!-- user feedback on form update -->
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="RightMandibularArcade" event-target="show-after-right-MandibularArcade-update"]]
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="RightDecMandibularArcade" event-target="show-after-right-MandibularArcade-update"]]
 
 <hr>
-           <!-- Left Mandibular Arcade Form -->
+<!-- Left Mandibular Arcade Form -->
+<mp-event-target-refresh id="LeftDecMandibularArcade">
+
             <semantic-form
-              id = 'LeftMandibularArcade'
+              id = 'LeftDecMandibularArcade'
               subject='[[this]]'
               post-action='event'
               browser-persistence=true
-              form-id='LeftMandibularArcade'
+              form-id='LeftDecMandibularArcade'
               persistence='sparql'
               fields='[
 	      {
@@ -292,6 +299,9 @@
 	      <button name="submit" class="btn btn-primary"><strong>Save Left Mandibular Arcade</strong></button>
                   [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-Left-MandibularArcade-update" ufbTemplate="LeftMax-Template" ufbname="Left Mandibular Arcade"]]
             </semantic-form>
+	     </mp-event-target-refresh>
+           <mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="LeftDecMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["LeftDecMandibularArcade"]'></mp-event-proxy>
+	   <mp-event-proxy on-event-type="Form.ResourceCreated" on-event-source="LeftDecMandibularArcade" proxy-event-type="Component.Refresh" proxy-targets='["LeftDecMandibularArcade"]'></mp-event-proxy>
             <!-- user feedback on form update -->
-            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="LeftMandibularArcade" event-target="show-after-Left-MandibularArcade-update"]]
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="LeftDecMandibularArcade" event-target="show-after-Left-MandibularArcade-update"]]
             <hr>

@@ -4,7 +4,7 @@ It demonstrates layout options but the fields do not take data, nor are they bou
 
 <hr>
 [[#if (ask 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ASK {SELECT  ?mySI  WHERE {        ?? a ?mySI . }}') ]]
-    <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=false>
+    <bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=true>
       <bs-tab event-key="1" title="General Info">
 	[[>:PBP_DentalInventoryGeneralInfo]]
       </bs-tab>
