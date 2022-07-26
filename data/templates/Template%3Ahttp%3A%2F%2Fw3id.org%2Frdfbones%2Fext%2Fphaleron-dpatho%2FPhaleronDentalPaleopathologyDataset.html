@@ -1,0 +1,63 @@
+<div class="page" style="margin-left:30px; margin-right: 30px">
+<h4><strong> Investigation [[this.label]]</strong></h4>
+<a href="PBP_Patho_CreateDentalPaleopath"><span class='fa fa-arrow-right' style='pointer-events: none;'></span>&nbsp; <strong> Show all PBP-Dental-Paleopathology Instances</strong></a>
+<br><br>
+<div class="text-right">
+<semantic-update query='
+PREFIX : <http://www.metaphacts.com/resource/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+DELETE { GRAPH ?mygraph {?s ?p ?o }} WHERE {
+          SELECT ?mygraph ?s ?p ?o WHERE {
+            GRAPH ?mygraph {
+            ?? a ?mytype .
+            ?s ?p ?o .
+          }
+        }
+      }
+'
+id="DeletePaleopath"
+variable-params='["mygraph","s","o","p","mytype"]'
+post-action="[[resolvePrefix ":PBP_Patho_CreateDentalPaleopath"]]"
+show-confirmation="true"
+confirmation-options='{
+     "message": "Do you really want to delete this Dental Paleopath instance [[this.label]] and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+>
+
+<button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Paleopathology Investigation</strong></button>
+</semantic-update>
+</div>
+<br><hr>
+
+
+
+<bs-tabs class="page__body-navtabs--borderless-no-image" unmount-on-exit=true>
+  <bs-tab event-key="1" title="General Info">
+    <h4> Create New Observer/Editing Event</h4>
+	[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-dpatho/DentalPaleopathologyInvestigation>"]]
+      </bs-tab>
+     
+      <bs-tab event-key="3" title="Perm. Maxilla">
+	[[>:PSI_DPatho_Permanent_Maxilla]]
+     </bs-tab>
+      <bs-tab event-key="4" title="Perm. Mandibula">
+	[[>:PSI_DPatho_Permanent_Mandibula]]
+      </bs-tab>
+      <bs-tab event-key="5" title="Decid. Maxilla">
+	[[>:PSI_DPatho_Deciduous_Maxilla]]
+      </bs-tab>
+      <bs-tab event-key="6" title="Decid. Mandibula">
+	[[>:PSI_DPatho_Deciduous_Mandibula]]
+      </bs-tab>
+
+      
+       
+      </bs-tabs>
+</div>
