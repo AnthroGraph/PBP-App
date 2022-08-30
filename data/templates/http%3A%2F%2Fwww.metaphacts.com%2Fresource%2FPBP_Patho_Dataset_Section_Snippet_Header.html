@@ -104,3 +104,53 @@ confirmation-options='{
 
 <button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Pathology Section: [[this.label]]</strong></button>
 </semantic-update>
+
+<br><br>
+
+<semantic-form
+              id = 'Comment'
+              subject='[[this]]'
+              post-action='event'
+              browser-persistence='true'
+              form-id='comment'
+              persistence='sparql'
+              fields='[{
+              "id": "comment",
+              "label": "Comment on Pathology",
+              "xsdDatatype": "xsd:string",
+              "minOccurs": "0",
+              "maxOccurs": "1",
+  
+              "selectPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>              
+                    SELECT ?value WHERE {
+                          ?subject rdfs:comment ?value .
+                    }",
+
+                  
+              "insertPattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    INSERT {GRAPH ?mygraph {?subject obo:BFO_0000051 ?mycomment.
+                         ?subject rdfs:comment ?value .}}
+                      WHERE {
+                          GRAPH ?mygraph {?subject a ?o } 
+ 			  }",
+                    "deletePattern": "
+                    PREFIX obo: <http://purl.obolibrary.org/obo/>
+                    DELETE {?subject rdfs:comment ?value}
+                      WHERE {
+                          ?subject rdfs:comment ?value .
+                       
+                    }"
+
+              }]'>
+            <!-- <h4>Comment on Pathologies</h4> -->
+                      <semantic-form-text-input for='comment' multiline="true"></semantic-form-text-input>
+                       <button name="submit" class="btn btn-primary"><strong>Save Comment</strong></button>
+                      <button name="reset" class="btn btn-secondary">Reset</button>
+                       [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-comment-update" ufbTemplate="Comment-Template" ufbname="Comment" ]]
+                      <!-- Placement of feedback on form update -->              
+</semantic-form>  
+            [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="Comment" event-target="show-after-comment-update"]]
