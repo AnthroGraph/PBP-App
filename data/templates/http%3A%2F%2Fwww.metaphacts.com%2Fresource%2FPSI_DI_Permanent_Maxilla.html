@@ -116,14 +116,14 @@
 	      },
 
 	      {
-	       [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM3" label="Wear M3" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55696>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	       [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM3" label="Wear M3" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55696>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      } , {
-	      [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM2" label="Wear M2" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55697>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	      [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM2" label="Wear M2" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55697>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      },{
-	      [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM1" label="Wear M1" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55698>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	      [[>:PSI_SI_FormHeaderSnippet id="RightWearToothM1" label="Wear M1" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55698>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      },{
 	      [[>:PSI_SI_FormHeaderSnippet id="RightWearToothP2" label="Wear P2" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
               [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55688>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfPremolar>" ConnectValue="obo:OBI_0000999" ]]
@@ -152,21 +152,21 @@
 		  <semantic-form-select-input for='RightPresenceToothM3'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightDevelopmentToothM3'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightEruptionToothM3'></semantic-form-select-input>
-		  <semantic-form-select-input for='RightWearToothM3'></semantic-form-select-input>
+		  <semantic-form-text-input for='RightWearToothM3'></semantic-form-text-input>
 		</div>
 		<div class="grid-demo">
                   <semantic-form-select-input for='RightPresenceAlveolarBoneM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightPresenceToothM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightDevelopmentToothM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightEruptionToothM2'></semantic-form-select-input>
-		  <semantic-form-select-input for='RightWearToothM2'></semantic-form-select-input>
+		  <semantic-form-text-input for='RightWearToothM2'></semantic-form-text-input>
 		</div>
 		<div class="grid-demo">
                   <semantic-form-select-input for='RightPresenceAlveolarBoneM1'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightPresenceToothM1'></semantic-form-select-input>
 		  <semantic-form-select-input for='RightDevelopmentToothM1'></semantic-form-select-input>
 		   <semantic-form-select-input for='RightEruptionToothM1'></semantic-form-select-input>
-		   <semantic-form-select-input for='RightWearToothM1'></semantic-form-select-input>
+		   <semantic-form-text-input for='RightWearToothM1'></semantic-form-text-input>
 		</div>
 	      </div><br>
 	      <div data-flex-layout="row md-column top-spread">
@@ -339,14 +339,14 @@
 	      },
 
 	      {
-	       [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM3" label="Wear M3" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55701>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	       [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM3" label="Wear M3" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55701>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      } , {
-	      [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM2" label="Wear M2" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55700>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	      [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM2" label="Wear M2" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55700>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      },{
-	      [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM1" label="Wear M1" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
-              [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55699>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0000999" ]]
+	      [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothM1" label="Wear M1" xsdDatatype="xsd:integer" minOccurs="1" maxOccurs="1"]]
+              [[>:PSI_MeasurementDatumSnippetConstraint ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55699>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfMolar>" ConnectValue="obo:OBI_0001937" minVal="0" maxVal="40" ]]
 	      },{
 	      [[>:PSI_SI_FormHeaderSnippet id="LeftWearToothP2" label="Wear P2" xsdDatatype="xsd:anyURI" minOccurs="1" maxOccurs="1"]]
               [[>:PSI_MeasurementDatumSnippet ROIVar="<http://w3id.org/rdfbones/core#EntireTooth_fma55691>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-di/WearOfPremolar>" ConnectValue="obo:OBI_0000999" ]]
@@ -375,21 +375,21 @@
 		  <semantic-form-select-input for='LeftPresenceToothM3'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftDevelopmentToothM3'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftEruptionToothM3'></semantic-form-select-input>
-		  <semantic-form-select-input for='LeftWearToothM3'></semantic-form-select-input>
+		  <semantic-form-text-input for='LeftWearToothM3'></semantic-form-text-input>
 		</div>
 		<div class="grid-demo">
                   <semantic-form-select-input for='LeftPresenceAlveolarBoneM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftPresenceToothM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftDevelopmentToothM2'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftEruptionToothM2'></semantic-form-select-input>
-		  <semantic-form-select-input for='LeftWearToothM2'></semantic-form-select-input>
+		  <semantic-form-text-input for='LeftWearToothM2'></semantic-form-text-input>
 		</div>
 		<div class="grid-demo">
                   <semantic-form-select-input for='LeftPresenceAlveolarBoneM1'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftPresenceToothM1'></semantic-form-select-input>
 		  <semantic-form-select-input for='LeftDevelopmentToothM1'></semantic-form-select-input>
 		   <semantic-form-select-input for='LeftEruptionToothM1'></semantic-form-select-input>
-		   <semantic-form-select-input for='LeftWearToothM1'></semantic-form-select-input>
+		   <semantic-form-text-input for='LeftWearToothM1'></semantic-form-text-input>
 		</div>
 	      </div><br>
 	      <div data-flex-layout="row md-column top-spread">
