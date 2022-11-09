@@ -9,7 +9,7 @@ persistence='sparql'
 browser-persistence=true
 form-id="labelupdate"
 id="label"
-subject=[[this]]
+subject={{page-resource}}
 fields='[{ 
     "id": "label",
     "label": "Edit Label",
@@ -137,7 +137,7 @@ fields='[
  <h4>Add Additional Information</h4>
  <div style="color:red"><strong>INFO:</strong> Please fill these fields <strong>before</strong> creating ROI Specifications!</div>
  <semantic-form
- subject='[[this]]'
+ subject='{{page-resource}}'
  post-action='event'
  persistence='sparql'
  id="additonal-info"

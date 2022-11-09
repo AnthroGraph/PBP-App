@@ -11,7 +11,7 @@
 <br> <hr>
 <h4>Add Additional Information</h4>
 <semantic-form
-subject='[[this]]'
+subject='{{page-resource}}'
 post-action='event'
 persistence='sparql'
 id="additonal-info"
@@ -67,7 +67,7 @@ fields='[
       {{#ifCond bindings.0.value.value "!=" "http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature"}}
       <hr>
       <semantic-form
-	subject='[[this]]'
+	subject='{{page-resource}}'
 	post-action='event'
 	persistence='sparql'
 	id="additonal-info-switch-1"
