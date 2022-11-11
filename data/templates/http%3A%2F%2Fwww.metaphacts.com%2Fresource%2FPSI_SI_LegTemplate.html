@@ -1,5 +1,8 @@
 <bs-tab event-key="8" title="Leg">
 
+  <template-lazy>
+          
+
 <h2><strong>Leg</strong></h2> 
 
 <hr>
@@ -8,7 +11,7 @@
  
  <semantic-form
    id='LeftFemur'
-   subject='[[this]]'
+   subject='{{page-resource}}'
    post-action='event'
    browser-persistence=true
    form-id='LeftFemur'
@@ -51,7 +54,7 @@
  
  <semantic-form
    id='LeftTibia'
-   subject='[[this]]'
+   subject='{{page-resource}}'
    post-action='event'
    browser-persistence=true
    form-id='LeftTibia'
@@ -93,7 +96,7 @@
  
  <semantic-form
    id='LeftFibula'
-   subject='[[this]]'
+   subject='{{page-resource}}'
    post-action='event'
    browser-persistence=true
    form-id='LeftFibula'
@@ -135,7 +138,7 @@
 
 <semantic-form
   id='LeftPatella'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='LeftPatella'
@@ -165,7 +168,7 @@
             
             <semantic-form
               id='RightFemur'
-              subject='[[this]]'
+              subject='{{page-resource}}'
               post-action='event'
               browser-persistence=true
               form-id='RightFemur'
@@ -208,7 +211,7 @@
  
  <semantic-form
    id='RightTibia'
-   subject='[[this]]'
+   subject='{{page-resource}}'
    post-action='event'
    browser-persistence=true
    form-id='RightTibia'
@@ -250,7 +253,7 @@
  
  <semantic-form
    id='RightFibula'
-   subject='[[this]]'
+   subject='{{page-resource}}'
    post-action='event'
    browser-persistence=true
    form-id='RightFibula'
@@ -293,7 +296,7 @@
 
 <semantic-form
   id='RightPatella'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='RightPatella'
@@ -323,7 +326,7 @@
 
 <semantic-form
   id='FemurGrouped'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='FemurGrouped'
@@ -368,7 +371,7 @@
 
 <semantic-form
   id='TibiaGrouped'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='TibiaGrouped'
@@ -413,7 +416,7 @@
 
 <semantic-form
   id='FibulaGrouped'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='FibulaGrouped'
@@ -459,7 +462,7 @@
 
 <semantic-form
   id='PatellaFrag'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='PatellaFrag'
@@ -488,7 +491,7 @@
 
 <semantic-form
   id='LeftLegTaph'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='LeftLegTaph'
@@ -518,7 +521,7 @@
 
 <semantic-form
   id='RightLegTaph'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='RightLegTaph'
@@ -542,4 +545,6 @@
             </semantic-form>
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="RightLegTaph" event-target="show-after-RightLegTaph-update"]]   
 
+  </template-lazy>
+          
 </bs-tab>

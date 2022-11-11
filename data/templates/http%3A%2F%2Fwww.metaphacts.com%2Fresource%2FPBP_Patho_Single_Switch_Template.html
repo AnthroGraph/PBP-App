@@ -13,7 +13,7 @@
     <template id="t">
    {{#ifCond bindings.0.value.value "!=" "[[value_check]]"}}
       <semantic-form
-	subject='[[this]]'
+	subject='{{page-resource}}'
 	post-action='event'
 	persistence='sparql'
 	id="additonal-info-switch-1"

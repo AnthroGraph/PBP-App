@@ -1,10 +1,11 @@
 <bs-tab event-key="11" title="Miscellaneous">
+  <template-lazy>
 
 <!-- Hands and Feet grouped Form --> 
 
 <semantic-form
   id='EntireHandAndFootGrouped'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='EntireHandAndFootGrouped'
@@ -68,7 +69,7 @@
 
 <semantic-form
   id='OnehundredElementsAssessment'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='OnehundredElementsAssessment'
@@ -100,7 +101,7 @@
 
 <semantic-form
   id='OverallAssessment'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='OverallAssessment'
@@ -130,7 +131,7 @@
 
 <semantic-form
   id='PercentOfSkel'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='PercentOfSkel'
@@ -161,7 +162,7 @@
 
 <semantic-form
   id='AdditionalMaterial'
-  subject='[[this]]'
+  subject='{{page-resource}}'
   post-action='event'
   browser-persistence=true
   form-id='AdditionalMaterial'
@@ -185,5 +186,5 @@
             </semantic-form>
             [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="AdditionalMaterial" event-target="show-after-AdditionalMaterial-update"]]  
 
-
-            </bs-tab>
+  </template-lazy>
+</bs-tab>

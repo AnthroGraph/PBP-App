@@ -53,7 +53,7 @@ confirmation-options='{
 
 <semantic-form
 
-subject='[[this]]'
+subject='{{page-resource}}'
 post-action='[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]'
 persistence='sparql'
 

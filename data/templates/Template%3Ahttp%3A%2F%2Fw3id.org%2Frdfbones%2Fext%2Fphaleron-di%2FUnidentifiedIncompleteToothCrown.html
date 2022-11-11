@@ -54,7 +54,7 @@ confirmation-options='{
 <hr>
 
  <semantic-form
-	subject='[[this]]'
+	subject='{{page-resource}}'
 	post-action='reload'
 	persistence='sparql'
 	id="additonal-info-switch-1"
@@ -148,7 +148,7 @@ confirmation-options='{
       {{#ifCond bindings.0.var.value "==" "1" }}
      
       <semantic-form
-	subject='[[this]]'
+	subject='{{page-resource}}'
 	post-action='reload'
 	persistence='sparql'
 	id="additonal-info-switch-1"
@@ -239,7 +239,7 @@ confirmation-options='{
       {{else}}
    
       <semantic-form
-	subject='[[this]]'
+	subject='{{page-resource}}'
 	post-action='reload'
 	persistence='sparql'
 	id="molars"
