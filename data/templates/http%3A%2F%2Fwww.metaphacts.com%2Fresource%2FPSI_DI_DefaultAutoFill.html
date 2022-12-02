@@ -1,0 +1,55 @@
+<semantic-update query='
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX phaleron-di: <http://w3id.org/rdfbones/ext/phaleron-di/>
+
+INSERT  {graph ?mygraph {
+  ?myVS ?oVS ?myvals .
+  }}  
+
+WHERE {
+graph ?mygraph{?? a ?SIC }
+  
+   ?? <http://purl.obolibrary.org/obo/BFO_0000051>* ?myMD .
+  ?mysection <http://purl.obolibrary.org/obo/BFO_0000051> ?myMD .
+  ?mysection a [[sectiontype]] .
+  ?myMD  obo:OBI_0001938 ?myVS .
+  ?myVS a ?VSClass.
+  ?myMD a ?MDClass.
+ FILTER (?MDClass IN ([[MDType]]))
+  ?MDClass rdfs:subClassOf ?res0 .
+  ?res0 a owl:Restriction ;
+           owl:onProperty ?oMD.
+  FILTER (?oMD IN ([[MissingType]]))
+  
+  ?res0 (owl:allValuesFrom | owl:hasValue) ?myvals .
+  
+  ?VSClass rdfs:subClassOf ?resVS .
+  ?resVS a owl:Restriction ;
+           owl:onProperty ?oVS .
+       
+  
+ FILTER(NOT EXISTS {
+    ?myVS ?oVS ?existingValue.
+    }) 
+  
+}'
+           
+id="[[id]]"
+variable-params='["mygraph","myVS","oVS","myvals","myMD","mysection","myVS","MDClass","VSClass","res0","oMD","resVS","existingValue", "SIC"]'
+post-action="event"
+show-confirmation="false"
+confirmation-options='{
+     "message": "Do you really want to delete this Pathology instance [[this.label]] and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+>
+
+<button class='btn btn-primary btn-info'><span class='fa' style='pointer-events: none;'></span>&nbsp; <strong>[[ButtonLabel]]</strong></button>
+</semantic-update>
