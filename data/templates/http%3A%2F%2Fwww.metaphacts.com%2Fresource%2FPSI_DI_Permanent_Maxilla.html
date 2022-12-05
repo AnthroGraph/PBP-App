@@ -1,5 +1,5 @@
 <h2><strong>Permanent Maxillary Dentition</strong></h2>
-<<hr>
+<hr>
 
 <h3><strong>Batch fill forms with default values (if applicable)</strong></h3>
 
@@ -7,14 +7,14 @@
 
 [[>:PSI_DI_DefaultAutoFill sectiontype="<http://w3id.org/rdfbones/ext/phaleron-di/PermanentMaxillaryDentition>" MDType="phaleron-di:PresenceOfAlveolarBone, phaleron-di:PresenceOfTooth, phaleron-di:EruptionOfTooth" MissingType="rdfbones:hasMissingMaterialLabel, phaleron-di:hasMissingMaterialIntegerValue" id="BoneActionPMax" ButtonLabel="Set Default Values: No Jaw Bone Present" ]]
 
-<mp-event-proxy on-event-type="SemanticUpdate.Success" on-event-source="BoneActionPMax" proxy-event-type="Component.Refresh" proxy-targets='["RightDecMandibularArcade" , "LeftDecMandibularArcade"]'></mp-event-proxy>
+<mp-event-proxy on-event-type="SemanticUpdate.Success" on-event-source="BoneActionPMax" proxy-event-type="Component.Refresh" proxy-targets='["RightMaxillaryArcade" , "LeftMaxillaryArcade"]'></mp-event-proxy>
 </br></br>
 [[>:PSI_DI_DefaultAutoFill sectiontype="<http://w3id.org/rdfbones/ext/phaleron-di/PermanentMaxillaryDentition>" MDType="phaleron-di:DevelopmentOfTooth, phaleron-di:WearOfIncisorAndCanine, phaleron-di:EruptionOfTooth, phaleron-di:WearOfPremolar, phaleron-di:WearOfMolar" MissingType="rdfbones:hasMissingMaterialLabel, phaleron-di:hasMissingMaterialIntegerValue" id="ToothActionPMax" ButtonLabel="Set Default Values: No Teeth Present" ]]
 <mp-event-proxy on-event-type="SemanticUpdate.Success" on-event-source="ToothActionPMax" proxy-event-type="Component.Refresh" proxy-targets='["RightMaxillaryArcade" , "LeftMaxillaryArcade"]'></mp-event-proxy>
 </br>
 
 
-<hr>>
+<hr>
 <!-- Right Maxillary Arcade Form -->
 <mp-event-target-refresh id="RightMaxillaryArcade">
 
