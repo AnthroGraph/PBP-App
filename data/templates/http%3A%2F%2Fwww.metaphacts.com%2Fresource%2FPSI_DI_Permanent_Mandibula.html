@@ -1,5 +1,18 @@
 <h2><strong>Permanent Mandibular Dentition</strong></h2>
 <hr>
+
+<h3><strong>Batch fill forms with default values (if applicable)</strong></h3>
+<div style="color:red"><strong>INFO:</strong> Buttons will not change manually filled forms</div>
+
+[[>:PSI_DI_DefaultAutoFill sectiontype="<http://w3id.org/rdfbones/ext/phaleron-di/PermanentMandibularDentition>" MDType="phaleron-di:PresenceOfAlveolarBone, phaleron-di:PresenceOfTooth, phaleron-di:EruptionOfTooth" MissingType="rdfbones:hasMissingMaterialLabel, phaleron-di:hasMissingMaterialIntegerValue" id="BoneActionPMand" ButtonLabel="Set Default Values: No Jaw Bone Present" ]]
+
+<mp-event-proxy on-event-type="SemanticUpdate.Success" on-event-source="BoneActionPMand" proxy-event-type="Component.Refresh" proxy-targets='["RightMandibularArcade" , "LeftMandibularArcade"]'></mp-event-proxy>
+</br></br>
+
+[[>:PSI_DI_DefaultAutoFill sectiontype="<http://w3id.org/rdfbones/ext/phaleron-di/PermanentMandibularDentition>" MDType="phaleron-di:DevelopmentOfTooth, phaleron-di:WearOfIncisorAndCanine, phaleron-di:EruptionOfTooth, phaleron-di:WearOfPremolar, phaleron-di:WearOfMolar" MissingType="rdfbones:hasMissingMaterialLabel, phaleron-di:hasMissingMaterialIntegerValue" id="ToothActionPMand" ButtonLabel="Set Default Values: No Teeth Present" ]]
+  <mp-event-proxy on-event-type="SemanticUpdate.Success" on-event-source="ToothActionPMand" proxy-event-type="Component.Refresh" proxy-targets='["RightMandibularArcade" , "LeftMandibularArcade"]'></mp-event-proxy>
+  
+<hr>
 <!-- Right Mandibular Arcade Form -->
 <mp-event-target-refresh id="RightMandibularArcade">
 
