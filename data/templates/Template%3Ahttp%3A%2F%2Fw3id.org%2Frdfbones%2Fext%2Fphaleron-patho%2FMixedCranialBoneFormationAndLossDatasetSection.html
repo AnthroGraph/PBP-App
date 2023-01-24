@@ -59,7 +59,35 @@ fields='[{
 
  <br><hr><br>
 <!-- If Skull ROI -->
-[[>:PBP_Patho_MixedBone_CranialSwitch_Template]]
+ <h4>Add Additional Information specific to Skull</h4>
+    <semantic-form
+      subject='{{page-resource}}'
+      post-action='reload'
+      persistence='sparql'
+      id="additonal-info-switch-1"
+      form-id="additonal-info"
+      browser-persistence='true'
+      fields='[
+	      
+    	      [[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfOrbitalPorosity" connected_class="phaleron-patho:PresenceOfOrbitalPorosity" id="PresenceOfOrbitalPorosity" label="Presence Of Orbital Porosity" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfOrbitalPorosity, phaleron-patho:ActivityOfOrbitalPoroticLesion,  phaleron-patho:PresenceOfRaisedOrbitalSurface, phaleron-patho:OrbitalPitDensity, phaleron-patho:OrbitalPittingSeverity, phaleron-patho:ExtentOfOrbitalPorosity" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification"]],
+	      
+	      [[>:PBP_Patho_SectionFormsSwitchInROISpec_Template value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfCranialVaultPorosity" connected_class="phaleron-patho:PresenceOfCranialVaultPorosity" id="PresenceOfCranialVaultPorosity" label="Presence Of Cranial Vault Porosity" sortingclass="<http://w3id.org/rdfbones/ext/standards-patho/PresenceOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfCranialVaultPorosity, phaleron-patho:ActivityOfCranialVaultPoroticLesion,  phaleron-patho:PresenceOfCranialVaultDiploicExpansion, phaleron-patho:CranialVaultPitDensity, phaleron-patho:CranialVaultPittingSeverity, phaleron-patho:ExtentOfCranialVaultPorosity" ROItype="phaleron-patho:PhaleronMixedBoneFormationAndLossROISpecification"]]
+	      ]'
+
+      >
+      <semantic-form-recover-notification></semantic-form-recover-notification>
+
+      <semantic-form-select-input for='PresenceOfOrbitalPorosity'></semantic-form-select-input>
+      <semantic-form-select-input for='PresenceOfCranialVaultPorosity'></semantic-form-select-input>
+      <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
+      <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+      <button name="reset" class="btn btn-secondary">Reset</button>
+    </semantic-form>
+    <br>
+    
+    
+    <br><hr><br>
+    
 
 <!-- Dependant on Presence of Orbital Porosity -->
  [[>:PBP_Patho_Multi_Switch_Header_Template type="phaleron-patho:PresenceOfOrbitalPorosity" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" heading="<h4>Specify Orbital Porosity</h4>" form-id="OrbitalPorosity"]]
