@@ -28,7 +28,8 @@ PREFIX dc: <http://purl.org/dc/terms/>
                 ?myrole obo:RO_0000081 ?myobserver.
                 ?myobservation obo:RO_0000057 ?myobserver .
                 ?myobservation dc:date ?date.          
-                
+		?PPInv obo:BFO_0000051 ?myobservation.
+		
                 ?? obo:BFO_0000051 ?roispec .
                 ?roispec obo:BFO_0000051 ?MD .
                 ?roispec obo:IAO_0000136 ?AnatRegion .
@@ -51,6 +52,7 @@ PREFIX dc: <http://purl.org/dc/terms/>
            GRAPH ?mygraph {?? a ?o }
                 ?PPI obo:BFO_0000051 ?? . 
                 ?PPI a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronPaleopathologyDataset> .
+		?PPInv obo:OBI_0000299 ?PPI .
                 ?? a ?sectionclass .
                 ?? rdfs:label ?label.
                 ?? obo:IAO_0000136 ?myroi .
@@ -93,7 +95,7 @@ PREFIX dc: <http://purl.org/dc/terms/>
 }'
 
 id="DeleteDatasetSection"
-variable-params='["sectionclass","myobservation","obsclass","myroi","roispec","MD","MD_VS","MDclass","MDVSclass","categorical_value_label","MD1","MD1_VS","MD1class","MD1VSclass","categorical_value_label1","AnatRegion","label","mygraph", "o","PPI","myrole","date","roletype","myobserver","RP"]'
+variable-params='["sectionclass","myobservation","obsclass","myroi","roispec","MD","MD_VS","MDclass","MDVSclass","categorical_value_label","MD1","MD1_VS","MD1class","MD1VSclass","categorical_value_label1","AnatRegion","label","mygraph", "o","PPI","myrole","date","roletype","myobserver","RP", "PPInv"]'
 post-action="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}" ]]"
 show-confirmation="true"
 confirmation-options='{
