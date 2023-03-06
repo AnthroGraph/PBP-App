@@ -44,20 +44,27 @@ confirmation-options='{
 	[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-dpatho/DentalPaleopathologyInvestigation>"]]
       </bs-tab>
      
-      <bs-tab event-key="3" title="Perm. Maxilla">
-	[[>:PSI_DPatho_Permanent_Maxilla]]
-     </bs-tab>
-      <bs-tab event-key="4" title="Perm. Mandibula">
-	[[>:PSI_DPatho_Permanent_Mandibula]]
-      </bs-tab>
-      <bs-tab event-key="5" title="Decid. Maxilla">
-	[[>:PSI_DPatho_Deciduous_Maxilla]]
-      </bs-tab>
-      <bs-tab event-key="6" title="Decid. Mandibula">
-	[[>:PSI_DPatho_Deciduous_Mandibula]]
-      </bs-tab>
+  <bs-tab event-key="3" title="Perm. Maxilla">
+    <template-lazy>
+      {{>:PSI_DPatho_Permanent_Maxilla}}
+    </template-lazy>
+  </bs-tab>
+  <bs-tab event-key="4" title="Perm. Mandibula">
+    <template-lazy>
+      {{>:PSI_DPatho_Permanent_Mandibula}}
+    </template-lazy>
+  </bs-tab>
+  <bs-tab event-key="5" title="Decid. Maxilla">
+    <template-lazy>
+      {{>:PSI_DPatho_Deciduous_Maxilla}}
+    </template-lazy>
+  </bs-tab>
+  
 
-      
-       
-      </bs-tabs>
+  <bs-tab event-key="6" title="Decid. Mandibula">
+    <template-lazy>
+      {{>:PSI_DPatho_Deciduous_Mandibula}}
+    </template-lazy>
+  </bs-tab>
+</bs-tabs>
 </div>
