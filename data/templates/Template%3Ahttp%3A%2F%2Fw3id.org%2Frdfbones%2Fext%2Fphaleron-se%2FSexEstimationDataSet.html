@@ -74,434 +74,301 @@
 
   <hr>
   
-  <h2><strong>Ventral Arc (Phenice)</strong></h2>
-  
-    <hr>
-  
-  <!-- PhVALeft Form -->
+<!-- Phenice IRR Form -->
 <semantic-form
-  id="PhVALeft"
+  id="PhVA"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='PhVALeft'
+  form-id='PhVA'
   persistence='sparql'
   fields='[
   {
-          "id": "PhVALeft",
+          "id": "LeftPhVA",
           "label": "Left Ventral Arc",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>"]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='PhVALeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Ventral Arc</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhVALeft-update" ufbTemplate="PhVALeft-Template" ufbname="PhVALeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhVALeft" event-target="show-after-PhVALeft-update"]]
-
-<hr>
-  
-  <!-- PhVARight Form -->
-<semantic-form
-  id="PhVARight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='PhVARight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "PhVARight",
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
+           }
+      ,
+      {
+          "id": "RightPhVA",
           "label": "Right Ventral Arc",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Ventral Arc (Phenice)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='PhVARight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Ventral Arc</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhVARight-update" ufbTemplate="PhVARight-Template" ufbname="PhVARight"]]
+          <semantic-form-select-input for='LeftPhVA'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightPhVA'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Ventral Arc</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhVA-update" ufbTemplate="PhVA-Template" ufbname="PhVA"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhVARight" event-target="show-after-PhVARight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhVA" event-target="show-after-PhVA-update"]]
 
 <hr>
 
-<h2><strong>Subpubic Concavity (Phenice)</strong></h2>
-
-<hr>
-
-  <!-- PhSCLeft Form -->
+<!-- Phenice IRR Form -->
 <semantic-form
-  id="PhSCLeft"
+  id="PhSC"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='PhSCLeft'
+  form-id='PhSC'
   persistence='sparql'
   fields='[
   {
-          "id": "PhSCLeft",
+          "id": "LeftPhSC",
           "label": "Left Subpubic Concavity",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>"]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='PhSCLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Subpubic Concavity</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhSCLeft-update" ufbTemplate="PhSCLeft-Template" ufbname="PhSCLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhSCLeft" event-target="show-after-PhSCLeft-update"]]
-
-<hr>
-
-
-  <!-- PhSCRight Form -->
-<semantic-form
-  id="PhSCRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='PhSCRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "PhSCRight",
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
+           }
+      ,
+      {
+          "id": "RightPhSC",
           "label": "Right Subpubic Concavity",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Subpubic Concavity (Phenice)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='PhSCRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Subpubic Concavity</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhSCRight-update" ufbTemplate="PhSCRight-Template" ufbname="PhSCRight"]]
+          <semantic-form-select-input for='LeftPhSC'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightPhSC'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Subpubic Concavity</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhSC-update" ufbTemplate="PhSC-Template" ufbname="PhSC"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhSCRight" event-target="show-after-PhSCRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhSC" event-target="show-after-PhSC-update"]]
 
 <hr>
 
-<h2><strong>Ischiopubic Ramus Ridge (Phenice)</strong></h2>
-
-  <hr>
-
-<!-- PhIRRLeft Form -->
+<!-- Phenice IRR Form -->
 <semantic-form
-  id="PhIRRLeft"
+  id="PhIRR"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='PhIRRLeft'
+  form-id='PhIRR'
   persistence='sparql'
   fields='[
   {
-          "id": "PhIRRLeft",
+          "id": "LeftPhIRR",
           "label": "Left Ischiopubic Ramus Ridge",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
            [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='PhIRRLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Ischiopubic Ramus Ridge</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhIRRLeft-update" ufbTemplate="PhIRRLeft-Template" ufbname="PhIRRLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhIRRLeft" event-target="show-after-PhIRRLeft-update"]]
-
-<hr>
-
-<!-- PhIRRRight Form -->
-<semantic-form
-  id="PhIRRRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='PhIRRRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "PhIRRRight",
+           }
+      ,
+      {
+          "id": "RightPhIRR",
           "label": "Right Ischiopubic Ramus Ridge",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/phenice-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Ischiopubic Ramus Ridge (Phenice)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='PhIRRRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Ischiopubic Ramus Ridge</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhIRRRight-update" ufbTemplate="PhIRRRight-Template" ufbname="PhIRRRight"]]
+          <semantic-form-select-input for='LeftPhIRR'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightPhIRR'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Ischiopubic Ramus Ridge</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-PhIRR-update" ufbTemplate="PhIRR-Template" ufbname="PhIRR"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhIRRRight" event-target="show-after-PhIRRRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhIRR" event-target="show-after-PhIRR-update"]]
 
 <hr>
 
 <h2><strong>Klales (2012)</strong></h2>
 
-  <hr>
+<hr>
   
-  <h2><strong>Ventral Arc (Klales)</strong></h2>
-  
-  <hr>
-  
-  <!-- KlVALeft Form -->
+<!-- Klales IRR Form -->
 <semantic-form
-  id="KlVALeft"
+  id="KlVA"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='KlVALeft'
+  form-id='KlVA'
   persistence='sparql'
   fields='[
   {
-          "id": "KlVALeft",
+          "id": "LeftKlVA",
           "label": "Left Ventral Arc",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>"]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='KlVALeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Ventral Arc</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlVALeft-update" ufbTemplate="KlVALeft-Template" ufbname="KlVALeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlVALeft" event-target="show-after-KlVALeft-update"]]
-
-<hr>
-  
-  <!-- KlVARight Form -->
-<semantic-form
-  id="KlVARight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='KlVARight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "KlVARight",
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
+           }
+      ,
+      {
+          "id": "RightKlVA",
           "label": "Right Ventral Arc",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/VentralArcMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Ventral Arc (Klales)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='KlVARight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Ventral Arc</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlVARight-update" ufbTemplate="KlVARight-Template" ufbname="KlVARight"]]
+          <semantic-form-select-input for='LeftKlVA'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightKlVA'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Ventral Arc</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlVA-update" ufbTemplate="KlVA-Template" ufbname="KlVA"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlVARight" event-target="show-after-KlVARight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlVA" event-target="show-after-KlVA-update"]]
 
 <hr>
 
-<h2><strong>Subpubic Concavity (Klales)</strong></h2>
-
-<hr>
-
-  <!-- KlSCLeft Form -->
+<!-- Klales IRR Form -->
 <semantic-form
-  id="KlSCLeft"
+  id="KlSC"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='KlSCLeft'
+  form-id='KlSC'
   persistence='sparql'
   fields='[
   {
-          "id": "KlSCLeft",
+          "id": "LeftKlSC",
           "label": "Left Subpubic Concavity",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>"]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='KlSCLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Subpubic Concavity</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlSCLeft-update" ufbTemplate="KlSCLeft-Template" ufbname="KlSCLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlSCLeft" event-target="show-after-KlSCLeft-update"]]
-
-<hr>
-
-
-  <!-- KlSCRight Form -->
-<semantic-form
-  id="KlSCRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='KlSCRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "KlSCRight",
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
+           }
+      ,
+      {
+          "id": "RightKlSC",
           "label": "Right Subpubic Concavity",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/SubpubicConcavityMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Subpubic Concavity (Klales)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='KlSCRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Subpubic Concavity</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlSCRight-update" ufbTemplate="KlSCRight-Template" ufbname="KlSCRight"]]
+          <semantic-form-select-input for='LeftKlSC'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightKlSC'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Subpubic Concavity</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlSC-update" ufbTemplate="KlSC-Template" ufbname="KlSC"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlSCRight" event-target="show-after-KlSCRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlSC" event-target="show-after-KlSC-update"]]
 
 <hr>
 
-<h2><strong>Ischiopubic Ramus Ridge (Klales)</strong></h2>
-
-  <hr>
-
-<!-- KlIRRLeft Form -->
+<!-- Klales IRR Form -->
 <semantic-form
-  id="KlIRRLeft"
+  id="KlIRR"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='KlIRRLeft'
+  form-id='KlIRR'
   persistence='sparql'
   fields='[
   {
-          "id": "KlIRRLeft",
+          "id": "LeftKlIRR",
           "label": "Left Ischiopubic Ramus Ridge",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
            [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftPubis>" ]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='KlIRRLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Ischiopubic Ramus Ridge</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlIRRLeft-update" ufbTemplate="KlIRRLeft-Template" ufbname="KlIRRLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlIRRLeft" event-target="show-after-KlIRRLeft-update"]]
-
-<hr>
-
-<!-- KlIRRRight Form -->
-<semantic-form
-  id="KlIRRRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='KlIRRRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "KlIRRRight",
+           }
+      ,
+      {
+          "id": "RightKlIRR",
           "label": "Right Ischiopubic Ramus Ridge",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/klales-se/IschiopubicRamusRidgeMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightPubis>" ]]
           }]'
 >
+<h2><strong>Ischiopubic Ramus Ridge (Klales)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='KlIRRRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Ischiopubic Ramus Ridge</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlIRRRight-update" ufbTemplate="KlIRRRight-Template" ufbname="KlIRRRight"]]
+          <semantic-form-select-input for='LeftKlIRR'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightKlIRR'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Ischiopubic Ramus Ridge</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-KlIRR-update" ufbTemplate="KlIRR-Template" ufbname="KlIRR"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlIRRRight" event-target="show-after-KlIRRRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="KlIRR" event-target="show-after-KlIRR-update"]]
 
+<hr>
 
 <h2><strong>Klales Statistical Sex Estimate</strong></h2>
 
-  <hr>
+
 
 <!-- KlalesEstimate Form -->
 <semantic-form
@@ -535,8 +402,8 @@
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
                     SELECT DISTINCT $value WHERE {
                         $value a <http://w3id.org/rdfbones/ext/phaleron-se/LDFConclusionLabel> .
-                        $value rdfs:label ?label .
-				} ORDER BY (?label)
+                        ?SortingLabel obo:IAO_0000136 $value .
+				} ORDER BY (?SortingLabel)
 				",
 				
                       "insertPattern": "
@@ -585,69 +452,52 @@
 
 <hr>
 
-<!-- GSNLeft Form -->
+<!-- Standards Form -->
 <semantic-form
-  id="GSNLeft"
+  id="GSN"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='GSNLeft'
+  form-id='GSN'
   persistence='sparql'
   fields='[
   {
-          "id": "GSNLeft",
+          "id": "LeftGSN",
           "label": "Left Greater Sciatic Notch",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
            [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/LeftIlium>" ]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='GSNLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Greater Sciatic Notch</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-GSNLeft-update" ufbTemplate="GSNLeft-Template" ufbname="GSNLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="GSNLeft" event-target="show-after-GSNLeft-update"]]
-
-<hr>
-
-<!-- GSNRight Form -->
-<semantic-form
-  id="GSNRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='GSNRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "GSNRight",
+           }
+      ,
+      {
+          "id": "RightGSN",
           "label": "Right Greater Sciatic Notch",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightIlium>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/standards-se/GreaterSciaticNotchMorphology>" ROI="<http://w3id.org/rdfbones/ext/standards-si/RightIlium>" ]]
           }]'
 >
+<h2><strong>Greater Sciatic Notch (Standards)</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='GSNRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Greater Sciatic Notch</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-GSNRight-update" ufbTemplate="GSNRight-Template" ufbname="GSNRight"]]
+          <semantic-form-select-input for='LeftGSN'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightGSN'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Greater Sciatic Notch</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-GSN-update" ufbTemplate="GSN-Template" ufbname="GSN"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="GSNRight" event-target="show-after-GSNRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="GSN" event-target="show-after-GSN-update"]]
+
 
 <hr>
 
@@ -656,8 +506,6 @@
   <hr>
   
   <h2><strong>Nuchal Crest</strong></h2>
-  
-  <hr>
   
   <!-- NuCr Form -->
 <semantic-form
@@ -692,149 +540,105 @@
 
   <hr>
   
-  <h2><strong>Mastoid Process</strong></h2>
-  
-  <hr>
-
-<!-- MaProLeft Form -->
+<!-- MaPro Form -->
 <semantic-form
-  id="MaProLeft"
+  id="MaPro"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='MaProLeft'
+  form-id='MaPro'
   persistence='sparql'
   fields='[
   {
-          "id": "MaProLeft",
+          "id": "LeftMaPro",
           "label": "Left Mastoid Process",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
            [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/MastoidProcessMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfLeftTemporalBone>" ]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='MaProLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Mastoid Process</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-MaProLeft-update" ufbTemplate="MaProLeft-Template" ufbname="MaProLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="MaProLeft" event-target="show-after-MaProLeft-update"]]
-
-<hr>
-
-<!-- MaProRight Form -->
-<semantic-form
-  id="MaProRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='MaProRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "MaProRight",
+           }
+      ,
+      {
+          "id": "RightMaPro",
           "label": "Right Mastoid Process",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/MastoidProcessMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfRightTemporalBone>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/MastoidProcessMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/PetrousPartOfRightTemporalBone>" ]]
           }]'
 >
+<h2><strong>Mastoid Process</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='MaProRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Mastoid Process</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-MaProRight-update" ufbTemplate="MaProRight-Template" ufbname="MaProRight"]]
+          <semantic-form-select-input for='LeftMaPro'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightMaPro'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Mastoid Process</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-MaPro-update" ufbTemplate="MaPro-Template" ufbname="MaPro"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="MaProRight" event-target="show-after-MaProRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="MaPro" event-target="show-after-MaPro-update"]]
+
 
   <hr>
   
-  <h2><strong>Supraorbital Margin</strong></h2>
-  
-  <hr>
-  
-  <!-- SupOrbMarLeft Form -->
+<!-- SupOrbMar Form -->
 <semantic-form
-  id="SupOrbMarLeft"
+  id="SupOrbMar"
   subject='[[this]]'
   post-action='event'
   browser-persistence=true
-  form-id='SupOrbMarLeft'
+  form-id='SupOrbMar'
   persistence='sparql'
   fields='[
   {
-          "id": "SupOrbMarLeft",
+          "id": "LeftSupOrbMar",
           "label": "Left Supraorbital Margin",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
            [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/SupraorbitalMarginMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/LeftOrbitalPartOfFrontalBone>" ]]
-          }]'
->
-<semantic-form-recover-notification></semantic-form-recover-notification>
-    <div data-flex-layout="row md-column top-spread">
-
-      <div class="grid-demo">
-          <semantic-form-select-input for='SupOrbMarLeft'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Left Supraorbital Margin</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SupOrbMarLeft-update" ufbTemplate="SupOrbMarLeft-Template" ufbname="SupOrbMarLeft"]]
-      </div>
-
-    </div>
-</semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SupOrbMarLeft" event-target="show-after-SupOrbMarLeft-update"]]
-
-<hr>
-
-<!-- SupOrbMarRight Form -->
-<semantic-form
-  id="SupOrbMarRight"
-  subject='[[this]]'
-  post-action='event'
-  browser-persistence=true
-  form-id='SupOrbMarRight'
-  persistence='sparql'
-  fields='[
-  {
-          "id": "SupOrbMarRight",
+           }
+      ,
+      {
+          "id": "RightSupOrbMar",
           "label": "Right Supraorbital Margin",
           "xsdDatatype": "xsd:anyURI",
           "minOccurs": "1",
           "maxOccurs": "1",
-           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/SupraorbitalMarginMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/RightOrbitalPartOfFrontalBone>"]]
+           [[>:PSE_Scores_Snippet MethodMorphMD="<http://w3id.org/rdfbones/ext/walker-se/SupraorbitalMarginMorphology>" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/RightOrbitalPartOfFrontalBone>" ]]
           }]'
 >
+<h2><strong>Supraorbital Margin</strong></h2>
 <semantic-form-recover-notification></semantic-form-recover-notification>
     <div data-flex-layout="row md-column top-spread">
 
       <div class="grid-demo">
-          <semantic-form-select-input for='SupOrbMarRight'></semantic-form-select-input>
-                    <button name="submit" class="btn btn-primary"><strong>Save Right Supraorbital Margin</strong></button>
-          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SupOrbMarRight-update" ufbTemplate="SupOrbMarRight-Template" ufbname="SupOrbMarRight"]]
+          <semantic-form-select-input for='LeftSupOrbMar'></semantic-form-select-input>
       </div>
+
+      <div class="grid-demo">
+          <semantic-form-select-input for='RightSupOrbMar'></semantic-form-select-input>
+      </div>
+
+          <button name="submit" class="btn btn-primary"><strong>Save Supraorbital Margin</strong></button>
+          [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-SupOrbMar-update" ufbTemplate="SupOrbMar-Template" ufbname="SupOrbMar"]]
 
     </div>
 </semantic-form>
-[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SupOrbMarRight" event-target="show-after-SupOrbMarRight-update"]]
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="SupOrbMar" event-target="show-after-SupOrbMar-update"]]
+
 
   <hr>
   
   <h2><strong>Supraorbital Ridge/Glabella</strong></h2>
-  
-  <hr>
   
   <!-- Glabella Form -->
 <semantic-form
@@ -870,8 +674,6 @@
   <hr>
   
   <h2><strong>Mental Eminence</strong></h2>
-  
-  <hr>
   
   <!-- Mentum Form -->
 <semantic-form
@@ -909,7 +711,6 @@
 
 <h2><strong>Overall Morphological Sex Estimate</strong></h2>
 
-  <hr>
 
 <!-- OverallEstimate Form -->
 <semantic-form
@@ -943,8 +744,8 @@
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
                     SELECT DISTINCT $value WHERE {
                         $value a <http://w3id.org/rdfbones/ext/phaleron-se/OverallConclusionLabel> .
-                        $value rdfs:label ?label .
-				} ORDER BY (?label)
+                        ?SortingLabel obo:IAO_0000136 $value .
+				} ORDER BY (?SortingLabel)
 				",
 				
                       "insertPattern": "
@@ -986,3 +787,4 @@
     </div>
 </semantic-form>
 [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="OverallEstimate" event-target="show-after-OverallEstimate-update"]]
+

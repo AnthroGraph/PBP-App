@@ -3,37 +3,15 @@
           PREFIX obo: <http://purl.obolibrary.org/obo/>
           SELECT $value WHERE {
           {
-            $subject obo:BFO_0000051 ?NumMD .
-            ?NumMD obo:OBI_0001938 ?ValSpec .
-            ?NumMD obo:IAO_0000136 ?ROIInstance .
+            $subject obo:BFO_0000051 ?MorphMD .
+            ?MorphMD obo:OBI_0001938 ?ValSpec .
+            ?MorphMD obo:IAO_0000136 ?ROIInstance .
             ?ROIInstance a [[ROI]] .
-            ?NumMD a ?NumMDType .
-            ?ValSpec obo:OBI_0001937 $value .
-              		  ?transformation rdfs:subClassOf ?t1 .
-              		  ?t1 owl:intersectionOf ?t2 .
-              		  ?t2 rdf:first ?t3 .
-              		  ?t3 owl:allValuesFrom ?t4 .
-              		  ?t4 owl:intersectionOf ?t5 .
-              		  ?t5 rdf:first [[MethodMorphMD]] .
-
-              		  ?transformation rdfs:subClassOf ?b1 .
-              		  ?b1 owl:intersectionOf ?b2 .
-              		  ?b2 rdf:rest ?c3 .
-              		  ?c3 rdf:first ?c4 .
-              		  ?c4 owl:allValuesFrom ?c5 .
-              		  ?c5 owl:intersectionOf ?c6 .
-              		  ?c6 rdf:first ?NumMDType .
-              		  ?c6 rdf:rest ?c7 .
-              		  ?c7 rdf:first ?c8 .
-              		  ?c8 owl:allValuesFrom ?c9 .
-              		  ?c9 owl:intersectionOf ?c10 .
-              		  ?c10 rdf:first ?NumVSType .
-              		  ?c10 rdf:rest ?c11 .
-              		  ?c11 rdf:first ?c12 .
-              		  ?c12 a owl:Restriction .
-              		  ?c12 owl:hasValue ?NumVSValue .
-              		  ?c12 owl:onProperty obo:OBI_0001937 .
-              		  FILTER ($value = ?NumVSValue )
+            ?MorphMD a [[MethodMorphMD]] .
+            ?ValSpec obo:OBI_0000999 ?CatLabel .
+          	$value obo:IAO_0000136 ?CatLabel .
+          	$value a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationScoreLabelSorting> .
+          	FILTER NOT EXISTS { ?ValSpec obo:OBI_0000999 <http://w3id.org/rdfbones/ext/phaleron-si/9-Unobservable> }
               		   }
             UNION {
             $subject obo:BFO_0000051 ?MorphMD .
