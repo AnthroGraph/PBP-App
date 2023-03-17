@@ -1,0 +1,202 @@
+<semantic-form
+for-class="http://w3id.org/rdfbones/ext/phaleron-patho/PathologyDatasetSection" 
+new-subject-template="http://pbp-paleoppath.org/records/PathologyDatasetSection-{{UUID}}"
+post-action='redirect'
+persistence='sparql'
+
+fields='[{
+    "id": "ofType",
+    "label": "Select ROI Specification for [[paleopath_type]] Investigation",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "insertPattern": "
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+      PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+
+      INSERT {GRAPH ?mygraph {  
+        ?myprocess obo:BFO_0000051 ?paleopath_observation .
+        ?paleopath_observation a [[paleopath_observation_type]] .
+        
+        $subject a [[paleopath_datasection_type]] .
+        $subject obo:IAO_0000136 ?ROISpec .
+	?ROISpec a $value.
+        ?? obo:BFO_0000051  $subject.
+        ?paleopath_observation obo:OBI_0000299 $subject .
+
+	?ROISpec  obo:IAO_0000136 ?existROI .
+        
+       }} WHERE {
+         ?myprocess obo:OBI_0000299 ?? .
+         GRAPH ?mygraph {?? a ?o } .
+	 ?value rdfs:subClassOf ?myres0.
+
+	 ?myres0 a owl:Restriction ;
+	 owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000136> ;
+	 owl:onClass ?myROI .
+	 ?myROI rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+	 
+	 ?myInvest  obo:OBI_0000299 ?? . 
+	 ?myInvest obo:OBI_0000293 ?skelSpec .
+	 ?mySI <http://semanticscience.org/resource/SIO_000563> ?skelSpec   .
+	 ?mySI obo:BFO_0000051* ?MD .
+	 ?MD a standards-si:Representation4States .
+	 ?MD  obo:IAO_0000136 ?existROI .
+	 ?MD obo:OBI_0001938 ?VS .
+	 ?VS obo:OBI_0000999 ?myval.
+	 ?existROI a ?myROI.
+	 FILTER NOT EXISTS {
+	 ?VS obo:OBI_0000999  standards-si:missing.
+			 
+  			 }
+	 
+	 BIND(URI(CONCAT(STR(?subject),\"_\",STR([[paleopath_datasection_type]]))) AS ?paleopath_datasection) .
+         BIND(URI(CONCAT(STR(?subject),\"_\",STR([[paleopath_observation_type]]))) AS ?paleopath_observation) .
+	 BIND(URI(CONCAT(STR(?subject),\"_\",STR($value))) AS ?ROISpec) .
+
+
+
+}",
+
+"valueSetPattern":"
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT $value WHERE  {
+    $value rdfs:subClassOf* [[ROItype]] .
+} "
+    
+,
+"deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE {?? obo:BFO_0000051 $subject.} WHERE {?? obo:BFO_0000051 $subject.} "
+,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+			 PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+
+                         ASK WHERE {FILTER EXISTS {
+
+			 ?value rdfs:subClassOf ?myres0.
+			 ?myres0 a owl:Restriction ;
+			 owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000136> ;
+			 owl:onClass ?myROI .
+			 ?myROI rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+			 
+			 
+			 ?myInvest obo:OBI_0000299 ?? .
+			 ?myInvest  obo:OBI_0000293 ?skelSpec .
+			 ?mySI <http://semanticscience.org/resource/SIO_000563> ?skelSpec   .
+			 ?mySI obo:BFO_0000051* ?MD .
+			 ?MD a standards-si:Representation4States .
+			 ?MD  obo:IAO_0000136 ?existROI .
+			 ?existROI a ?myROI.
+			 ?MD obo:OBI_0001938 ?VS .
+			 ?VS obo:OBI_0000999 ?myval.
+			 FILTER NOT EXISTS {
+			 ?VS obo:OBI_0000999  standards-si:missing.
+			 
+  			 }
+  			 }
+			 }",
+                  "message": "At least one Bone associated with the ROI must be present"
+                  }]
+},
+
+    {
+    "id": "name",
+    "label": "Unique label for [[paleopath_type]] Investigation",
+    "xsdDatatype": "xsd:string",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "insertPattern": "
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+
+      INSERT {GRAPH ?mygraph {  
+      $subject rdfs:label $value .
+              
+       }} WHERE {
+          GRAPH ?mygraph {?? a ?o } .
+         }"
+,
+   "deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE { $subject rdfs:label $value .} WHERE {$subject rdfs:label $value } "
+,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+                              ?s rdfs:label $value .
+                              ?s a [[paleopath_datasection_type]] .
+                              ?? obo:BFO_0000051 ?s .
+  											    }}",
+                  "message": "This Paleopath Instance already has an identically named [[paleopath_type]]"
+                  }]
+}
+]'>
+ <semantic-form-recover-notification></semantic-form-recover-notification>
+ <semantic-form-select-input for='ofType'></semantic-form-select-input>
+ <semantic-form-text-input for='name'></semantic-form-text-input>
+
+ <button name="submit" class="btn btn-primary">
+   
+  <strong>Create New [[paleopath_type]] Instance</strong></button>&nbsp;
+
+<button name="reset" class="btn btn-secondary">Reset</button>
+</semantic-form>
+<br>
+<semantic-query query="PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+		       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+		       PREFIX obo: <http://purl.obolibrary.org/obo/>
+		       SELECT (count(DISTINCT ?boneAdd) AS ?value) WHERE { 
+		       ?boneAdd a [[paleopath_datasection_type]] .
+		       ?? obo:BFO_0000051 ?boneAdd .
+		       ?boneAdd obo:IAO_0000136 ?ROI .
+		       ?ROI a [[ROItype]].
+		       } GROUP BY ?boneAdd
+		       
+		       " template="{{> t}}">
+  <template id="t">
+    {{#ifCond bindings.0.value.value ">" "0"}}
+<strong>Existing [[paleopath_type]] Observations:</strong></hr>
+<semantic-table 
+  query="
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      SELECT ?boneAdd ?roi WHERE { 
+             ?boneAdd a [[paleopath_datasection_type]] .
+             ?? obo:BFO_0000051 ?boneAdd .
+             ?boneAdd obo:IAO_0000136 ?ROISpec .
+	     ?ROISpec a [[ROItype]].
+             
+
+      }"
+  column-configuration='[
+    {"variableName": "boneAdd", "displayName": "[[paleopath_type]]"}
+    ]'
+  options='{"showFilter":false}'
+></semantic-table>
+{{/ifCond}}
+  </template>
+</semantic-query>
