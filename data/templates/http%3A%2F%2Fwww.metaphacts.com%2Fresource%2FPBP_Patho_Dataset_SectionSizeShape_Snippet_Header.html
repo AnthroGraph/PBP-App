@@ -31,7 +31,7 @@ PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
                 ?myobservation dc:date ?date.          
 		?PPInv obo:BFO_0000051 ?myobservation.
 		
-                ?? obo:IAO_0000136 ?myroispec .
+                ?? obo:BFO_0000051 ?myroispec .
 		?myroispec a ?roispecclass.
 		?myroispec obo:IAO_0000136 ?myROI.
 	                             
@@ -50,7 +50,7 @@ PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
 		?PPInv obo:OBI_0000299 ?PPI .
                 ?? a ?sectionclass .
                 ?? rdfs:label ?label.
-                ?? obo:IAO_0000136 ?myroispec .
+                ?? obo:BFO_0000051 ?myroispec .
 		?myroispec a ?roispecclass .
 		?myroispec  obo:IAO_0000136 ?myROI.
 		?myROI a ?ROIclass .

@@ -24,7 +24,7 @@ fields='[{
         ?paleopath_observation a [[paleopath_observation_type]] .
         
         $subject a [[paleopath_datasection_type]] .
-        $subject obo:IAO_0000136 ?ROISpec .
+        $subject obo:BFO_0000051 ?ROISpec .
 	?ROISpec a $value.
         ?? obo:BFO_0000051  $subject.
         ?paleopath_observation obo:OBI_0000299 $subject .
@@ -85,7 +85,8 @@ fields='[{
                          PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
 			 PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
 
-                         ASK WHERE {FILTER EXISTS {
+                         ASK WHERE {
+			 SELECT (count(?VS) AS ?num) WHERE {
 
 			 ?value rdfs:subClassOf ?myres0.
 			 ?myres0 a owl:Restriction ;
@@ -103,13 +104,12 @@ fields='[{
 			 ?existROI a ?myROI.
 			 ?MD obo:OBI_0001938 ?VS .
 			 ?VS obo:OBI_0000999 ?myval.
-			 FILTER NOT EXISTS {
-			 ?VS obo:OBI_0000999  standards-si:missing.
-			 
-  			 }
-  			 }
-			 }",
-                  "message": "At least one Bone associated with the ROI must be present"
+			  FILTER NOT EXISTS {
+			    ?VS obo:OBI_0000999  standards-si:missing.
+            			 }
+  			 } HAVING ( ?num > 4 )
+	               } ",
+                  "message": "At least five bones associated with the ROI must be present"
                   }]
 },
 
@@ -150,7 +150,7 @@ fields='[{
                               ?s a [[paleopath_datasection_type]] .
                               ?? obo:BFO_0000051 ?s .
   											    }}",
-                  "message": "This Paleopath Instance already has an identically named [[paleopath_type]]"
+                  "message": "This Paleopath Instance already has an identically named [[paleopath_type]] dataset"
                   }]
 }
 ]'>
@@ -171,7 +171,7 @@ fields='[{
 		       SELECT (count(DISTINCT ?boneAdd) AS ?value) WHERE { 
 		       ?boneAdd a [[paleopath_datasection_type]] .
 		       ?? obo:BFO_0000051 ?boneAdd .
-		       ?boneAdd obo:IAO_0000136 ?ROI .
+		       ?boneAdd obo:BFO_0000051 ?ROI .
 		       ?ROI a [[ROItype]].
 		       } GROUP BY ?boneAdd
 		       
@@ -187,7 +187,7 @@ fields='[{
       SELECT ?boneAdd ?roi WHERE { 
              ?boneAdd a [[paleopath_datasection_type]] .
              ?? obo:BFO_0000051 ?boneAdd .
-             ?boneAdd obo:IAO_0000136 ?ROISpec .
+             ?boneAdd obo:BFO_0000051 ?ROISpec .
 	     ?ROISpec a [[ROItype]].
              
 
