@@ -41,28 +41,32 @@
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
 
-  SELECT DISTINCT  ?SkeletalInventory ?Method ?Score ?RegionOfInterest
+  SELECT DISTINCT  ?SkeletalInventory ?MethodAndRegion ?ScoreLabel ?ScoreValue ?RegionOfInterest
   WHERE {
-  ?SexInvestigation obo:OBI_0000299 ?? .
+
+  ?SexInvestigation obo:OBI_0000299 ?subject .
   ?SexInvestigation obo:OBI_0000293 ?specimen .
   ?SkelInventory <http://semanticscience.org/resource/SIO_000563> ?specimen .
   ?SkelInventory rdfs:label ?SkeletalInventory .
-  ?? obo:BFO_0000051 ?type .
-  ?? rdfs:label ?subjectlabelBUGFIX .
-  ?type obo:OBI_0001938 ?valspec .
-  ?type obo:IAO_0000136 ?ROIdata .
-  ?type a ?MethodType .
-  ?MethodType rdfs:label ?Method .
-  ?ROIdata a ?ROItype .
-  ?ROItype rdfs:label ?RegionOfInterest .
-  ?type a ?morphology .
-  ?valspec a ?morphvalspec .
-  ?valspec obo:OBI_0000999 ?datum .
-  ?datum a ?morphlabel .
-  ?datum rdfs:label ?Score .
-  FILTER ( datatype(?Score) = ?datatypes )
-  VALUES ?datatypes { xsd:integer xsd:string }
-  }
+  ?subject obo:BFO_0000051 ?MD .
+  ?MD obo:OBI_0001938 ?ValSpec .
+  ?MD obo:IAO_0000136 ?ROI .
+  ?MD a ?MDType .
+  ?MDType rdfs:label ?MethodAndRegion .
+  ?ROI a ?ROIType .
+  ?ROIType rdfs:label ?RegionOfInterest .
+  ?ValSpec obo:OBI_0000999 ?DataItem .
+  ?DataItem a ?CatLabel .
+  ?CatLabel rdfs:label ?ScoreLabel .
+  OPTIONAL {
+  ?subject obo:BFO_0000051 ?NumMD .
+  ?NumMD obo:IAO_0000136 ?ROI .
+  ?NumMD obo:OBI_0001938 ?NumValSpec .
+  ?NumValSpec obo:OBI_0001937 ?ScoreValue .
+}
+}
+ORDER BY ( ?MethodAndRegion )
+
                       "
   header="text/csv" filename="[[this.label]].csv">
     <button class="btn btn-secondary"><strong>Download CSV Table for <i>[[this.label]]</i></strong></button>
