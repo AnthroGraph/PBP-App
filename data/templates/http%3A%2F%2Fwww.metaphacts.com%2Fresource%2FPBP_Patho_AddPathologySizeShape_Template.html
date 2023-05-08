@@ -68,7 +68,7 @@ fields='[{
     PREFIX obo: <http://purl.obolibrary.org/obo/>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     SELECT $value WHERE  {
-    $value rdfs:subClassOf* [[ROItype]] .
+    $value rdfs:subClassOf [[ROISuperClass]] .
 } "
     
 ,
@@ -172,7 +172,8 @@ fields='[{
 		       ?boneAdd a [[paleopath_datasection_type]] .
 		       ?? obo:BFO_0000051 ?boneAdd .
 		       ?boneAdd obo:BFO_0000051 ?ROI .
-		       ?ROI a [[ROItype]].
+		       ?ROI a ?ROItype.
+		       ?ROItype rdfs:subClassOf [[ROISuperClass]].
 		       } GROUP BY ?boneAdd
 		       
 		       " template="{{> t}}">
@@ -188,8 +189,8 @@ fields='[{
              ?boneAdd a [[paleopath_datasection_type]] .
              ?? obo:BFO_0000051 ?boneAdd .
              ?boneAdd obo:BFO_0000051 ?ROISpec .
-	     ?ROISpec a [[ROItype]].
-             
+	     ?ROISpec a ?ROItype.
+             ?ROItype rdfs:subClassOf [[ROISuperClass]].
 
       }"
   column-configuration='[

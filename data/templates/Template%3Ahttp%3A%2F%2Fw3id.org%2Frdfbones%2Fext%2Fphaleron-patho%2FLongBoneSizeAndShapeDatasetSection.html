@@ -1,0 +1,71 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing Shape and Size Section: <strong>[[this.label]]</strong></h4>
+<br>
+[[>:PBP_Patho_Dataset_SectionSizeShape_Snippet_Header]]
+
+
+
+<br> <hr>
+<h4>Add Additional Information</h4>
+<semantic-form
+subject='{{page-resource}}'
+post-action='event'
+persistence='sparql'
+id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+
+	[[>:PBP_Patho_SectionFormsSwitch_Template maxOccurs="1" minOccurs="1" value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalCurvature" connected_class="phaleron-patho:PresenceOfAbnormalCurvature" id="PresenceOfAbnormalCurvature" label="Presence Of Abnormal Curvature" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfAbnormalCurvature,  phaleron-patho:DegreeOfAbnormalityOfCurvature"]],
+
+    [[>:PBP_Patho_SectionFormsSwitch_Template maxOccurs="1" minOccurs="1" value_spec="standards-patho:PresenceOfFeatureValueSpecification" connected_iristring="PresenceOfAbnormalAngulation" connected_class="phaleron-patho:PresenceOfAbnormalAngulation" id="PresenceOfAbnormalAngulation" label="Presence Of Abnormal Angulation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>" connected_class_delete="phaleron-patho:PresenceOfAbnormalAngulation,  phaleron-patho:DegreeOfAbnormalityOfAngulation"]],
+
+      [[>:PBP_Patho_SectionFormsSwitch_Template maxOccurs="1" minOccurs="1" value_spec="phaleron-patho:AlterationOfExternalOutlineValueSpecification" connected_iristring="AlterationOfExternalOutline" connected_class="phaleron-patho:AlterationOfExternalOutline" id="AlterationOfExternalOutline" label="Alteration Of External Outline" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/AlterationOfExternalOutlineLabelSorting>" connected_class_delete="phaleron-patho:AlterationOfExternalOutline,  phaleron-patho:DegreeOfAlterationOfOutline"]],
+
+	[[>:PBP_Patho_SectionFormsSwitch_Template maxOccurs="1" minOccurs="1" value_spec="phaleron-patho:PresenceAndTypeOfAbnormalSmallSizeValueSpecification" connected_iristring="PresenceAndTypeOfAbnormalSmallSize" connected_class="phaleron-patho:PresenceAndTypeOfAbnormalSmallSize" id="PresenceAndTypeOfAbnormalSmallSize" label="Presence And Type Of Abnormal Small Size" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndTypeOfAbnormalSmallSizeLabelSorting>" connected_class_delete="phaleron-patho:PresenceAndTypeOfAbnormalSmallSize,  phaleron-patho:DegreeOfSmallSizeAbnormality"]]
+
+  
+]'
+
+>
+  <semantic-form-recover-notification></semantic-form-recover-notification>
+  <semantic-form-select-input for='PresenceOfAbnormalCurvature'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceOfAbnormalAngulation'></semantic-form-select-input>
+  <semantic-form-select-input for='AlterationOfExternalOutline'></semantic-form-select-input>
+  <semantic-form-select-input for='PresenceAndTypeOfAbnormalSmallSize'></semantic-form-select-input>
+
+
+     <div style="color:red"><strong>INFO:</strong> After saving this sub-form, new entry fields may appear below - depending on the selected input.</div>
+
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+
+<mp-event-proxy on-event-type="Form.ResourceUpdated" on-event-source="additonal-info" proxy-event-type="Component.TemplateUpdate" proxy-targets='["update-forms"]'>
+</mp-event-proxy>
+<mp-event-target-template-render id="update-forms" template=" {{>ufbTemplate}} ">
+  <template id="ufbTemplate">
+                           
+                        
+[[>:PBP_Patho_Single_Switch_Template maxOccurs="10" type="phaleron-patho:PresenceOfAbnormalCurvature" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:PerceptibilityOfFeatureValueSpecification" connected_iristring="DegreeOfAbnormalityOfCurvature" connected_class="phaleron-patho:DegreeOfAbnormalityOfCurvature" id="DegreeOfAbnormalityOfCurvature" label="Degree Of Abnormality Of Curvature" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]]
+
+      [[>:PBP_Patho_Single_Switch_Template maxOccurs="10" type="phaleron-patho:PresenceOfAbnormalAngulation" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:PerceptibilityOfFeatureValueSpecification" connected_iristring="DegreeOfAbnormalityOfAngulation" connected_class="phaleron-patho:DegreeOfAbnormalityOfAngulation" id="DegreeOfAbnormalityOfAngulation" label="Degree Of Abnormality Of Angulation" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]]
+
+	[[>:PBP_Patho_Single_Switch_Template maxOccurs="10" type="phaleron-patho:AlterationOfExternalOutline" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:PerceptibilityOfFeatureValueSpecification" connected_iristring="DegreeOfAlterationOfOutline" connected_class="phaleron-patho:DegreeOfAlterationOfOutline" id="DegreeOfAlterationOfOutline" label="Degree Of Alteration Of Outline" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]]
+
+	  [[>:PBP_Patho_Single_Switch_Template maxOccurs="10" type="phaleron-patho:PresenceAndTypeOfAbnormalSmallSize" value_check="http://w3id.org/rdfbones/ext/standards-patho/AbsenceOfFeature" value_spec="phaleron-patho:PerceptibilityOfFeatureValueSpecification" connected_iristring="DegreeOfSmallSizeAbnormality" connected_class="phaleron-patho:DegreeOfSmallSizeAbnormality" id="DegreeOfSmallSizeAbnormality" label="Degree Of Small Size Abnormality" sortingclass="<http://w3id.org/rdfbones/ext/phaleron-patho/PresenceAndPerceptibilityOfFeatureLabelSorting>"]]
+
+  </template>
+</mp-event-target-template-render>
+<hr>
+<h4> Create New Observer/Editing Event</h4>
+[[>:PBP_Patho_AddResearchProcessPatho_Template research_process_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess>" paleopath_observation_type="<http://w3id.org/rdfbones/ext/phaleron-patho/ObservationOfLongBoneSizeAndShape>"]]
+
+
+<br><hr><br>
+<semantic-link iri="[[singleValueFromSelect "PREFIX obo: <http://purl.obolibrary.org/obo/> SELECT ?object WHERE {?object obo:BFO_0000051 ??.}"]]" urlqueryparam-tab="[[singleValueFromSelect "SELECT ?param WHERE {?? <http://purl.obolibrary.org/obo/IAO_0000136> ?roi. ?roi <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/urlparam>  ?param }"]]" ><span class='fa fa-arrow-right' style='pointer-events: none;'> </span>&nbsp;  <strong>Back to Paleopath Summary </strong>
+</semantic-link>
+</semantic-link>
+</div>
