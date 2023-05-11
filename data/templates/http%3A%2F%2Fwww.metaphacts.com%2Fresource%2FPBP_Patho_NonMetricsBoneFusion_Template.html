@@ -1,0 +1,182 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h4>You are currently viewing/editing [[Typename]] Section: <strong>[[this.label]]</strong></h4>
+<br>
+[[>:PBP_Patho_Dataset_Section_Snippet_Header]]
+
+<semantic-form
+  id="label"
+  post-action='event'
+  persistence='sparql'
+  subject='{{page-resource}}'
+  fields='[{
+    "id": "label",
+    "label": "Unique label for [[Typename]] Investigation",
+    "xsdDatatype": "xsd:string",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "insertPattern": "
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho: <http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+
+      INSERT {GRAPH ?mygraph {  
+        ?? rdfs:label $value .
+        
+       }} WHERE {
+         
+         GRAPH ?mygraph {?? a ?o } .
+         
+
+
+}"
+  ,
+  "selectPattern": "SELECT $value WHERE{?? rdfs:label ?value}",
+  
+"deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE { ?? rdfs:label $value .} WHERE { ?? rdfs:label $value .} "
+,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+   			      ?s rdfs:label $value .
+                              ?s a [[Sectiontype]] .
+                              ?paleoset obo:BFO_0000051 ?s .
+                              ?paleoset obo:BFO_0000051 ?? .
+  											    }}",
+                  "message": "This Paleopath Instance already has an identically named [[Typename]] instance"
+                  }]
+}]'>
+
+  <semantic-form-text-input for='label'></semantic-form-text-input>
+
+  <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+  <button name="reset" class="btn btn-secondary">Reset</button>
+  [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="label" ufbTemplate="label-Template" ufbname="label" ]]
+</semantic-form>  
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="label" event-target="label"]]
+
+
+
+
+<h3>Reference ROIs addressed in this Investigation</h3>
+
+<semantic-form
+  subject='{{page-resource}}'
+  post-action='event'
+persistence='sparql'
+browser-persistence=true
+id="PhaleronROISpecification"
+
+fields='[{
+    "id": "roispec",
+    "label": "References ROIs",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": "unbound",
+    "minOccurs": 1,
+    "insertPattern": "
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+      
+      INSERT {GRAPH ?mygraph {  
+        ?? obo:IAO_0000136 $value .
+      }} WHERE {GRAPH ?mygraph {?? a ?o }
+       } 
+       
+",
+"selectPattern": "SELECT $value WHERE{
+?? <http://purl.obolibrary.org/obo/IAO_0000136> $value.
+ $value a $valueclass.
+  $valueclass rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+}
+ 
+ 
+
+",
+
+"valueSetPattern": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      PREFIX vivo: <http://vivoweb.org/ontology/core#>
+      PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+      PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+      SELECT DISTINCT $value ?label WHERE {          
+        ?? obo:IAO_0000136 ?ROIinstance .
+        ?ROIinstance a $ROIclass .
+        ?ROIclass rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> .
+        ?ROIclass rdfs:subClassOf ?myRS .
+        ?myRS a owl:Restriction ;
+              owl:onProperty ?myproperty ;
+              owl:someValuesFrom ?restriction_values .
+        ?restriction_values owl:intersectionOf ?whatelse .
+        ?whatelse ?p ?value_class .
+        ?value_class rdfs:subClassOf* <http://w3id.org/rdfbones/core#AnatomicalRegionOfInterest> .
+        ?ppdataset obo:BFO_0000051 ?? .
+        ?ppinvest  obo:OBI_0000299 ?ppdataset.
+        ?ppinvest obo:OBI_0000293 ?mySkelSpecimen .
+        ?mySI <http://semanticscience.org/resource/SIO_000563> ?mySkelSpecimen .
+        ?mySI  obo:BFO_0000051 ?mysection.
+        ?mysection obo:BFO_0000051 ?MD .
+  	?MD obo:IAO_0000136 ?value .
+	?MD a ?MDclass .
+	FILTER(?MDclass IN (<http://w3id.org/rdfbones/ext/standards-si/Representation4States>, <http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>, <http://w3id.org/rdfbones/ext/phaleron-si/NumberOfBoneFragments>)) .
+        ?value a $value_class .
+        ?MD     obo:OBI_0001938 ?VS .
+	?VS obo:OBI_0000999|obo:OBI_0001937 ?MDV .
+	Filter(?MDV NOT IN (<http://w3id.org/rdfbones/ext/standards-si/missing>, 0))
+	?whatelse rdf:rest ?rest .
+        ?rest rdf:first ?desc.
+        ?desc owl:hasValue ?index .
+	?value_class rdfs:label ?label.
+        } ORDER BY ?index "
+
+,
+"deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE {?? obo:IAO_0000136 $value .} WHERE {?? obo:IAO_0000136 $value .} "
+,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER NOT EXISTS {
+   			 ?? obo:BFO_0000051 ?s.
+                         ?s obo:IAO_0000136 $value.
+                         }}",
+			 
+                  "message": "This Section already references this ROI"
+                  }]
+}]'>
+
+
+  <semantic-form-recover-notification></semantic-form-recover-notification>
+ <semantic-form-select-input for='roispec'></semantic-form-select-input>
+ <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+ <button name="reset" class="btn btn-secondary">Reset</button>
+ [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="roi" ufbTemplate="roi-Template" ufbname="ROI Reference" ]]
+</semantic-form>  
+[[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="PhaleronROISpecification" event-target="roi"]]
+
+<br><br>
+
+
+
+ 
