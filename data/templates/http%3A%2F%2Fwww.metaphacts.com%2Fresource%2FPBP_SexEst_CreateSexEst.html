@@ -1,0 +1,163 @@
+{{#> Help:StartFrameTocUi tocItemId="PBP_SexEst"}}
+
+<div class="page" style="margin-left:30px; margin-right: 30px">
+
+<h3>Create New PBP-Sex-Estimation Instance</h3>
+<semantic-form
+for-class="http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationInvestigation" 
+new-subject-template="http://pbp-sexestimation.org/records/SexEst-{{UUID}}"
+post-action='redirect'
+persistence='sparql'
+
+fields='[{
+    "id": "ofType",
+    "label": "Skeletal Inventory",
+    "description": "Select a Skeletal Inventory",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": 1,
+    "minOccurs": 1,
+    "insertPattern": "
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+PREFIX phaleron-se:<http://w3id.org/rdfbones/ext/phaleron-se/>
+PREFIX cidoc:<http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+
+                  INSERT {GRAPH ?mygraph {
+      		$subject rdfs:label ?mylabel .
+            $subject a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationDataSet>  .
+    	  	?mySEprocess obo:OBI_0000299 $subject .
+      		?mySEprocess a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationProcess> .
+      		?mySEprocess obo:OBI_0000293 $value .
+                   ?sexestmethodinstance a ?myQueriedMorphology .
+                   $subject obo:BFO_0000051 ?sexestmethodinstance .
+                   ?sexestmethodinstance ?myQueriedProperty ?ROIInstance .
+                   ?sexestmethodinstance ?myQueriedProperty ?ROIInstance2 .
+                   ?sexestmethodinstanceVS a ?sexestmethodVS .
+                   ?sexestmethodinstance obo:OBI_0001938 ?sexestmethodinstanceVS .
+                   $subject obo:BFO_0000051 ?ConclusionInstance .
+                   ?ConclusionInstance a ?ConclusionType .
+                   ?ConclusionInstance obo:OBI_0001938 ?ConclusionValSpec .
+                   ?ConclusionValSpec a ?ConclusionValSpecType .
+                   }}
+ WHERE {
+  <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationDataSet> rdfs:subClassOf ?myRS0 .
+  ?myRS0 a owl:Restriction ;
+        owl:onProperty obo:BFO_0000051 ;
+  	owl:someValuesFrom ?myTarget . 
+  ?myTarget owl:intersectionOf ?what .
+  
+  ?what rdf:first ?myQueriedMorphology .
+  ?what rdf:rest ?rest .
+  ?rest rdf:first ?desc .
+  ?desc a owl:Restriction . 
+  ?desc owl:onProperty ?myQueriedProperty ;
+        owl:onClass ?ROI .
+ 
+ ?myQueriedMorphology rdfs:subClassOf ?myRS1 .
+ ?myRS1 a owl:Restriction ;
+ 		owl:onProperty obo:OBI_0001938 ;
+ 		owl:allValuesFrom ?sexestmethodVS .
+ 		
+ ?SkeletalInventory <http://semanticscience.org/resource/SIO_000563> $value .
+ ?SkeletalInventory obo:BFO_0000051 ?Section .
+ ?Section obo:BFO_0000051 ?SkelInvSectionMD .
+ ?SkelInvSectionMD obo:IAO_0000136 ?ROIInstance .
+ ?ROIInstance a ?ROI .
+ 
+<http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationDataSet> rdfs:subClassOf ?myRSConclusion .
+?myRSConclusion a owl:Restriction ;
+	owl:onProperty obo:BFO_0000051 ;
+	owl:someValuesFrom ?ConclusionType .
+  ?ConclusionType rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001909> .
+  
+ ?ConclusionType rdfs:subClassOf ?ConclusionRSValSpec .
+ ?ConclusionRSValSpec a owl:Restriction ;
+ 		owl:onProperty obo:OBI_0001938 ;
+ 		owl:allValuesFrom ?ConclusionValSpecType .
+ 
+ OPTIONAL { ?rest rdf:rest ?rest2 .
+ 			?rest2 rdf:first ?desc2 .
+ 			?desc2 owl:onProperty ?myQueriedProperty ;
+        			owl:onClass ?ROI2 .
+        	?Section obo:BFO_0000051 ?SkelInvSectionMD2 .
+			?SkelInvSectionMD2 obo:IAO_0000136 ?ROIInstance2 .
+ 			?ROIInstance2 a ?ROI2 . }
+ 		
+                    BIND(URI(CONCAT(STR(?subject),\"-Process\")) AS ?mySEprocess) .
+                    BIND(URI(CONCAT(STR(?subject),\"-\",STR(?myQueriedMorphology),\"-\",STR(?ROI))) AS ?sexestmethodinstance) .
+                    BIND(URI(CONCAT(STR(?subject),\"-\",STR(?myQueriedMorphology),\"-\",STR(?ROI),\"-valuespec\")) AS ?sexestmethodinstanceVS) .
+                    
+                    BIND(URI(CONCAT(STR(?subject),\"-\",STR(?ConclusionType))) AS ?ConclusionInstance ) .
+                    BIND(URI(CONCAT(STR(?subject),\"-\",STR(?ConclusionType),\"-valuespec\")) AS ?ConclusionValSpec ) .
+                    
+                    BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
+        			BIND(CONCAT(STR(?label),\"_PBP_SexEstimation\") AS ?mylabel) .
+    ?mySI <http://semanticscience.org/resource/SIO_000563> $value  .
+    ?mySI rdfs:label ?label .
+}"
+,
+
+"deletePattern": "
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    DELETE {$subject obo:OBI_0000293 $value .} WHERE {$subject obo:OBI_0000293 $value .} ",
+
+
+"autosuggestionPattern": "
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX obo: <http://purl.obolibrary.org/obo/>
+                SELECT $value $label WHERE {
+                      ?si a <http://w3id.org/rdfbones/ext/phaleron-si/InventoryForAdultSkeletons>.
+                      ?si rdfs:label $label .
+                      ?si <http://semanticscience.org/resource/SIO_000563> $value
+                  FILTER REGEX($label, $__token__, \"i\")
+                }
+              ",
+
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-se:<http://w3id.org/rdfbones/ext/phaleron-se/>
+                         ASK WHERE { FILTER NOT EXISTS {
+   									         	?value a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
+    								          ?sexest obo:OBI_0000293 ?value.
+  				                    ?sexest a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationInvestigation> .                              
+  											    }}",
+                  "message": "This Skeleton already is associated with a Phaleron Sex-Estimation Instance"
+                  }]
+    }]'>
+
+<semantic-form-autocomplete-input for='ofType'></semantic-form-autocomplete-input>
+    <button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+    <button name="reset" class="btn btn-secondary">Reset</button>
+</semantic-form>
+
+<br><br>
+<h3>Show all available Sex-Estimation Instances:</h3></hr>
+<semantic-table 
+  query="
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+      PREFIX obo: <http://purl.obolibrary.org/obo/>
+      SELECT ?sexestdataset ?value WHERE { 
+             ?sexestdataset a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationDataSet> .
+             ?sexestprocess obo:OBI_0000299 ?sexestdataset .
+             ?sexestprocess a <http://w3id.org/rdfbones/ext/phaleron-se/SexEstimationProcess> .
+             ?sexestprocess obo:OBI_0000293 ?specimen  .
+             ?value <http://semanticscience.org/resource/SIO_000563> ?specimen .
+             
+}  "
+  column-configuration='[
+    {"variableName": "sexestdataset", "displayName": "Sex-Estimation Investigation"},
+    {"variableName": "value", "displayName": "Referenced Skeletal Inventory"}
+  ]'
+></semantic-table>
+</div>
+{{/Help:StartFrameTocUi}}
