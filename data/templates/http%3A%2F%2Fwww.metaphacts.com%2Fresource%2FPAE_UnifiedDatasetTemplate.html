@@ -1,0 +1,73 @@
+<div class="page" style="margin-left:50px; margin-right: 50px; margin-bottom: 50px">
+<h2>Phaleron Age Estimation Dataset [[this.label]] </h2>
+
+  
+<br><br>
+<div class="text-right">
+<semantic-update query='
+PREFIX : <http://www.metaphacts.com/resource/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfbones: <http://w3id.org/rdfbones/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX fma: <http://purl.org/sig/ont/fma/>
+DELETE { GRAPH ?mygraph {?s ?p ?o }} WHERE {
+          SELECT ?mygraph ?s ?p ?o WHERE {
+            GRAPH ?mygraph {
+            ?? a ?mytype .
+            ?s ?p ?o .
+          }
+        }
+      }
+'
+id="DeletePaleopath"
+variable-params='["mygraph","s","o","p","mytype"]'
+post-action="[[resolvePrefix ":PBP_Patho_CreateAgeEstimation"]]"
+show-confirmation="true"
+confirmation-options='{
+     "message": "Do you really want to delete this Age Estimation instance [[this.label]] and all associated data?",
+     "confirmLabel": "Delete"
+   }'
+		 >
+
+  <button class='btn btn-primary btn-danger'><span class='fa fa-trash' style='pointer-events: none;'></span>&nbsp; <strong>DELETE Age Estimation Investigation</strong></button>
+</semantic-update>
+</div>
+<br><hr>
+<semantic-form
+subject='{{page-resource}}'
+post-action='event'
+persistence='sparql'
+id="additonal-info"
+form-id="additonal-info"
+browser-persistence='true'
+fields='[
+  [[>:PAE_FormTemplate ID="LeftSymph" LABEL="Score Left Sympheal Area (Leave empty when Unobservable)" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/LeftSymphysealSurfaceOfPubis>" ]],
+ [[>:PAE_FormTemplate ID="RightSymph" LABEL="Score Right Sympheal Area (Leave empty when Unobservable)" ROI="<http://w3id.org/rdfbones/ext/phaleron-si/RightSymphysealSurfaceOfPubis>" ]]
+]'}
+  
+]'
+
+>
+ <div data-flex-layout="row md-column top-spread">
+   <div class="grid-demo">
+     <h4>Score Sympheal Area</h4>
+
+<semantic-form-recover-notification></semantic-form-recover-notification>
+
+<semantic-form-select-input for='LeftSymph'></semantic-form-select-input>
+<semantic-form-select-input for='RightSymph'></semantic-form-select-input>
+<button name="submit" class="btn btn-primary"><strong>Save</strong></button>
+<button name="reset" class="btn btn-secondary">Reset</button>
+
+
+
+
+    [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-additonalinfo-update" ufbTemplate="additional-Template" ufbname="Additional Information"]]
+</semantic-form>
+ [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="additonal-info" event-target="show-after-additonalinfo-update"]]
+</div>
+</div>
+</div>

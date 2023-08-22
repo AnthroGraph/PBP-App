@@ -1,0 +1,77 @@
+{
+"id": "[[ID]]",
+    "label": "[[LABEL]]",
+    "xsdDatatype": "xsd:anyURI",
+    "maxOccurs": 1,
+    "minOccurs": 0,
+    "selectPattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               SELECT ?value WHERE {
+	       $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD <http://purl.obolibrary.org/obo/IAO_0000136> ?symph_area.
+	       ?symph_area a [[ROI]] .
+	       ?MD <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+	       ?MVS <http://purl.obolibrary.org/obo/OBI_0000999> ?value .
+	       }"
+    ,
+    "insertPattern":"
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               INSERT {GRAPH ?mygraph {
+	       ?MVS <http://purl.obolibrary.org/obo/OBI_0000999> ?value
+}} WHERE {
+GRAPH ?mygraph {$subject a ?o }
+$subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD <http://purl.obolibrary.org/obo/IAO_0000136> ?symph_area.
+	       ?symph_area a  [[ROI]] .
+	       ?MD <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+		  
+		 }            
+              ",
+      "deletePattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               DELETE {?MVS <http://purl.obolibrary.org/obo/OBI_0000999> ?value}  WHERE {
+	       $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD <http://purl.obolibrary.org/obo/IAO_0000136> ?symph_area.
+	       ?symph_area a  [[ROI]] .
+	       ?MD <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS. 
+               }",
+
+       "valueSetPattern":"                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+       SELECT DISTINCT ?value WHERE {
+               $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD <http://purl.obolibrary.org/obo/IAO_0000136> ?symph_area.
+	       ?symph_area a  [[ROI]] .
+	       ?MD <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+	       ?MVS a ?MVSClass.
+	       ?MVSClass rdfs:subClassOf ?VSRes.
+	       ?VSRes a owl:Restriction.
+	       ?VSRes owl:onClass ?o.
+	       ?o owl:oneOf ?valueset.
+	       ?valueset rdf:rest*/rdf:first ?value.
+	       optional {?index obo:IAO_0000136 ?value .}
+       
+} ORDER BY ?index"
+	       
+               ,
+"constraints": [{
+                 "validatePattern":"
+                         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                         PREFIX obo: <http://purl.obolibrary.org/obo/>
+                         PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                         ASK WHERE { FILTER EXISTS {
+			 $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+                         ?MD <http://purl.obolibrary.org/obo/IAO_0000136> ?symph_area.
+			 ?symph_area a  [[ROI]] .
+			 ?MDSI <http://purl.obolibrary.org/obo/IAO_0000136>  ?symph_area.
+			 ?MDSI a <http://w3id.org/rdfbones/ext/phaleron-si/Observability> .
+			 ?MDSI <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+                         ?MVS   <http://purl.obolibrary.org/obo/OBI_0000999> <http://w3id.org/rdfbones/ext/phaleron-si/Observable> .
+                              
+  			  }}",
+                  "message": "The associated Sympheal Area is scored Unobservable - Please Delete this Form Entry to Proceed!"
+                  }]
+    
+               
+
+		  }
