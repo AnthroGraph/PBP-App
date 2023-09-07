@@ -109,14 +109,21 @@ INSERT {GRAPH ?mygraph {
 	  ?subject ?dataset_ResProp ?dataset_section_inst.
 	  ?dataset_section_inst a ?dataset_section.
 	  
-  ?dataset_section_inst ?ds_section_ResProp ?SB_AgeEstInst.
-  ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate> .
+          ?dataset_section_inst ?ds_section_ResProp ?SB_AgeEstInst.
+          ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate> .
 	  ?dataset_section_inst ?ds_section_ResProp ?MDAge.
 	  ?MDAge a ?sexSpecMorphoState;
                  ?ROIprop  ?myroi.
    
-  ?MDAge  ?sexSpecMorphoStateProp ?MVSInst.
-  ?MVSInst a ?sexSpecMorphoStateVS.
+          ?MDAge  ?sexSpecMorphoStateProp ?MVSInst.
+          ?MVSInst a ?sexSpecMorphoStateVS.
+
+  
+  ?AEProcess a ?AEProcessClass .
+  ?myPPprocess obo:OBI_0000293 ?AEProcess.
+  ?AEProcess obo:OBI_0000293 ?MDAge.
+
+ 
   }}
 
   WHERE {
@@ -160,15 +167,22 @@ INSERT {GRAPH ?mygraph {
  ?sexSpecMorphoState rdfs:subClassOf ?sexSpecMorphoStateRes1.
  ?sexSpecMorphoStateRes1  a owl:Restriction ;
  		owl:onClass ?sexSpecMorphoStateVS;
- 		owl:onProperty ?sexSpecMorphoStateProp.
-  BIND(URI(CONCAT(STR(?MDAge),\"-SexRole\")) AS ?SexRoleInst ).
+  owl:onProperty ?sexSpecMorphoStateProp.
 
+
+  ?AEProcessClass rdfs:subClassOf <http://w3id.org/rdfbones/ext/sb/AgeRangeAssociation>.
+  ?AEProcessClass <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex .
+  ?AgeRangeClass rdfs:subClassOf <http://w3id.org/rdfbones/ext/sb/95PercentAgeRange> .
+  ?AgeRangeClass <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex .
+
+  BIND(URI(CONCAT(STR(?MDAge),\"-SexRole\")) AS ?SexRoleInst ).
   BIND(URI(CONCAT(STR(?MDAge),\"-MorphoStageVS\")) AS ?MVSInst ).
   BIND(URI(CONCAT(STR(?subject),\"-MorphoStage\",STRUUID())) AS ?MDAge ).
   BIND(URI(CONCAT(STR(?subject),\"-SB_AgeEstimation\")) AS ?SB_AgeEstInst ).
   BIND(URI(CONCAT(STR(?subject),\"-section\")) AS ?dataset_section_inst ).
-
-		BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
+  BIND(URI(CONCAT(STR(?subject),\"-AEProcess-\",STR(?valuesex))) AS ?AEProcess ).
+  BIND(URI(CONCAT(STR(?subject),\"-AgeRange-\",STR(?valuesex))) AS ?AgeRange ).
+  BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
   
 }",
    "valueSetPattern":"SELECT DISTINCT $value WHERE {?value rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-ae/SpecimenOfBiologicalSexRole>}",
