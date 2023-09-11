@@ -26,8 +26,8 @@ PREFIX dc: <http://purl.org/dc/terms/>
 INSERT {GRAPH ?mygraph {  
       
       $subject rdfs:label ?mylabel .
-      ?myPPprocess obo:OBI_0000299 $subject .
-      ?myPPprocess obo:OBI_0000293 $value .
+      ?myAEProcess obo:OBI_0000299 $subject .
+      ?myAEProcess obo:OBI_0000293 $value .
       $subject dc:date \"[[currentDateTime format="yyyy-MM-dd"]]\"^^xsd:date . 
       }
 } WHERE {
@@ -35,7 +35,7 @@ INSERT {GRAPH ?mygraph {
     BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
     ?mySI <http://semanticscience.org/resource/SIO_000563> $value  .
     ?mySI rdfs:label ?label .
-    BIND(URI(CONCAT(STR(?subject),\"_PBP_AgeEstimationDataset\")) AS ?myPPprocess) .
+    BIND(URI(CONCAT(STR(?subject),\"_PBP_AgeEstimationDataset\")) AS ?myAEProcess) .
     BIND(CONCAT(STR(?label),\"_PBP_AgeEstimation\") AS ?mylabel) .
    
 }"
@@ -68,7 +68,7 @@ INSERT {GRAPH ?mygraph {
   ASK WHERE { FILTER (EXISTS {
    			 ?value a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
     			 ?paleopath obo:OBI_0000293 ?value.
-  			 ?paleopath owl:subClassOf  <http://w3id.org/rdfbones/anthrograph/app/phaleron-ae/AgeEstimationDataset> .                              
+  			 ?paleopath owl:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationDataset> .                              
                          } ||
                          EXISTS {
                          ?value a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
@@ -105,37 +105,36 @@ INSERT {GRAPH ?mygraph {
 	  
 	  INSERT {GRAPH ?mygraph {
 	  $subject a ?dataset.
-	  ?myPPprocess a $ageProcess .
+	  ?myAEProcess a ?ageProcess .
 	  ?subject ?dataset_ResProp ?dataset_section_inst.
 	  ?dataset_section_inst a ?dataset_section.
 	  
           ?dataset_section_inst ?ds_section_ResProp ?SB_AgeEstInst.
-          ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate> .
-	  ?dataset_section_inst ?ds_section_ResProp ?MDAge.
-	  ?MDAge a ?sexSpecMorphoState;
+  ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate>.
+  ?SB_AgeEstInst  ?sexSpecMorphoStageProp ?AgeRangeVS.
+  ?AgeRangeVS a <http://w3id.org/rdfbones/core#AgeRangeValueSpecification>.
+
+	  ?dataset_section_inst ?ds_section_ResProp ?MDMorphoStage.
+	  ?MDMorphoStage a ?sexSpecMorphoStage;
                  ?ROIprop  ?myroi.
    
-          ?MDAge  ?sexSpecMorphoStateProp ?MVSInst.
-          ?MVSInst a ?sexSpecMorphoStateVS.
+          ?MDMorphoStage  ?sexSpecMorphoStageProp ?MVSInst.
+          ?MVSInst a ?sexSpecMorphoStageVS.
 
   
-  ?AEProcess a ?AEProcessClass .
-  ?myPPprocess obo:OBI_0000293 ?AEProcess.
-  ?AEProcess obo:OBI_0000293 ?MDAge.
-
- 
+         
   }}
 
   WHERE {
   ?value <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex.
   BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
-  ?ageProcess rdfs:subClassOf  <http://w3id.org/rdfbones/anthrograph/app/phaleron-ae/AgeEstimationProcess> .
+  ?ageProcess rdfs:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationProcess> .
   ?ageProcess rdfs:subClassOf ?ageProcessRes.
   ?ageProcessRes a owl:Restriction;
             	owl:onClass ?dataset;
   		owl:onProperty ?ageProcess_ResPro	 .
-  ?myPPprocess obo:OBI_0000299 $subject .
-  ?myPPprocess obo:OBI_0000293 ?Specimen .
+  ?myAEProcess obo:OBI_0000299 $subject .
+  ?myAEProcess obo:OBI_0000293 ?Specimen .
 
   ?Specimen a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
   ?SI <http://semanticscience.org/resource/SIO_000563> ?Specimen.
@@ -144,7 +143,7 @@ INSERT {GRAPH ?mygraph {
   ?MD obo:IAO_0000136 ?myroi.
   ?myroi a ?ROI.
   
-  ?dataset rdfs:subClassOf  <http://w3id.org/rdfbones/anthrograph/app/phaleron-ae/AgeEstimationDataset> .
+  ?dataset rdfs:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationDataset> .
   ?dataset rdfs:subClassOf ?dataset_Res .
   ?dataset_Res a owl:Restriction .
   ?dataset_Res owl:onClass ?dataset_section;
@@ -156,32 +155,27 @@ INSERT {GRAPH ?mygraph {
   FILTER( EXISTS {?dataset <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex}).
   ?ds_section_Res owl:onClass ?val3;
         owl:onProperty ?ds_section_ResProp.
-  ?val3 owl:intersectionOf ?sexSpecMorphoStateRes.
-  ?sexSpecMorphoStateRes rdf:first ?sexSpecMorphoState;
+  ?val3 owl:intersectionOf ?sexSpecMorphoStageRes.
+  ?sexSpecMorphoStageRes rdf:first ?sexSpecMorphoStage;
                          rdf:rest ?sexSpecMorphoRest.
   
   ?sexSpecMorphoRest rdf:first ?ROIRes.
   ?ROIRes owl:onClass ?ROI ;
           owl:onProperty ?ROIprop.
   
- ?sexSpecMorphoState rdfs:subClassOf ?sexSpecMorphoStateRes1.
- ?sexSpecMorphoStateRes1  a owl:Restriction ;
- 		owl:onClass ?sexSpecMorphoStateVS;
-  owl:onProperty ?sexSpecMorphoStateProp.
+  ?sexSpecMorphoStage rdfs:subClassOf ?sexSpecMorphoStageRes1.
+  ?sexSpecMorphoStageRes1  a owl:Restriction ;
+ 		owl:onClass ?sexSpecMorphoStageVS;
+                owl:onProperty ?sexSpecMorphoStageProp.
 
+   
 
-  ?AEProcessClass rdfs:subClassOf <http://w3id.org/rdfbones/ext/sb/AgeRangeAssociation>.
-  ?AEProcessClass <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex .
-  ?AgeRangeClass rdfs:subClassOf <http://w3id.org/rdfbones/ext/sb/95PercentAgeRange> .
-  ?AgeRangeClass <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?valuesex .
-
-  BIND(URI(CONCAT(STR(?MDAge),\"-SexRole\")) AS ?SexRoleInst ).
-  BIND(URI(CONCAT(STR(?MDAge),\"-MorphoStageVS\")) AS ?MVSInst ).
-  BIND(URI(CONCAT(STR(?subject),\"-MorphoStage\",STRUUID())) AS ?MDAge ).
+  BIND(URI(CONCAT(STR(?subject),\"-SexRole\")) AS ?SexRoleInst ).
+  BIND(URI(CONCAT(STR(?MDMorphoStage),\"-MorphoStageVS\")) AS ?MVSInst ).
+  BIND(URI(CONCAT(STR(?subject),\"-MorphoStage\",STRUUID())) AS ?MDMorphoStage ).
   BIND(URI(CONCAT(STR(?subject),\"-SB_AgeEstimation\")) AS ?SB_AgeEstInst ).
   BIND(URI(CONCAT(STR(?subject),\"-section\")) AS ?dataset_section_inst ).
-  BIND(URI(CONCAT(STR(?subject),\"-AEProcess-\",STR(?valuesex))) AS ?AEProcess ).
-  BIND(URI(CONCAT(STR(?subject),\"-AgeRange-\",STR(?valuesex))) AS ?AgeRange ).
+  BIND(URI(CONCAT(STR(?subject),\"-AgeRangeVS-\")) AS ?AgeRangeVS ).
   BIND(URI(CONCAT(STR(?subject),\"-graph\")) AS ?mygraph ) .
   
 }",
@@ -207,10 +201,10 @@ INSERT {GRAPH ?mygraph {
       PREFIX obo: <http://purl.obolibrary.org/obo/>
       SELECT ?ThisAEdataset ?value WHERE { 
              ?ThisAEdataset a  ?AEDataset .
-	     ?AEDataset rdfs:subClassOf  <http://w3id.org/rdfbones/anthrograph/app/phaleron-ae/AgeEstimationDataset> .
+	     ?AEDataset rdfs:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationDataset> .
              ?ThisAEProcess obo:OBI_0000299 ?ThisAEdataset .
              ?ThisAEProcess a ?AEProcess .
-	     ?AEProcess rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-ae/AgeEstimationProcess> .
+	     ?AEProcess rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationProcess> .
              ?ThisAEProcess obo:OBI_0000293 ?specimen  .
              ?value <http://semanticscience.org/resource/SIO_000563> ?specimen .
              
