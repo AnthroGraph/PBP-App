@@ -65,11 +65,12 @@ INSERT {GRAPH ?mygraph {
                          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                          PREFIX obo: <http://purl.obolibrary.org/obo/>
                          PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
-  ASK WHERE { FILTER (EXISTS {
+  ASK WHERE { FILTER (NOT EXISTS {
    			 ?value a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
     			 ?paleopath obo:OBI_0000293 ?value.
-  			 ?paleopath owl:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationDataset> .                              
-                         } ||
+                        ?paleopath a ?ppclass.
+                        ?ppclass rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationProcess>  .                              
+                         } &&
                          EXISTS {
                          ?value a <http://w3id.org/rdfbones/core#HumanSkeletonSpecimen> .
                         ?SI <http://semanticscience.org/resource/SIO_000563> ?value.
@@ -110,9 +111,9 @@ INSERT {GRAPH ?mygraph {
 	  ?dataset_section_inst a ?dataset_section.
 	  
           ?dataset_section_inst ?ds_section_ResProp ?SB_AgeEstInst.
-  ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate>.
-  ?SB_AgeEstInst  ?sexSpecMorphoStageProp ?AgeRangeVS.
-  ?AgeRangeVS a <http://w3id.org/rdfbones/core#AgeRangeValueSpecification>.
+          ?SB_AgeEstInst a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate>.
+          ?SB_AgeEstInst  ?sexSpecMorphoStageProp ?AgeRangeVS.
+          ?AgeRangeVS a <http://w3id.org/rdfbones/core#AgeRangeValueSpecification>.
 
 	  ?dataset_section_inst ?ds_section_ResProp ?MDMorphoStage.
 	  ?MDMorphoStage a ?sexSpecMorphoStage;
@@ -120,9 +121,9 @@ INSERT {GRAPH ?mygraph {
    
           ?MDMorphoStage  ?sexSpecMorphoStageProp ?MVSInst.
           ?MVSInst a ?sexSpecMorphoStageVS.
-
   
-         
+          ?SexRoleInst a ?value.
+          ?SexRoleInst obo:RO_0000052 ?Specimen.
   }}
 
   WHERE {
@@ -168,7 +169,8 @@ INSERT {GRAPH ?mygraph {
  		owl:onClass ?sexSpecMorphoStageVS;
                 owl:onProperty ?sexSpecMorphoStageProp.
 
-   
+  
+  
 
   BIND(URI(CONCAT(STR(?subject),\"-SexRole\")) AS ?SexRoleInst ).
   BIND(URI(CONCAT(STR(?MDMorphoStage),\"-MorphoStageVS\")) AS ?MVSInst ).
@@ -199,7 +201,7 @@ INSERT {GRAPH ?mygraph {
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
       PREFIX obo: <http://purl.obolibrary.org/obo/>
-      SELECT ?ThisAEdataset ?value WHERE { 
+      SELECT ?ThisAEdataset ?value ?sexRole WHERE { 
              ?ThisAEdataset a  ?AEDataset .
 	     ?AEDataset rdfs:subClassOf  <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationDataset> .
              ?ThisAEProcess obo:OBI_0000299 ?ThisAEdataset .
@@ -207,11 +209,16 @@ INSERT {GRAPH ?mygraph {
 	     ?AEProcess rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-ae/AgeEstimationProcess> .
              ?ThisAEProcess obo:OBI_0000293 ?specimen  .
              ?value <http://semanticscience.org/resource/SIO_000563> ?specimen .
+	     ?AEDataset <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?sexvalue.
+	     ?sexRole rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-ae/SpecimenOfBiologicalSexRole>.
+	     ?sexRole  <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/sexBasedContext> ?sexvalue.
+	     ?sexRole rdfs:label ?label 
              
 }  "
   column-configuration='[
     {"variableName": "ThisAEdataset", "displayName": "Paleopath Investigation"},
-    {"variableName": "value", "displayName": "Referenced Skeletal Inventory"}
+    {"variableName": "value", "displayName": "Referenced Skeletal Inventory"},
+    {"variableName": "sexRole", "displayName": "Biological Sex Role"}
   ]'
 ></semantic-table>
 </div>
