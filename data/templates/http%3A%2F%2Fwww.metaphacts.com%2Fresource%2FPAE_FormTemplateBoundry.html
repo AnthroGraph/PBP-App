@@ -1,0 +1,43 @@
+{
+"id": "[[ID]]",
+    "label": "[[LABEL]]",
+    "xsdDatatype": "xsd:integer",
+    "maxOccurs": 1,
+    "minOccurs": 0,
+    "selectPattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               SELECT ?value WHERE {
+	       $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate>.
+	       ?MD <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+	       ?MVS [[CONNECT]] ?value .
+	       }"
+    ,
+    "insertPattern":"
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               INSERT {GRAPH ?mygraph {
+	       ?MVS [[CONNECT]] ?value
+    }} WHERE {
+        GRAPH ?mygraph {$subject a ?o }
+               $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate> .
+	       ?MD  <http://purl.obolibrary.org/obo/OBI_0001938> ?MVS.
+		  
+		 }            
+              ",
+      "deletePattern": "
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+               DELETE {?MVS [[CONNECT]] ?value}  WHERE {
+	       $subject <http://purl.obolibrary.org/obo/BFO_0000051>* ?MD .
+	       ?MD a <http://w3id.org/rdfbones/ext/phaleron-ae/SucheyBrooksAgeEstimate>.
+	       ?MD  <http://purl.obolibrary.org/obo/OBI_0001938>  ?MVS. 
+               }"
+
+       
+       
+} 
+	       
+              
+               
+
+		  
