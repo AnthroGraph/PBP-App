@@ -119,6 +119,43 @@
 
                       <hr>
 
+	 <!-- Unclassified Fragments of Vertebral Column -->
+
+	 <semantic-form
+            id='UFS'
+            subject='{{page-resource}}'
+            post-action='event'
+            browser-persistence=true
+            form-id='UFS'
+            persistence='sparql'
+            fields='[
+              [[>:PSI_SI_MD_FormSnippet MyID="NarchF" MyLabel="Number of Neural Arch Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireSetOfAllNeuralArches>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
+           ,
+	   [[>:PSI_SI_MD_FormSnippet MyID="NvertBF" MyLabel="Number of Vertebral Body Fragments" MinOccurs="1" MaxOccurs="1" ROIVar="<http://w3id.org/rdfbones/core#EntireSetOfAllVertebralBodies>" MDClass="<http://w3id.org/rdfbones/ext/phaleron-si/NumberOfUnclassifiedFragments>" ConnectValue="obo:OBI_0001937" xsdDatatype="xsd:integer"]]
+	   ]'>
+           
+             
+           
+           <h2><strong>Unclassified Fragments of Vertebral Column</strong></h2>
+                      <semantic-form-recover-notification></semantic-form-recover-notification>
+                          <div data-flex-layout="row md-column top-spread">
+
+                            <div class="grid-demo">
+                                <semantic-form-text-input for='NarchF'></semantic-form-text-input>
+                                <semantic-form-text-input for='NvertBF'></semantic-form-text-input>
+                                
+                                <button name="submit" class="btn btn-primary"><strong>Save Lumbar Vertebrae, grouped</strong></button>
+                              <button name="reset" class="btn btn-secondary">Reset</button>
+                              [[>:RDFBONES_FormSuccessFeedbackTemplateSnippet ufb-id="show-after-UFS-update" ufbTemplate="UFS-Template" ufbname="UFS"]]
+                            </div>
+                          </div>
+
+                      </semantic-form>
+                      [[>:RDFBONES_FormSuccessFeedbackEventSnippet event-source="UFS" event-target="show-after-UFS-update"]]
+
+                      <hr>	      
+
+		      
             <!-- Fragment Sacrum Form -->
 
             <semantic-form
