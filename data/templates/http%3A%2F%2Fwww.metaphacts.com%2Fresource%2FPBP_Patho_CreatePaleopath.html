@@ -85,6 +85,166 @@ INSERT {GRAPH ?mygraph {
 </semantic-form>
 
 <br><br>
+
+<mp-sparql-download query="
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX standards-si: <http://w3id.org/rdfbones/ext/standards-si/>
+PREFIX dc: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT 
+
+?ID
+?SectionName
+?SectionType
+?SectionROI
+?MeasurementDatumType
+?MeasurementDatumROI
+?Value
+
+?ResearchRoleType
+?ResearchRoleContributor
+?ContributionDate
+?InventoryComment
+?GeneralAnatomicalRegionComment
+?SpecificPathologyComment
+?GeneralContributionComment
+?PathologyObservationContributionComment
+
+ WHERE {
+  ?subject a <http://w3id.org/rdfbones/ext/phaleron-patho/PhaleronPaleopathologyDataset> .
+  ?subject rdfs:label ?ID .
+  {
+    { ?subject rdfs:comment ?InventoryComment 
+    }
+    UNION { 
+      ?subject obo:BFO_0000051 ?section .
+      ?section a ?sectiontype .
+      ?sectiontype rdfs:label ?SectionType .
+      ?sectiontype rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-patho/PathologyComments> .
+      ?section rdfs:comment ?GeneralAnatomicalRegionComment .
+    }
+    UNION {
+    ?subject obo:BFO_0000051 ?section .
+      OPTIONAL { ?section rdfs:label ?SectionName }
+    ?section a ?sectiontype .
+      OPTIONAL { ?section rdfs:comment ?SpecificPathologyComment }
+    VALUES ?sectiontype { <http://w3id.org/rdfbones/ext/phaleron-patho/NonMetricTraitsAndAnomaliesDatasetSection> <http://w3id.org/rdfbones/ext/phaleron-patho/BoneFusionDatasetSection> }
+    ?sectiontype rdfs:label ?SectionType .
+    ?section obo:IAO_0000136 ?SectionROIInst . 
+    ?SectionROIInst a ?SectionROIType .
+    ?SectionROIType a owl:Class .
+      OPTIONAL { ?SectionROIType rdfs:label ?SectionROI }  }
+  UNION { 
+    ?subject obo:BFO_0000051 ?section .
+      OPTIONAL { ?section rdfs:comment ?SpecificPathologyComment }
+      OPTIONAL { ?section rdfs:label ?SectionName }
+    ?section a ?sectiontype .
+    ?sectiontype rdfs:label ?SectionType .
+    ?section obo:IAO_0000136 ?SectionROIInst . 
+    ?SectionROIInst a ?SectionROIType .
+    ?SectionROIType a owl:Class .
+      { {?SectionROIInst <http://purl.org/sig/ont/fma/regional_part_of> ?region }
+        UNION
+        { ?SectionROIType rdfs:subClassOf <http://w3id.org/rdfbones/anthrograph/app/phaleron-app/AnatomicalROIGroup> }
+      }
+    ?SectionROIType rdfs:label ?SectionROI .
+    ?section obo:BFO_0000051 ?Tier2MD .
+	?Tier2MD a ?Tier2MDType .
+      OPTIONAL { ?Tier2MDType rdfs:label ?MeasurementDatumType }
+      OPTIONAL { ?Tier2MD obo:IAO_0000136 ?Tier2MDROI .
+        		?Tier2MDROI a ?Tier2MDROIType .
+      			?Tier2MDROIType rdfs:label ?MeasurementDatumROI }
+    ?Tier2MD obo:OBI_0001938 ?Tier2VS .
+    ?Tier2VS obo:OBI_0000999 ?value .
+      OPTIONAL { ?value rdfs:label ?Value }
+    }
+    UNION { 
+      ?subject obo:BFO_0000051 ?SizeAndShapeDataset .
+      OPTIONAL { ?SizeAndShapeDataset rdfs:comment ?SpecificPathologyComment }
+      OPTIONAL { ?SizeAndShapeDataset rdfs:label ?SectionName }
+      ?SizeAndShapeDataset obo:BFO_0000051 ?SizeAndShapeROI .
+      ?SizeAndShapeDataset a ?sectiontype .
+      ?sectiontype rdfs:label ?SectionType .
+  	  ?SizeAndShapeROI a ?AnatomicalRegion .
+      ?AnatomicalRegion rdfs:label ?MeasurementDatumROI.
+      ?AnatomicalRegion rdfs:subClassOf ?ROISpecificationClass .
+  	  ?ROISpecificationClass a owl:Class .
+ 	  ?ROISpecificationClass rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-patho/RegionalAROISpecification> .
+      ?AnatomicalRegion rdfs:label ?SectionROI .
+      ?SizeAndShapeDataset obo:BFO_0000051 ?Tier2MD .
+      ?Tier2MD a ?Tier2MDType .
+      OPTIONAL { ?Tier2MDType rdfs:label ?MeasurementDatumType }
+      ?Tier2MD obo:OBI_0001938 ?Tier2VS .
+      ?Tier2VS obo:OBI_0000999 ?value .
+      OPTIONAL { ?value rdfs:label ?Value }
+      }
+    UNION {
+    ?subject obo:BFO_0000051 ?section .
+      OPTIONAL { ?section rdfs:comment ?SpecificPathologyComment }
+      OPTIONAL { ?section rdfs:label ?SectionName }
+    ?section a ?sectiontype .
+    ?sectiontype rdfs:label ?SectionType .
+    ?section obo:IAO_0000136 ?SectionROIInst .
+      OPTIONAL { ?SectionROIInst rdfs:label ?SectionROI }
+    ?section obo:BFO_0000051 ?Tier2MD .
+  	?Tier2MD obo:IAO_0000136 ?Tier2MDROI .
+    ?Tier2MDROI a ?Tier2MDROIType .
+    ?Tier2MDROIType rdfs:label ?MeasurementDatumROI .
+    ?Tier2MD obo:BFO_0000051 ?Tier3MD .
+    ?Tier3MD a ?Tier3MDType .
+      OPTIONAL { ?Tier3MDType rdfs:label ?MeasurementDatumType }
+    ?Tier3MD obo:OBI_0001938 ?Tier3VS .
+    ?Tier3VS obo:OBI_0000999 ?value .
+      OPTIONAL { ?value rdfs:label ?Value }
+    }
+  UNION
+  {
+?investigation obo:OBI_0000299 ?subject .
+?investigation obo:BFO_0000051 ?ContribProcess .
+?ContribProcess a <http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess> .
+?ContribProcess rdfs:label ?TypeOfContribution .
+?ResearchRole obo:BFO_0000054 ?ContribProcess .
+?ResearchRole a ?RoleType .
+?RoleType rdfs:label ?ResearchRoleType .
+?ContribProcess obo:RO_0000057 ?participant .
+?participant rdfs:label ?ResearchRoleContributor .
+?ContribProcess dc:date ?ContributionDate .
+	OPTIONAL {?ContribProcess rdfs:comment ?GeneralContributionComment } 
+  }
+  UNION
+  {
+?investigation obo:OBI_0000299 ?subject .
+?subject obo:BFO_0000051 ?section.
+?section rdfs:label ?SectionName .
+?investigation obo:BFO_0000051 ?PathoObservation .
+?PathoObservation a ?PathoObservationType .
+?PathoObservationType rdfs:subClassOf <http://w3id.org/rdfbones/ext/phaleron-patho/PaleopathologicalObservation> .
+?PathoObservation obo:OBI_0000299 ?section .
+?PathoObservation obo:BFO_0000051 ?ContribProcess .
+?ContribProcess a <http://w3id.org/rdfbones/ext/phaleron-patho/ResearchContributionProcess> .
+?ContribProcess rdfs:label ?TypeOfContribution .
+?ResearchRole obo:BFO_0000054 ?ContribProcess .
+?ResearchRole a ?RoleType .
+?RoleType rdfs:label ?ResearchRoleType .
+?ContribProcess obo:RO_0000057 ?participant .
+?participant rdfs:label ?ResearchRoleContributor .
+?ContribProcess dc:date ?ContributionDate .
+	OPTIONAL { ?ContribProcess rdfs:comment ?PathologyObservationContributionComment }
+  }
+
+}
+}
+ORDER BY ?ID ?SectionName ?SectionType ?MeasurementDatumType
+"
+header="text/csv" filename="Paleopath_Investigations.csv">
+  <button class="btn btn-secondary"><strong>Download CSV Table of all Paleopathology Investigations</i></strong></button>
+</mp-sparql-download>  
+
+<br><br>
+
 <h3>Show all available Paleopath Instances:</h3></hr>
 <semantic-table 
   query="
