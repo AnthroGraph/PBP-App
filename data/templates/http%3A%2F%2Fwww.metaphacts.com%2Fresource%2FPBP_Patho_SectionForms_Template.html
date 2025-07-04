@@ -8,7 +8,8 @@
     "selectPattern": "
                     PREFIX obo: <http://purl.obolibrary.org/obo/>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
-                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>          
+                    PREFIX phaleron-patho:<http://w3id.org/rdfbones/ext/phaleron-patho/>
+                    PREFIX standards-patho:<http://w3id.org/rdfbones/ext/standards-patho/>       
                     SELECT ?value WHERE {
                           ?subject obo:BFO_0000051 ?presence .
                           ?presence a [[connected_class]] .
